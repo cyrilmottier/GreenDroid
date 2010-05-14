@@ -1,0 +1,35 @@
+GreenDroid
+==========
+ 
+GreenDroid is a development library for the Android platform. It makes UI developments easier and consistent through your applications. A complete description is given on [My personal blog][]
+
+This is still a work in progress but there are thousands of things to do and I hope I'll have enough time to develop all of the features I have in mind :)
+
+Installing GreenDroid
+=====================
+                  
+In order to use GreenDroid you have to do the following steps:
+
+1. Download the GreenDroid library on your computer with a simple: `git clone http://github.com/cyrilmottier/GreenDroid.git`
+2. Apply GreenDroid to your project: Go to the `scripts/` folder of the GreenDroid folder. Run the script named "greendroid.py" to apply the library to your project :`./greendroid.py apply <project_directory>`
+3. By default, the GreenDroid theme inherits from `@android:style/Theme`. If your project inherits from a different theme, you'll have to modify the GreenDroid library on your own (and do that everytime you are updating GreenDroid as updating delete all of your changes). Open the `res/values/gd_themes.xml` and replace the parent theme `@android:style/Theme` with your own theme
+4. You finally need to make your project use the GreenDroid base theme. In your Android Manifest, go to the application tag and add `android:theme="@style/Theme.GreenDroid"` as a new attribute (if this attribute already exist override it: if you processed the step 3 correctly, you will have a theme that inherits from this theme)
+
+Software Requirements
+=====================
+ 
+GreenDroid has been developed for Android 1.6 and greater. It has been developed using the following software:
+ 
+  Eclipse IDE 3.5
+  Android SDK release 2.1
+  Android Development Tools (ADT) 0.9.5
+ 
+Go the [Android Developers website][] for complete installation instructions
+ 
+Credits
+=======
+ 
+Copyright Cyril Mottier <cyril@cyrilmottier.com>
+
+[Android Developers website]: http://d.android.com/sdk/installing.html
+[my personal blog]: http://android.cyrilmottier.com/?p=240
