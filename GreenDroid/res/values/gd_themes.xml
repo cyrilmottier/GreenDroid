@@ -67,6 +67,12 @@
         <item name="gdThumbnailItemViewStyleSubtitle">@style/GreenDroid.ThumbnailItemView.Subtitle</item>
         <item name="gdThumbnailItemViewStyleThumbnail">@style/GreenDroid.ThumbnailItemView.Thumbnail</item>
         
+        <item name="gdSegmentTextColor">@android:color/black</item>
+        <item name="gdSegmentTextSize">14sp</item>
+        <item name="gdSegmentBackground">@drawable/gd_segment_label</item>
+        <item name="gdSegmentCheckmark">@drawable/gd_segment_checkmark</item>
+        <item name="gdSegmentedBarStyle">@style/GreenDroid.SegmentedBar</item>
+        
     </style>
     
 </resources>

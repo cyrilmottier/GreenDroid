@@ -127,4 +127,9 @@
         <item name="android:layout_marginRight">?attr/gdDrawableMargin</item>
     </style>
     
+    
+    <style name="GreenDroid.SegmentedBar">
+        <item name="dividerDrawable">@drawable/gd_segment_divider</item>
+    </style>
+    
 </resources>
