@@ -18,5 +18,13 @@
 -->
 
 <resources>
+    
     <string name="app_name">GDCatalog</string>
+    
+    <!-- String used in the SegmentedActivity -->
+    <string name="segment_1">Jeff</string>
+    <string name="segment_2">Romain</string>
+    <string name="segment_3">Adam</string>
+    <string name="segment_4">Dan</string>
+    
 </resources>

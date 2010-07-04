@@ -33,6 +33,7 @@ public class CatalogActivity extends ListActivity {
         adapter.add(new TextItem("Basic items"));
         adapter.add(new TextItem("XML items"));
         adapter.add(new TextItem("Tweaked item cell"));
+        adapter.add(new TextItem("SegmentedBar"));
         
         setListAdapter(adapter);
     }
@@ -55,6 +56,9 @@ public class CatalogActivity extends ListActivity {
             case 2:
                 klass = TweakedItemViewActivity.class;
                 break;
+                
+            case 3:
+                klass = SegmentedActivity.class;
 
         }
         
