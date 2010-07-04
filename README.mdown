@@ -5,8 +5,12 @@ GreenDroid is a development library for the Android platform. It makes UI develo
 
 This is still a work in progress but there are thousands of things to do and I hope I'll have enough time to develop all of the features I have in mind :)
 
+Feel free to contact me for any question related to GreenDroid: bug report, questions about the library, etc.
+
 Installing GreenDroid
 =====================
+
+***Note :*** The following steps have been tested on Mac OS X Snow Leopard. I'm pretty sure it works like a charm on Linux too. For those who are using Windows, you simply have to install Python and slightly modify the instructions according to Windows standards. I'll be really thankful, if a user give me the **exact** process to follow on Windows.
                   
 In order to use GreenDroid you have to do the following steps:
 
@@ -32,4 +36,4 @@ Credits
 Copyright Cyril Mottier <cyril@cyrilmottier.com>
 
 [Android Developers website]: http://d.android.com/sdk/installing.html
-[my personal blog]: http://android.cyrilmottier.com/?p=240
+[My personal blog]: http://android.cyrilmottier.com/?p=240
