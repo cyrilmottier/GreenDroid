@@ -93,7 +93,7 @@ def gd_apply(path):
       resdest = os.path.join(path, "res")
       gd_apply_tree(GD_RES, resdest)
       # All resource files have been copied so replace previously explained occurences
-      scriptutil.freplace(srcdest, regexl=(('xmlns:greendroid="http://schemas.android.com/apk/res/com.cyrilmottier.android.greendroid"', 'xmlns:greendroid="http://schemas.android.com/apk/res/' + package_name + '"', None),))
+      scriptutil.freplace(resdest, regexl=(('xmlns:greendroid="http://schemas.android.com/apk/res/com.cyrilmottier.android.greendroid"', 'xmlns:greendroid="http://schemas.android.com/apk/res/' + package_name + '"', None),))
       
       print('Greendroid successfully applied to ' + path)
 
