@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 public class TextItemView extends TextView implements ItemView {
-    
+
     public TextItemView(Context context) {
         this(context, null);
     }
@@ -34,7 +34,7 @@ public class TextItemView extends TextView implements ItemView {
     public TextItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-    
+
     public void prepareItemView() {
     }
 

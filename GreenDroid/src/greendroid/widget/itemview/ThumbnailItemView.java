@@ -25,7 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ThumbnailItemView extends RelativeLayout implements ItemView {
-    
+
     private TextView mTextView;
     private TextView mSubtitleView;
     private ImageView mThumbnailView;
@@ -33,15 +33,15 @@ public class ThumbnailItemView extends RelativeLayout implements ItemView {
     public ThumbnailItemView(Context context) {
         this(context, null);
     }
-    
+
     public ThumbnailItemView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    
+
     public ThumbnailItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-    
+
     public void prepareItemView() {
         mTextView = (TextView) findViewById(R.id.gd_text);
         mSubtitleView = (TextView) findViewById(R.id.gd_subtitle);

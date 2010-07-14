@@ -408,17 +408,14 @@ public class ItemAdapter extends BaseAdapter {
         return new ItemAdapter(context, items);
     }
 
-    @Override
     public int getCount() {
         return mItems.size();
     }
 
-    @Override
     public Object getItem(int position) {
         return mItems.get(position);
     }
 
-    @Override
     public long getItemId(int position) {
         return position;
     }
@@ -438,7 +435,6 @@ public class ItemAdapter extends BaseAdapter {
         return mMaxViewTypeCount;
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         final Item item = (Item) getItem(position);

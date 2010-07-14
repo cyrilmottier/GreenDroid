@@ -248,7 +248,6 @@ public class SegmentedBar extends LinearLayout implements OnFocusChangeListener 
             mSegmentIndex = segmentIndex;
         }
 
-        @Override
         public void onClick(View v) {
             final CheckBox segment = (CheckBox) getChildSegmentAt(mCheckedSegment);
             if (mSegmentIndex == mCheckedSegment && !segment.isChecked()) {

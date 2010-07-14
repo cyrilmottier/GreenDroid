@@ -37,7 +37,7 @@ public class ProgressItemView extends FrameLayout implements ItemView {
     public ProgressItemView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    
+
     public ProgressItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
