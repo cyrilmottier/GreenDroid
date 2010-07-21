@@ -15,58 +15,61 @@
  */
 package com.cyrilmottier.android.gdcatalog;
 
+import greendroid.app.GDActivity;
 import greendroid.widget.ItemAdapter;
+import greendroid.widget.ActionBar.Type;
 import greendroid.widget.item.TextItem;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class CatalogActivity extends ListActivity {
+public class CatalogActivity extends GDActivity {
+
+    private ListView mListView;
+    private Class<?>[] mDemoClasses = {
+            BasicItemActivity.class, XmlItemActivity.class, TweakedItemViewActivity.class, SegmentedActivity.class,
+            ActionBarActivity.class
+    };
+
+    public CatalogActivity() {
+        super(Type.Dashboard);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
+        setActionBarContentView(R.layout.list);
+
         ItemAdapter adapter = new ItemAdapter(this);
         adapter.add(new TextItem("Basic items"));
         adapter.add(new TextItem("XML items"));
         adapter.add(new TextItem("Tweaked item cell"));
         adapter.add(new TextItem("SegmentedBar"));
-        
-        setListAdapter(adapter);
+        adapter.add(new TextItem("ActionBarActivity"));
+
+        mListView = (ListView) findViewById(android.R.id.list);
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(mItemClickHandler);
     }
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        
-        Class<?> klass = null;
-        
-        switch (position) {
-            case 0:
-                klass = BasicItemActivity.class;
-                break;
+    private OnItemClickListener mItemClickHandler = new OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if (position >= 0 && position < mDemoClasses.length) {
+                Intent intent = new Intent(CatalogActivity.this, mDemoClasses[position]);
                 
-            case 1:
-                klass = XmlItemActivity.class;
-                break;
+                switch (position) {
+                    case 4:
+                        intent.putExtra(greendroid.app.ActionBarActivity.GD_ACTION_BAR_TITLE, "ActionBarActivity");
+                        break;
+                }
                 
-            case 2:
-                klass = TweakedItemViewActivity.class;
-                break;
-                
-            case 3:
-                klass = SegmentedActivity.class;
+                startActivity(intent);
+            }
+        }
+    };
 
-        }
-        
-        if (klass != null) {
-            Intent intent = new Intent(this, klass);
-            startActivity(intent);
-        }
-        
-    }
-    
 }

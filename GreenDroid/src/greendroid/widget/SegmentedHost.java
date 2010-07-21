@@ -63,14 +63,14 @@ public class SegmentedHost extends LinearLayout {
     }
 
     public SegmentedHost(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, R.attr.gdSegmentedHostStyle);
     }
 
     public SegmentedHost(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
         initSegmentedView();
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SegmentedHost);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SegmentedHost, defStyle, 0);
 
         mSegmentedBarId = a.getResourceId(R.styleable.SegmentedHost_segmentedBar, -1);
         if (mSegmentedBarId <= 0) {

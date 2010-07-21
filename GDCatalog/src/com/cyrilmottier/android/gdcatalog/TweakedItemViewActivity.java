@@ -15,11 +15,9 @@
  */
 package com.cyrilmottier.android.gdcatalog;
 
-import com.cyrilmottier.android.gdcatalog.widget.HeadedTextItem;
-
+import greendroid.app.GDListActivity;
 import greendroid.widget.ItemAdapter;
 import greendroid.widget.item.Item;
-import android.app.ListActivity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.CharArrayBuffer;
@@ -34,9 +32,12 @@ import android.widget.AlphabetIndexer;
 import android.widget.ListAdapter;
 import android.widget.SectionIndexer;
 
-public class TweakedItemViewActivity extends ListActivity {
+import com.cyrilmottier.android.gdcatalog.widget.HeadedTextItem;
+
+public class TweakedItemViewActivity extends GDListActivity {
 
     private static final String SECTIONS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
     private static final HeadedTextItem CHEESES[] = {
             new HeadedTextItem("Abbaye de Belloc"), new HeadedTextItem("Abbaye du Mont des Cats"),
             new HeadedTextItem("Abertam"), new HeadedTextItem("Abondance"), new HeadedTextItem("Ackawi"),
@@ -325,22 +326,18 @@ public class TweakedItemViewActivity extends ListActivity {
             mIndexer = new AlphabetIndexer(new FakeCursor(this), 0, sections);
         }
 
-        @Override
         public int getPositionForSection(int sectionIndex) {
             return mIndexer.getPositionForSection(sectionIndex);
         }
 
-        @Override
         public int getSectionForPosition(int position) {
             return mIndexer.getSectionForPosition(position);
         }
 
-        @Override
         public Object[] getSections() {
             return mIndexer.getSections();
         }
 
-        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
             final HeadedTextItem item = (HeadedTextItem) getItem(position);
@@ -373,150 +370,120 @@ public class TweakedItemViewActivity extends ListActivity {
             mAdapter = adapter;
         }
 
-        @Override
         public void close() {
         }
 
-        @Override
         public void copyStringToBuffer(int columnIndex, CharArrayBuffer buffer) {
         }
 
-        @Override
         public void deactivate() {
         }
 
-        @Override
         public byte[] getBlob(int columnIndex) {
             return null;
         }
 
-        @Override
         public int getColumnCount() {
             return 0;
         }
 
-        @Override
         public int getColumnIndex(String columnName) {
             return 0;
         }
 
-        @Override
         public int getColumnIndexOrThrow(String columnName) throws IllegalArgumentException {
             return 0;
         }
 
-        @Override
         public String getColumnName(int columnIndex) {
             return null;
         }
 
-        @Override
         public String[] getColumnNames() {
             return null;
         }
 
-        @Override
         public int getCount() {
             return mAdapter.getCount();
         }
 
-        @Override
         public double getDouble(int columnIndex) {
             return 0;
         }
 
-        @Override
         public Bundle getExtras() {
             return null;
         }
 
-        @Override
         public float getFloat(int columnIndex) {
             return 0;
         }
 
-        @Override
         public int getInt(int columnIndex) {
             return 0;
         }
 
-        @Override
         public long getLong(int columnIndex) {
             return 0;
         }
 
-        @Override
         public int getPosition() {
             return 0;
         }
 
-        @Override
         public short getShort(int columnIndex) {
             return 0;
         }
 
-        @Override
         public String getString(int columnIndex) {
             final HeadedTextItem item = (HeadedTextItem) mAdapter.getItem(mPosition);
             return (String) item.text.substring(0, 1);
         }
 
-        @Override
         public boolean getWantsAllOnMoveCalls() {
             return false;
         }
 
-        @Override
         public boolean isAfterLast() {
             return false;
         }
 
-        @Override
         public boolean isBeforeFirst() {
             return false;
         }
 
-        @Override
         public boolean isClosed() {
             return false;
         }
 
-        @Override
         public boolean isFirst() {
             return false;
         }
 
-        @Override
         public boolean isLast() {
             return false;
         }
 
-        @Override
         public boolean isNull(int columnIndex) {
             return false;
         }
 
-        @Override
         public boolean move(int offset) {
             return false;
         }
 
-        @Override
         public boolean moveToFirst() {
             return false;
         }
 
-        @Override
         public boolean moveToLast() {
             return false;
         }
 
-        @Override
         public boolean moveToNext() {
             return false;
         }
 
-        @Override
         public boolean moveToPosition(int position) {
             if (position < -1 || position > getCount()) {
                 return false;
@@ -525,38 +492,30 @@ public class TweakedItemViewActivity extends ListActivity {
             return true;
         }
 
-        @Override
         public boolean moveToPrevious() {
             return false;
         }
 
-        @Override
         public void registerContentObserver(ContentObserver observer) {
         }
 
-        @Override
         public void registerDataSetObserver(DataSetObserver observer) {
         }
 
-        @Override
         public boolean requery() {
             return false;
         }
 
-        @Override
         public Bundle respond(Bundle extras) {
             return null;
         }
 
-        @Override
         public void setNotificationUri(ContentResolver cr, Uri uri) {
         }
 
-        @Override
         public void unregisterContentObserver(ContentObserver observer) {
         }
 
-        @Override
         public void unregisterDataSetObserver(DataSetObserver observer) {
         }
     }

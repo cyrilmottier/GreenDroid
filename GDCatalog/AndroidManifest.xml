@@ -26,7 +26,9 @@
     <application
         android:icon="@drawable/greendroid_icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.GreenDroid">
+        android:theme="@style/Theme.GDCatalog"
+        android:name=".CatalogApplication"
+        android:debuggable="true">
         
         <activity
             android:name=".CatalogActivity">
@@ -36,12 +38,29 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".BasicItemActivity" />
-        <activity android:name=".XmlItemActivity" />
+        <activity
+        	android:name=".BasicItemActivity"
+         	android:label="@string/basic_item_label" />
+         	
+        <activity
+        	android:name=".XmlItemActivity"
+        	android:label="@string/xml_item_label" />
+        	
         <activity 
             android:name=".TweakedItemViewActivity"
-            android:theme="@style/Theme.GDCatalog" />
-        <activity android:name=".SegmentedActivity" />
+            android:theme="@style/Theme.GDCatalog.TweakedItems"
+            android:label="@string/tweaked_item_view_label" />
+            
+        <activity
+        	android:name=".SegmentedActivity"
+         	android:label="@string/segmented_label" />
+         	
+		<activity
+        	android:name=".ActionBarActivity" />
+         <activity
+        	android:name=".TabbedActionBarActivity" />
+        <activity
+        	android:name=".TabbedActionBarActivity$FakeActivity" />
 
     </application>
     

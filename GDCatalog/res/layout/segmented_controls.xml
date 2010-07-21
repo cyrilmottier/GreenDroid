@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <greendroid.widget.SegmentedHost
-    xmlns:greendroid="http://schemas.android.com/apk/res/com.cyrilmottier.android.gdcatalog"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/segmentedHost"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    greendroid:segmentedBar="@+id/segmentedBar"
-    greendroid:segmentedContentView="@+id/segmentedContentView">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/segmentedHost"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
 
-    <greendroid.widget.SegmentedBar
-        android:id="@+id/segmentedBar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+	<FrameLayout
+		android:id="@id/gd_segmented_content_view"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1.0"
+		android:foreground="@drawable/gd_shadow_bottom" />
 
-    <FrameLayout
-        android:id="@+id/segmentedContentView"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        android:foreground="@drawable/gd_shadow_top" />
+	<greendroid.widget.SegmentedBar
+		android:id="@id/gd_segmented_bar"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
 
 </greendroid.widget.SegmentedHost>
 

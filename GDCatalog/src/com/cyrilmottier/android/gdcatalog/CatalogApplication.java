@@ -15,24 +15,15 @@
  */
 package com.cyrilmottier.android.gdcatalog;
 
-import greendroid.app.GDListActivity;
-import greendroid.widget.ItemAdapter;
-import android.os.Bundle;
+import greendroid.app.GDApplication;
 
-public class XmlItemActivity extends GDListActivity {
+public class CatalogApplication extends GDApplication {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ItemAdapter adapter;
-        try {
-            adapter = ItemAdapter.createFromXml(this, R.xml.items);
-            setListAdapter(adapter);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+    public Class<?> getHomeActivityClass() {
+        return CatalogActivity.class;
     }
+    
+    
 
 }

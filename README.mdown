@@ -17,12 +17,19 @@ In order to use GreenDroid you have to do the following steps:
 1. Download the GreenDroid library on your computer with a simple: `git clone http://github.com/cyrilmottier/GreenDroid.git`
 2. Apply GreenDroid to your project: Go to the `scripts/` folder of the GreenDroid folder. Run the script named "greendroid.py" to apply the library to your project :`./greendroid.py apply <project_directory>`
 3. By default, the GreenDroid theme inherits from `@android:style/Theme`. If your project inherits from a different theme, you'll have to modify the GreenDroid library on your own (and do that everytime you are updating GreenDroid as updating delete all of your changes). Open the `res/values/gd_themes.xml` and replace the parent theme `@android:style/Theme` with your own theme
+    * If you use some of the GD[List/Tab]Activity, make sure your application is a GDApplication. In order to do that, simply add `android:name="greendroid.app.GDApplication` (where greendroid.app.GDApplication may be replaced by your own class that inherits from GDApplication) in the application tag of your AndroidManifest.xml. 
 4. You finally need to make your project use the GreenDroid base theme. In your Android Manifest, go to the application tag and add `android:theme="@style/Theme.GreenDroid"` as a new attribute (if this attribute already exist override it: if you processed the step 3 correctly, you will have a theme that inherits from this theme)
+
+Using the GDCatalog application
+===============================
+
+The GreenDroid project includes a demo projet called GDCatalog. This project shows some of the GreenDroid's features. I strongly encourage you to look at it as it's a great way to apprehend the library.
+GDCatalog has not been committed as a standalone project. As a result, it won't compile until GreenDroid has been applied to it.
 
 Software Requirements
 =====================
  
-GreenDroid has been developed for Android 1.6 and greater. It has been developed using the following software:
+GreenDroid has been designed for Android 1.6 and greater. It has been developed using the following software:
  
   Eclipse IDE 3.5
   Android SDK release 2.1

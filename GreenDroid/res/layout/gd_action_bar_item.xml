@@ -17,22 +17,8 @@
 */
 -->
 
-<resources>
-
-	<style name="Theme.GDCatalog" parent="@style/Theme.GreenDroid.NoTitleBar">
-	
-		<item name="gdActionBarTitleColor">@android:color/white</item>
-		<item name="gdActionBarBackground">@color/action_bar_tint</item>
-		<item name="gdActionBarApplicationDrawable">@drawable/greendroid_application_logo</item>
-	
-	</style>
-
-    <style name="Theme.GDCatalog.TweakedItems" parent="@style/Theme.GDCatalog">
-        
-        <item name="gdTextAppearanceLarge">@style/TextAppearanceLarge</item>
-        <item name="gdItemViewPreferredHeight">45dp</item>       
-        <item name="gdSeparatorItemViewStyle">@style/SeparatorItemView</item>
-        
-    </style>
-    
-</resources>
+<ImageButton
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	style="?attr/gdActionBarItemStyle"
+	android:layout_height="fill_parent"
+	android:scaleType="center" />

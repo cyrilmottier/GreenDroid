@@ -1,20 +1,33 @@
+/*
+ * Copyright (C) 2010 Cyril Mottier (http://www.cyrilmottier.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.cyrilmottier.android.gdcatalog;
 
-import com.cyrilmottier.android.gdcatalog.util.ColorUtils;
-
+import greendroid.app.GDActivity;
 import greendroid.widget.SegmentedAdapter;
 import greendroid.widget.SegmentedHost;
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
-public class SegmentedActivity extends Activity {
+import com.cyrilmottier.android.gdcatalog.util.ColorUtils;
+
+public class SegmentedActivity extends GDActivity {
 
     private final Handler mHandler = new Handler();
     private PeopleSegmentedAdapter mAdapter;
@@ -22,13 +35,13 @@ public class SegmentedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.segmented_controls);
+
+        setActionBarContentView(R.layout.segmented_controls);
 
         SegmentedHost segmentedHost = (SegmentedHost) findViewById(R.id.segmentedHost);
 
         mAdapter = new PeopleSegmentedAdapter();
         mHandler.postDelayed(new Runnable() {
-            @Override
             public void run() {
                 mAdapter.mReverse = true;
                 mAdapter.notifyDataSetChanged();
@@ -45,9 +58,7 @@ public class SegmentedActivity extends Activity {
         @Override
         public View getView(int position, ViewGroup parent) {
 
-            TextView textView = new TextView(SegmentedActivity.this);
-            textView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-            textView.setGravity(Gravity.CENTER);
+            TextView textView = (TextView) getLayoutInflater().inflate(R.layout.text, parent, false);
 
             final int color = getColor(mReverse ? ((getCount() - 1) - position) : position);
             textView.setBackgroundColor(color);
@@ -77,10 +88,10 @@ public class SegmentedActivity extends Activity {
                 case 3:
                     return getString(R.string.segment_4);
             }
-            
+
             return null;
         }
-        
+
         private int getColor(int position) {
             switch (position) {
                 case 0:

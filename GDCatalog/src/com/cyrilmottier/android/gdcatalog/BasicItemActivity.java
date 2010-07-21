@@ -15,6 +15,7 @@
  */
 package com.cyrilmottier.android.gdcatalog;
 
+import greendroid.app.GDListActivity;
 import greendroid.widget.ItemAdapter;
 import greendroid.widget.item.DescriptionItem;
 import greendroid.widget.item.DrawableItem;
@@ -27,18 +28,16 @@ import greendroid.widget.item.ThumbnailItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class BasicItemActivity extends ListActivity {
+public class BasicItemActivity extends GDListActivity {
     
     private final Handler mHandler = new Handler();
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
         
         List<Item> items = new ArrayList<Item>();
         
@@ -76,7 +75,6 @@ public class BasicItemActivity extends ListActivity {
         setListAdapter(adapter);
         
         mHandler.postDelayed(new Runnable() {
-            @Override
             public void run() {
                 adapter.remove(item1);
                 adapter.remove(item2);

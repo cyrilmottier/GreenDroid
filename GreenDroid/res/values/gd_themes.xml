@@ -72,7 +72,33 @@
         <item name="gdSegmentBackground">@drawable/gd_segment_label</item>
         <item name="gdSegmentCheckmark">@drawable/gd_segment_checkmark</item>
         <item name="gdSegmentedBarStyle">@style/GreenDroid.SegmentedBar</item>
+        <item name="gdSegmentedHostStyle">@style/GreenDroid.SegmentedHost</item>
         
+		<item name="gdActionBarHeight">45dp</item>
+		<item name="gdActionBarTitleColor">@android:color/white</item>
+		<item name="gdActionBarBackground">@color/gd_action_bar_tint</item>
+		<item name="gdActionBarItemBackground">@drawable/gd_action_bar_item</item>
+		<item name="gdActionBarDividerDrawable">@color/gd_action_bar_divider_tint</item>
+		<item name="gdActionBarDividerWidth">1px</item>
+		<item name="gdActionBarApplicationDrawable">@null</item>
+		<item name="gdActionBarHomeDrawable">@drawable/gd_action_bar_home</item>
+		
+		<item name="gdActionBarStyle">@style/GreenDroid.Widget.ActionBar</item>
+		<item name="gdActionBarTitleStyle">@style/GreenDroid.Widget.ActionBar.Title</item>
+		<item name="gdActionBarItemStyle">@style/GreenDroid.Widget.ActionBar.Item</item>
+		
+		<item name="gdTabIndicatorHeight">38dp</item>
+        <item name="gdTabIndicatorTextAppearance">@style/TextAppearance.TabIndicator</item>
+        <item name="gdTabIndicatorBackground">@drawable/gd_tab_indicator</item>
+        
+    </style>
+    
+    
+    <style name="Theme.GreenDroid.NoTitleBar" parent="@style/Theme.GreenDroid">
+    
+    	<item name="android:windowContentOverlay">@null</item>
+    	<item name="android:windowNoTitle">true</item>
+    	
     </style>
     
 </resources>

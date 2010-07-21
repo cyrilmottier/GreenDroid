@@ -66,19 +66,42 @@
     <attr name="gdThumbnailItemViewStyleSubtitle" format="reference" />
     <attr name="gdThumbnailItemViewStyleThumbnail" format="reference" />
     
+    
     <!-- SegmentedBar related attributes -->
     <attr name="gdSegmentTextColor" format="color" />
     <attr name="gdSegmentTextSize" format="dimension" />
     <attr name="gdSegmentBackground" format="reference" />
     <attr name="gdSegmentCheckmark" format="reference" />
     <attr name="gdSegmentedBarStyle" format="reference" />
+    <attr name="gdSegmentedHostStyle" format="reference" />
     
+    
+    <!-- ActionBar related attributes -->
+    <attr name="gdActionBarHeight" format="dimension" />
+    <attr name="gdActionBarTitleColor" format="color" />
+    <attr name="gdActionBarBackground" format="reference" />
+    <attr name="gdActionBarItemBackground" format="reference" /> 
+    <attr name="gdActionBarDividerDrawable" format="reference" />
+    <attr name="gdActionBarDividerWidth" format="dimension" />
+    <attr name="gdActionBarApplicationDrawable" format="reference" /> 
+    <attr name="gdActionBarHomeDrawable" format="reference" />
+
+    <attr name="gdActionBarStyle" format="reference" />
+    <attr name="gdActionBarTitleStyle" format="reference" />
+    <attr name="gdActionBarDividerStyle" format="reference" />
+    <attr name="gdActionBarItemStyle" format="reference" />
+    
+    <attr name="gdTabIndicatorHeight" format="dimension" />
+    <attr name="gdTabIndicatorTextAppearance" format="reference" />
+    <attr name="gdTabIndicatorBackground" format="reference" />
 
 
     <!--            -->
     <!-- Styleables -->
     <!--            -->
     
+    
+    <!-- List items related attributes -->
     <declare-styleable name="Item">
         <attr name="enabled" format="boolean" />
     </declare-styleable>
@@ -111,14 +134,28 @@
     </declare-styleable>
     
     
+    <!-- SegmentedBar related attributes -->
     <declare-styleable name="SegmentedBar">
         <attr name="dividerDrawable" format="reference" />
         <attr name="dividerWidth" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="SegmentedHost">
-        <attr name="segmentedBar" format="reference" />
-        <attr name="segmentedContentView" format="reference" />
+		<attr name="segmentedBar" format="reference" />
+		<attr name="segmentedContentView" format="reference" />
+	</declare-styleable>
+    
+    
+    <!-- ActionBar related attributes -->
+    <declare-styleable name="ActionBar">
+        <attr name="title" format="string" />
+        <attr name="type">
+            <enum name="normal" value="0" />
+            <enum name="dashboard" value="1" />
+        </attr>
+        <attr name="dividerDrawable" />
+        <attr name="dividerWidth" />
+        <attr name="homeDrawable" format="reference" />
     </declare-styleable>
 
 </resources>

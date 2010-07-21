@@ -21,6 +21,12 @@
     
     <string name="app_name">GDCatalog</string>
     
+    <!-- Activities labels -->
+    <string name="basic_item_label">Basic items</string>
+    <string name="xml_item_label">XML items</string>
+    <string name="tweaked_item_view_label">Tweaked itemviews</string>
+    <string name="segmented_label">SegmentedBar demo</string>
+    
     <!-- String used in the SegmentedActivity -->
     <string name="segment_1">Jeff</string>
     <string name="segment_2">Romain</string>

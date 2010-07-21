@@ -17,22 +17,25 @@
 */
 -->
 
-<resources>
-
-	<style name="Theme.GDCatalog" parent="@style/Theme.GreenDroid.NoTitleBar">
+<selector
+	xmlns:android="http://schemas.android.com/apk/res/android">
 	
-		<item name="gdActionBarTitleColor">@android:color/white</item>
-		<item name="gdActionBarBackground">@color/action_bar_tint</item>
-		<item name="gdActionBarApplicationDrawable">@drawable/greendroid_application_logo</item>
+	<item
+		android:state_focused="true"
+		android:state_pressed="true"
+		android:drawable="@drawable/gd_action_bar_home_alt" />
 	
-	</style>
-
-    <style name="Theme.GDCatalog.TweakedItems" parent="@style/Theme.GDCatalog">
-        
-        <item name="gdTextAppearanceLarge">@style/TextAppearanceLarge</item>
-        <item name="gdItemViewPreferredHeight">45dp</item>       
-        <item name="gdSeparatorItemViewStyle">@style/SeparatorItemView</item>
-        
-    </style>
-    
-</resources>
+	<item
+		android:state_focused="false"
+		android:state_pressed="true"
+		android:drawable="@drawable/gd_action_bar_home_alt" />
+	
+	<item
+		android:state_focused="true"
+		android:drawable="@drawable/gd_action_bar_home_alt" />
+	
+	<item
+		android:state_focused="false"
+		android:state_pressed="false"
+		android:drawable="@drawable/gd_action_bar_home_normal" />
+</selector>
