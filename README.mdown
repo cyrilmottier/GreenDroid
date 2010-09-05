@@ -1,46 +1,74 @@
 GreenDroid
 ==========
  
-GreenDroid is a development library for the Android platform. It makes UI developments easier and consistent through your applications. A complete description is given on [My personal blog][]
+GreenDroid is a development library for the Android platform. It makes UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog].
 
 This is still a work in progress but there are thousands of things to do and I hope I'll have enough time to develop all of the features I have in mind :)
 
-Feel free to contact me for any question related to GreenDroid: bug report, questions about the library, etc.
+[![](http://lh6.ggpht.com/_OHO4y8YcQbs/TFX1pcXbDaI/AAAAAAAAMgU/ljTGPT_sXAg/s288/gd1.jpg)](http://lh6.ggpht.com/_OHO4y8YcQbs/TFX1pcXbDaI/AAAAAAAAMgU/ljTGPT_sXAg/s0/gd1.jpg)
+[![](http://lh6.ggpht.com/_OHO4y8YcQbs/TFX1pY0rhKI/AAAAAAAAMgY/8iJkJATo9FQ/s288/gd2.jpg)](http://lh6.ggpht.com/_OHO4y8YcQbs/TFX1pY0rhKI/AAAAAAAAMgY/8iJkJATo9FQ/s0/gd2.jpg)
+[![](http://lh5.ggpht.com/_OHO4y8YcQbs/TFX1pfROjjI/AAAAAAAAMgc/mLGeYwX3xwU/s288/gd3.jpg)](http://lh5.ggpht.com/_OHO4y8YcQbs/TFX1pfROjjI/AAAAAAAAMgc/mLGeYwX3xwU/s0/gd3.jpg)
+[![](http://lh3.ggpht.com/_OHO4y8YcQbs/TFX1paR8rvI/AAAAAAAAMgg/OxyigSEiVZI/s288/gd4.jpg)](http://lh3.ggpht.com/_OHO4y8YcQbs/TFX1paR8rvI/AAAAAAAAMgg/OxyigSEiVZI/s0/gd4.jpg)
+[![](http://lh4.ggpht.com/_OHO4y8YcQbs/TFX1pgOgt9I/AAAAAAAAMgk/78fzLhFD_hY/s288/gd5.jpg)](http://lh4.ggpht.com/_OHO4y8YcQbs/TFX1pgOgt9I/AAAAAAAAMgk/78fzLhFD_hY/s0/gd5.jpg)
 
-Installing GreenDroid
-=====================
+Contacts
+========
 
-***Note :*** The following steps have been tested on Mac OS X Snow Leopard. I'm pretty sure it works like a charm on Linux too. For those who are using Windows, you simply have to install Python and slightly modify the instructions according to Windows standards. I'll be really thankful, if a user give me the **exact** process to follow on Windows.
+Feel free to contact me for any question related to GreenDroid: bug report, questions about the library, etc. I don't have time to provide personal support but I'll try to look at bug reports and important talks about the GreenDroid philosophy.
+
+Using GreenDroid in your projects
+=================================
+
+***Note :*** The previous `greendroid.py` method has been removed from the library. Indeed, this Python script was perfectly functional but wasn't user-friendly (especially for Windows users)
                   
 In order to use GreenDroid you have to do the following steps:
 
-1. Download the GreenDroid library on your computer with a simple: `git clone http://github.com/cyrilmottier/GreenDroid.git`
-2. Apply GreenDroid to your project: Go to the `scripts/` folder of the GreenDroid folder. Run the script named "greendroid.py" to apply the library to your project :`./greendroid.py apply <project_directory>`
-3. By default, the GreenDroid theme inherits from `@android:style/Theme`. If your project inherits from a different theme, you'll have to modify the GreenDroid library on your own (and do that everytime you are updating GreenDroid as updating delete all of your changes). Open the `res/values/gd_themes.xml` and replace the parent theme `@android:style/Theme` with your own theme
-    * If you use some of the GD[List/Tab]Activity, make sure your application is a GDApplication. In order to do that, simply add `android:name="greendroid.app.GDApplication` (where greendroid.app.GDApplication may be replaced by your own class that inherits from GDApplication) in the application tag of your AndroidManifest.xml. 
-4. You finally need to make your project use the GreenDroid base theme. In your Android Manifest, go to the application tag and add `android:theme="@style/Theme.GreenDroid"` as a new attribute (if this attribute already exist override it: if you processed the step 3 correctly, you will have a theme that inherits from this theme)
+1. Download the GreenDroid library on your computer with a simple: `git clone http://github.com/cyrilmottier/GreenDroid.git`.
+   As usual, Git will clone the GreenDroid repository and create a folder GreenDroid that contains both the project and the
+   demonstration application.
+   
+2. Since [May 2010][adt_history], the ADT plugin added an amazing new feature: the ability to work with library projects.
+   Using GreenDroid consists on applying the GreenDroid project as a library to your application. A complete description on how
+   to include library projects is given on the [Android documentation website][library_project_doc]. Please make sure your
+   development environment uses the latest tools and platforms, since older releases of the tools and platforms do not support
+   building with library project.
+
+3. By default, the GreenDroid theme inherits from `@android:style/Theme`. If your project inherits from a different theme, 
+   you'll have to modify the GreenDroid library on your own (and do that everytime you are updating GreenDroid as updating 
+   delete all of your changes - still working on a way to overcome that problem). Open the `res/values/gd_themes.xml` and
+   replace the parent theme `@android:style/Theme` with your own theme.
+   
+      * If you use some of the GD[List/Tab]Activity, make sure your application is a GDApplication. In order to do that, 
+      simply add `android:name="greendroid.app.GDApplication` (where `greendroid.app.GDApplication` may be replaced by 
+      your own class that inherits from `GDApplication`) in the application tag of your AndroidManifest.xml.
+       
+4. You finally need to make your project use the GreenDroid base theme. In your AndroidManifest.xml, go to the application tag 
+   and add `android:theme="@style/Theme.GreenDroid"` as a new attribute.
 
 Using the GDCatalog application
 ===============================
 
-The GreenDroid project includes a demo projet called GDCatalog. This project shows some of the GreenDroid's features. I strongly encourage you to look at it as it's a great way to apprehend the library.
-GDCatalog has not been committed as a standalone project. As a result, it won't compile until GreenDroid has been applied to it.
+The GreenDroid project includes a demo projet called GDCatalog. This project shows some of the GreenDroid's features. I strongly encourage you to look at it as it's a great way to apprehend the library and understand how to use it in a correct manner.
+
+GDCatalog obviously uses the GreenDroid library. As a result, it won't build until GreenDroid has been applied to it. If your IDE is up-to-date you'll have nothing particular to do. Simply press the "Play" button!
 
 Software Requirements
 =====================
  
-GreenDroid has been designed for Android 1.6 and greater. It has been developed using the following software:
+GreenDroid has been designed for Android 1.6 and greater. It may work on Android 1.5 but I don't want to provide support for this platform as it's way too old ... It has been developed using the following software:
  
-  Eclipse IDE 3.5
-  Android SDK release 2.1
-  Android Development Tools (ADT) 0.9.5
+  * Eclipse IDE 3.5
+  * Android SDK release 2.2
+  * Android Development Tools (ADT) 0.9.7
  
-Go the [Android Developers website][] for complete installation instructions
+Go the [Android Developers website][android_developers_website] for complete installation instructions.
  
 Credits
 =======
  
-Copyright Cyril Mottier <cyril@cyrilmottier.com>
+Copyright © Cyril Mottier <cyril@cyrilmottier.com>
 
-[Android Developers website]: http://d.android.com/sdk/installing.html
-[My personal blog]: http://android.cyrilmottier.com/?p=240
+[android_developers_website]: http://d.android.com/sdk/installing.html
+[personal_blog]: http://android.cyrilmottier.com/?p=240
+[adt_history]: http://d.android.com/sdk/eclipse-adt.html#notes
+[library_project_doc]: http://d.android.com/guide/developing/eclipse-adt.html#libraryProject

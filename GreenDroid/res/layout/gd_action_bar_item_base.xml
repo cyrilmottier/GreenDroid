@@ -16,9 +16,9 @@
 ** limitations under the License.
 */
 -->
-
 <ImageButton
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	style="?attr/gdActionBarItemStyle"
+	android:id="@+id/gd_action_bar_item"
 	android:layout_height="fill_parent"
 	android:scaleType="center" />

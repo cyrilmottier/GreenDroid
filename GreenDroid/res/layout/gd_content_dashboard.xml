@@ -16,26 +16,24 @@
 ** limitations under the License.
 */
 -->
-
 <greendroid.widget.ActionBarHost
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:greendroid="http://schemas.android.com/apk/res/com.cyrilmottier.android.greendroid"
 	android:id="@id/gd_action_bar_host"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
 	<!--
-		Layout height/width and background are set here. This is a hack to
-		apply a default style to the ActionBar. Indeed, no style can be
-		applied to a LinearLayout
+		HACK cyril: The following style is compulsory in order to work with
+		library projects ... I don't know why defining a greendroid namespace
+		does not work ... Should be greendroid:type="dashboard"
 	-->
 	<greendroid.widget.ActionBar
+		style="@style/GreenDroid.Widget.ActionBar.Dashboard"
 		android:id="@id/gd_action_bar"
-		android:layout_height="?attr/gdActionBarHeight"
+		android:layout_height="@dimen/gd_action_bar_height"
 		android:layout_width="fill_parent"
-		android:background="?attr/gdActionBarBackground"
-		greendroid:type="dashboard" />
+		android:background="?attr/gdActionBarBackground" />
 
 	<FrameLayout
 		android:id="@id/gd_action_bar_content_view"

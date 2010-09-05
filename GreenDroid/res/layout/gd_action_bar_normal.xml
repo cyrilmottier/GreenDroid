@@ -22,7 +22,7 @@
 
 	<include
 		android:id="@+id/gd_action_bar_home_item"
-		layout="@layout/gd_action_bar_item" />
+		layout="@layout/gd_action_bar_item_base" />
 
 	<ImageView
 		android:layout_width="?attr/gdActionBarDividerWidth"

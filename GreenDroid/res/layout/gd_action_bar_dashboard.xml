@@ -29,18 +29,23 @@
         android:src="?attr/gdActionBarApplicationDrawable"
         android:background="@null" />
 
-    <TextView
-        style="?attr/gdActionBarTitleStyle"
-        android:id="@+id/gd_action_bar_title"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.0"
-        android:gravity="left|center_vertical"
-        android:singleLine="true"
-        android:textColor="?attr/gdActionBarTitleColor"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp" />
+	<!--
+		The following TextView could contain the title of the current screen.
+		Actually, I don't think having a title in the ActionBar of type
+		Dashboard is a good idea so I prefer removing it.
+	-->
+<!--    <TextView-->
+<!--        style="?attr/gdActionBarTitleStyle"-->
+<!--        android:id="@+id/gd_action_bar_title"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:layout_weight="1.0"-->
+<!--        android:gravity="left|center_vertical"-->
+<!--        android:singleLine="true"-->
+<!--        android:textColor="?attr/gdActionBarTitleColor"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:paddingLeft="10dp" />-->
 
 </merge>

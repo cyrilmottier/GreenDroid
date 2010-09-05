@@ -77,10 +77,9 @@
     
     
     <!-- ActionBar related attributes -->
-    <attr name="gdActionBarHeight" format="dimension" />
     <attr name="gdActionBarTitleColor" format="color" />
     <attr name="gdActionBarBackground" format="reference" />
-    <attr name="gdActionBarItemBackground" format="reference" /> 
+    <attr name="gdActionBarItemBackground" format="reference" />
     <attr name="gdActionBarDividerDrawable" format="reference" />
     <attr name="gdActionBarDividerWidth" format="dimension" />
     <attr name="gdActionBarApplicationDrawable" format="reference" /> 

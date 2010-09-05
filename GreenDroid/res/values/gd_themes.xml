@@ -74,7 +74,6 @@
         <item name="gdSegmentedBarStyle">@style/GreenDroid.SegmentedBar</item>
         <item name="gdSegmentedHostStyle">@style/GreenDroid.SegmentedHost</item>
         
-		<item name="gdActionBarHeight">45dp</item>
 		<item name="gdActionBarTitleColor">@android:color/white</item>
 		<item name="gdActionBarBackground">@color/gd_action_bar_tint</item>
 		<item name="gdActionBarItemBackground">@drawable/gd_action_bar_item</item>

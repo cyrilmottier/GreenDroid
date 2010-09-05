@@ -17,9 +17,9 @@ package greendroid.app;
 
 import greendroid.util.Config;
 import greendroid.widget.ActionBar;
-import greendroid.widget.ActionBar.OnActionBarListener;
 import greendroid.widget.ActionBarHost;
-import android.app.Application;
+import greendroid.widget.ActionBarItem;
+import greendroid.widget.ActionBar.OnActionBarListener;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -54,12 +54,6 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
         return R.layout.gd_tab_content;
     }
 
-    /**
-     * A simple utility that casts the {@link Application} returned by
-     * {@link #getApplication()} into a {@link GDApplication}
-     * 
-     * @return The current {@link GDApplication}
-     */
     public GDApplication getGDApplication() {
         return (GDApplication) getApplication();
     }
@@ -78,7 +72,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
             throw new RuntimeException(
                     "Your content must have an ActionBarHost whose id attribute is R.id.gd_action_bar_host");
         }
-        mActionBarHost.getActionBar().setOnActionBarListener(this);
+        mActionBarHost.getActionBar().setOnActionBarListener(mActionBarListener);
     }
 
     public void onPostContentChanged() {
@@ -127,35 +121,45 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
         return mActionBarHost.getActionBar();
     }
 
+    public void addActionBarItem(ActionBarItem item) {
+        getActionBar().addItem(item);
+    }
+
+    public void addActionBarItem(ActionBarItem.Type actionBarItemType) {
+        getActionBar().addItem(actionBarItemType);
+    }
+
     public FrameLayout getContentView() {
         return mActionBarHost.getContentView();
     }
 
-    public final void onActionBarItemClicked(int position) {
-        if (position == OnActionBarListener.HOME_ITEM) {
+    public boolean onHandleActionBarItemClick(ActionBarItem item, int position) {
+        return false;
+    }
 
-            final Class<?> klass = getGDApplication().getHomeActivityClass();
-            if (klass != null && !klass.equals(getClass())) {
-                if (Config.GD_INFO_LOGS_ENABLED) {
-                    Log.i(LOG_TAG, "Going back to the home activity");
+    private OnActionBarListener mActionBarListener = new OnActionBarListener() {
+        public void onActionBarItemClicked(int position) {
+            if (position == OnActionBarListener.HOME_ITEM) {
+
+                final Class<?> klass = getGDApplication().getHomeActivityClass();
+                if (klass != null && !klass.equals(getClass())) {
+                    if (Config.GD_INFO_LOGS_ENABLED) {
+                        Log.i(LOG_TAG, "Going back to the home activity");
+                    }
+                    Intent homeIntent = new Intent(GDTabActivity.this, klass);
+                    homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(homeIntent);
                 }
-                Intent homeIntent = new Intent(this, klass);
-                homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(homeIntent);
-            }
 
-        } else {
-            if (!onHandleActionBarItemClick(position)) {
-                if (Config.GD_WARNING_LOGS_ENABLED) {
-                    Log.w(LOG_TAG, "Click on item at position " + position + " dropped down to the floor");
+            } else {
+                if (!onHandleActionBarItemClick(getActionBar().getItem(position), position)) {
+                    if (Config.GD_WARNING_LOGS_ENABLED) {
+                        Log.w(LOG_TAG, "Click on item at position " + position + " dropped down to the floor");
+                    }
                 }
             }
         }
-    }
-
-    public boolean onHandleActionBarItemClick(int position) {
-        return false;
-    }
+    };
 
     /*
      * GDTabActivity methods
@@ -165,7 +169,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
         addTab(tag, getString(labelId), intent);
     }
 
-    public void addTab(String tag, String label, Intent intent) {
+    public void addTab(String tag, CharSequence label, Intent intent) {
         final TabHost host = getTabHost();
 
         View indicator = createTabIndicator(label);
@@ -179,7 +183,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
         host.addTab(host.newTabSpec(tag).setIndicator(indicator).setContent(intent));
     }
 
-    protected View createTabIndicator(String label) {
+    protected View createTabIndicator(CharSequence label) {
         return null;
     }
 

@@ -15,6 +15,8 @@
  */
 package greendroid.app;
 
+import com.cyrilmottier.android.greendroid.R;
+
 import greendroid.util.Config;
 import android.app.ListActivity;
 import android.os.Handler;
@@ -24,7 +26,6 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cyrilmottier.android.greendroid.R;
 
 /**
  * An equivalent to {@link ListActivity} that manages a ListView.

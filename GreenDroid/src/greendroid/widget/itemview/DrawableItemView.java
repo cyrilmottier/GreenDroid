@@ -16,6 +16,7 @@
 package greendroid.widget.itemview;
 
 import com.cyrilmottier.android.greendroid.R;
+
 import greendroid.widget.item.DrawableItem;
 import greendroid.widget.item.Item;
 import android.content.Context;

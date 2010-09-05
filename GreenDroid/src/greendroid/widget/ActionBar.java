@@ -18,9 +18,6 @@ package greendroid.widget;
 import greendroid.util.Config;
 
 import java.util.LinkedList;
-import java.util.List;
-
-import com.cyrilmottier.android.greendroid.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -29,13 +26,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ActionBar extends LinearLayout implements OnClickListener {
+import com.cyrilmottier.android.greendroid.R;
+
+public class ActionBar extends LinearLayout {
 
     private static final String LOG_TAG = ActionBar.class.getSimpleName();
 
@@ -44,7 +42,7 @@ public class ActionBar extends LinearLayout implements OnClickListener {
     public enum Type {
         Normal, Dashboard
     }
-
+    
     public interface OnActionBarListener {
 
         static final int HOME_ITEM = -1;
@@ -54,8 +52,9 @@ public class ActionBar extends LinearLayout implements OnClickListener {
          * has clicked on an item.
          * 
          * @param position The position of the item in the action bar. -1 means
-         *            pressed the "Home" button. 0 means the user clicked the
-         *            first action bar item and so on.
+         *            the user pressed the "Home" button. 0 means the user
+         *            clicked the first action bar item (the leftmost item) and
+         *            so on.
          */
         void onActionBarItemClicked(int position);
     }
@@ -68,7 +67,7 @@ public class ActionBar extends LinearLayout implements OnClickListener {
     private String mTitle;
     private ActionBar.Type mType;
     private OnActionBarListener mOnActionBarListener;
-    private LinkedList<ImageButton> mItems;
+    private LinkedList<ActionBarItem> mItems;
 
     private Drawable mDividerDrawable;
     private Drawable mHomeDrawable;
@@ -115,14 +114,14 @@ public class ActionBar extends LinearLayout implements OnClickListener {
         // bug to Romain Guy who fixed it (patch will probably be available in
         // the Gingerbread release).
         mMerging = true;
-        LayoutInflater.from(getContext()).inflate(layoutID, this);
+        LayoutInflater.from(context).inflate(layoutID, this);
         mMerging = false;
 
         a.recycle();
     }
 
     private void initActionBar() {
-        mItems = new LinkedList<ImageButton>();
+        mItems = new LinkedList<ActionBarItem>();
     }
 
     @Override
@@ -135,20 +134,21 @@ public class ActionBar extends LinearLayout implements OnClickListener {
                 Log.i(LOG_TAG, "onFinishInflate() - not merging");
             }
 
+            // Work done for both Dashboard and Normal type
             mHomeButton = (ImageButton) findViewById(R.id.gd_action_bar_home_item);
-            mHomeButton.setOnClickListener(this);
+            mHomeButton.setOnClickListener(mClickHandler);
 
             switch (mType) {
                 case Normal:
+                    mHomeButton.setImageDrawable(mHomeDrawable);
+                    mHomeButton.setContentDescription(getContext().getString(R.string.gd_go_home));
                     mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
                     if (mTitle != null) {
                         setTitle(mTitle);
                     }
-
-                    mHomeButton.setImageDrawable(mHomeDrawable);
-                    break;
-
+                    
                 default:
+                    //Do nothing
                     break;
             }
         }
@@ -165,27 +165,17 @@ public class ActionBar extends LinearLayout implements OnClickListener {
         }
     }
 
-    public void setItems(List<Drawable> items) {
-
-        final int itemCount = mItems.size();
-        int removeCount = itemCount;
-        if (mDividerDrawable != null) {
-            /*
-             * If we have a divider we'll have to remove itemCount - 1
-             * ImageViews
-             */
-            removeCount += (itemCount - 1);
-        }
-        removeViews(getChildCount() - removeCount, removeCount);
-
-        for (Drawable drawable : items) {
-            addItem(drawable);
-        }
+    public void addItem(ActionBarItem.Type actionBarItemType) {
+        addItem(ActionBarItem.createWithType(this, actionBarItemType));
     }
 
-    public void addItem(Drawable d) {
+    public void addItem(ActionBarItem item) {
 
         if (mItems.size() >= MAX_ITEMS_COUNT) {
+            /*
+             * An ActionBar must contain as few items as possible. So let's keep
+             * a limit :)
+             */
             return;
         }
 
@@ -193,76 +183,103 @@ public class ActionBar extends LinearLayout implements OnClickListener {
             ImageView divider = new ImageView(getContext());
             int dividerWidth = (mDividerWidth > 0) ? mDividerWidth : mDividerDrawable.getIntrinsicWidth();
             final LinearLayout.LayoutParams lp = new LayoutParams(dividerWidth, LayoutParams.FILL_PARENT);
-            lp.setMargins(0, 0, 0, 0);
             divider.setLayoutParams(lp);
             divider.setBackgroundDrawable(mDividerDrawable);
             addView(divider);
         }
 
-        final LayoutInflater inflater = LayoutInflater.from(getContext());
-        ImageButton button = (ImageButton) inflater.inflate(R.layout.gd_action_bar_item, this, false);
-        button.setImageDrawable(d);
-        button.setOnClickListener(this);
+        final View itemView = item.getItemView();
+        itemView.findViewById(R.id.gd_action_bar_item).setOnClickListener(mClickHandler);
 
-        addView(button);
-        mItems.add(button);
+        final int size = (int) getResources().getDimension(R.dimen.gd_action_bar_height);
+        addView(itemView, new LayoutParams(size, LayoutParams.FILL_PARENT));
+
+        mItems.add(item);
     }
 
-    // public void setType(Type type) {
-    // if (type != mType) {
-    //            
-    // // Saves all drawables
-    // LinkedList<Drawable> drawables = new LinkedList<Drawable>();
-    // for (ImageButton imageButton : mItems) {
-    // drawables.add(imageButton.getDrawable());
-    // }
-    // mItems.clear();
-    //            
-    // removeAllViews();
-    // mMerging = true;
-    // LayoutInflater.from(getContext()).inflate(R.layout.gd_action_bar_item,
-    // this);
-    // mMerging = false;
-    //            
-    // // Reset all items
-    // setItems(drawables);
-    // }
-    // }
-
-    public void addItem(int drawableId) {
-        addItem(getContext().getResources().getDrawable(drawableId));
+    public ActionBarItem getItem(int position) {
+        if (position < 0 || position >= mItems.size()) {
+            return null;
+        }
+        return mItems.get(position);
     }
 
-    public void removeItemAt(int position) {
+    public void removeItem(int position) {
 
         if (position < 0 || position >= mItems.size()) {
             return;
         }
 
-        final int viewIndex = indexOfChild(mItems.get(position));
-        removeViews(viewIndex - 1, 2);
+        final int viewIndex = indexOfChild(mItems.get(position).getItemView());
+        final int increment = (mDividerDrawable != null) ? 1 : 0;
+        removeViews(viewIndex - increment, 1 + increment);
         mItems.remove(position);
     }
 
-    public void onClick(View v) {
+    /**
+     * @hide TODO cyril: To be tested.
+     */
+    public void setType(Type type) {
+        if (type != mType) {
 
-        if (mOnActionBarListener != null) {
+            removeAllViews();
 
-            if (v == mHomeButton) {
-                mOnActionBarListener.onActionBarItemClicked(OnActionBarListener.HOME_ITEM);
-                return;
+            int layoutId = 0;
+            switch (type) {
+                case Dashboard:
+                    layoutId = R.layout.gd_action_bar_dashboard;
+                    break;
+                case Normal:
+                    layoutId = R.layout.gd_action_bar_normal;
+                    break;
             }
 
-            final int itemCount = mItems.size();
-            for (int i = 0; i < itemCount; i++) {
-                if (v == mItems.get(i)) {
-                    mOnActionBarListener.onActionBarItemClicked(i);
-                    break;
+            mMerging = true;
+            LayoutInflater.from(getContext()).inflate(layoutId, this);
+            mMerging = false;
+
+            // Reset all items
+            LinkedList<ActionBarItem> itemsCopy = new LinkedList<ActionBarItem>(mItems);
+            mItems.clear();
+            for (ActionBarItem item : itemsCopy) {
+                addItem(item);
+            }
+        }
+    }
+
+    public ActionBarItem newActionBarItem(Class<? extends ActionBarItem> klass) {
+        try {
+            ActionBarItem item = klass.newInstance();
+            item.setActionBar(this);
+            return item;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("The given klass must have a default constructor");
+        }
+    }
+    
+    private OnClickListener mClickHandler = new OnClickListener() {
+
+        public void onClick(View v) {
+            if (mOnActionBarListener != null) {
+
+                if (v == mHomeButton) {
+                    mOnActionBarListener.onActionBarItemClicked(OnActionBarListener.HOME_ITEM);
+                    return;
+                }
+
+                final int itemCount = mItems.size();
+                for (int i = 0; i < itemCount; i++) {
+                    final ActionBarItem item = mItems.get(i);
+                    final View itemButton = item.getItemView().findViewById(R.id.gd_action_bar_item);
+                    if (v == itemButton) {
+                        item.onItemClicked();
+                        mOnActionBarListener.onActionBarItemClicked(i);
+                        break;
+                    }
                 }
             }
-
         }
 
-    }
+    };
 
 }

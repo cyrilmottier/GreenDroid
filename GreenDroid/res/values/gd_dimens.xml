@@ -34,4 +34,6 @@
     <dimen name="gd_progress_bar_height">20dp</dimen>
     <dimen name="gd_progress_bar_margin">6dp</dimen>
     
+    <dimen name="gd_action_bar_height">45dp</dimen>
+    
 </resources>

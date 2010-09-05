@@ -50,7 +50,7 @@ public class CatalogActivity extends GDActivity {
         adapter.add(new TextItem("Tweaked item cell"));
         adapter.add(new TextItem("SegmentedBar"));
         adapter.add(new TextItem("ActionBarActivity"));
-
+        
         mListView = (ListView) findViewById(android.R.id.list);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(mItemClickHandler);

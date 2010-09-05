@@ -15,17 +15,18 @@
  */
 package greendroid.app;
 
-import android.app.Activity;
-import android.widget.FrameLayout;
 import greendroid.widget.ActionBar;
-import greendroid.widget.ActionBar.OnActionBarListener;
+import greendroid.widget.ActionBarItem;
+import android.app.Activity;
+import android.app.Application;
+import android.widget.FrameLayout;
 
 /**
  * Defines all methods related to Activities embedding an {@link ActionBar}
  * 
  * @author Cyril Mottier
  */
-public interface ActionBarActivity extends OnActionBarListener {
+public interface ActionBarActivity {
 
     /**
      * The key to use to set the title of the launched ActionBarActivity
@@ -33,12 +34,15 @@ public interface ActionBarActivity extends OnActionBarListener {
     public static final String GD_ACTION_BAR_TITLE = "greendroid.app.ActionBarActivity.GD_ACTION_BAR_TITLE";
 
     /**
+     * Clients may use this methods to listen to {@link ActionBarItem}s clicks.
+     * 
+     * @param item The {@link ActionBarItem} that has been clicked
      * @param position The position of the clicked item. This number is equal or
      *            greater to zero. 0 is the leftmost item.
      * @return true if the method has handled the click on the ActionBar item at
-     *         position <em>position</em>. Otherwise it returns false
+     *         position <em>position</em>. Otherwise it returns false.
      */
-    boolean onHandleActionBarItemClick(int position);
+    boolean onHandleActionBarItemClick(ActionBarItem item, int position);
 
     /**
      * Returns the content view. Please note the content view is not the entire
@@ -50,16 +54,19 @@ public interface ActionBarActivity extends OnActionBarListener {
 
     /**
      * Returns the ActionBar. Listening to ActionBar events should be done via
-     * the {@link GDActivity#onActionBarItemClicked(int)} method. Use this
-     * method to add new items to the {@link ActionBar}
+     * the
+     * {@link ActionBarActivity#onHandleActionBarItemClick(ActionBarItem, int)}
+     * method. Most of the time, this method don't need to be used directly.
      * 
-     * @see ActionBarActivity#onHandleActionBarItemClick(int)
-     * @return The ActionBar displayed on screen
+     * @see {@link ActionBarActivity#onHandleActionBarItemClick(ActionBarItem, int)}
+     * @see {@link ActionBarActivity#addActionBarItem(ActionBarItem)}
+     * @see {@link ActionBarActivity#addActionBarItem(greendroid.widget.ActionBarItem.Type)}
+     * @return The ActionBar currently displayed on screen
      */
     ActionBar getActionBar();
-
+    
     /**
-     * A simple utility that casts the {@link Application} returned by
+     * A simple utility method that casts the {@link Application} returned by
      * {@link #getApplication()} into a {@link GDApplication}
      * 
      * @return The current {@link GDApplication}
@@ -67,10 +74,25 @@ public interface ActionBarActivity extends OnActionBarListener {
     GDApplication getGDApplication();
 
     /**
+     * Add a new item to the ActionBar.
+     * 
+     * @param item The item to add to the ActionBar
+     */
+    void addActionBarItem(ActionBarItem item);
+
+    /**
+     * Adds a new item of type <em>type</em> to the ActionBar.
+     * 
+     * @param actionBarItemType The item to add to the ActionBar
+     */
+    void addActionBarItem(ActionBarItem.Type actionBarItemType);
+
+
+    /**
      * Returns the identifier of the layout that needs to be created for this
      * {@link ActionBarActivity}
      * 
-     * @return The identifier of the layout to create
+     * @return The layout identifier of the layout to create
      */
     int createLayout();
 

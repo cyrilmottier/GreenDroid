@@ -16,27 +16,21 @@
 ** limitations under the License.
 */
 -->
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
 
-<selector
-	xmlns:android="http://schemas.android.com/apk/res/android">
-	
-	<item
-		android:state_focused="true"
-		android:state_pressed="true"
-		android:drawable="@drawable/ic_title_search_alt" />
-		
-	<item
-		android:state_focused="false"
-		android:state_pressed="true"
-		android:drawable="@drawable/ic_title_search_alt" />
-		
-	<item
-		android:state_focused="true"
-		android:drawable="@drawable/ic_title_search_alt" />
-		
-	<item
-		android:state_focused="false"
-		android:state_pressed="false"
-		android:drawable="@drawable/ic_title_search_default" />
-		
-</selector>
+	<include
+		layout="@layout/gd_action_bar_item_base" />
+
+	<ProgressBar
+		android:id="@+id/gd_action_bar_item_progress_bar"
+		style="?android:attr/progressBarStyleSmallInverse"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:visibility="gone"
+		android:indeterminate="true" />
+
+</FrameLayout>

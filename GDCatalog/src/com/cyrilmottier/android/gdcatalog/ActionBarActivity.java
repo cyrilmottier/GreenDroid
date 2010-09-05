@@ -16,12 +16,19 @@
 package com.cyrilmottier.android.gdcatalog;
 
 import greendroid.app.GDActivity;
+import greendroid.widget.ActionBarItem;
+import greendroid.widget.LoaderActionBarItem;
+import greendroid.widget.ActionBarItem.Type;
+import greendroid.widget.NormalActionBarItem;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActionBarActivity extends GDActivity {
+
+    private final Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +37,43 @@ public class ActionBarActivity extends GDActivity {
         setActionBarContentView(R.layout.text);
         ((TextView) findViewById(R.id.text)).setText("Screen 1");
 
-        getActionBar().addItem(R.drawable.ic_title_export);
-        getActionBar().addItem(R.drawable.ic_title_search);
+        addActionBarItem(Type.Refresh);
+        
+        ActionBarItem item = getActionBar().newActionBarItem(NormalActionBarItem.class);
+        item.setDrawable(R.drawable.ic_title_export).setContentDescription(R.string.gd_export);
+        addActionBarItem(item);
+        
+        addActionBarItem(Type.Locate);
     }
 
     @Override
-    public boolean onHandleActionBarItemClick(int position) {
+    public boolean onHandleActionBarItemClick(ActionBarItem item, int position) {
 
         switch (position) {
-            case 0:
+            case 2:
                 Intent intent = new Intent(this, TabbedActionBarActivity.class);
                 startActivity(intent);
-                return true;
+                break;
+
+            case 0:
+                final LoaderActionBarItem loaderItem = (LoaderActionBarItem) item;
+                mHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        loaderItem.setLoading(false);
+                    }
+                }, 2000);
+                Toast.makeText(this, "You've just pressed a ActionBarItem.Type.Refresh button", Toast.LENGTH_SHORT)
+                        .show();
+                break;
 
             case 1:
-                Toast.makeText(this, "Fake feature. Click on the other item instead", Toast.LENGTH_SHORT).show();
-                return true;
+                Toast.makeText(this, "Custom drawable. Click on another item instead", Toast.LENGTH_SHORT).show();
+                break;
 
             default:
-                return super.onHandleActionBarItemClick(position);
+                return super.onHandleActionBarItemClick(item, position);
         }
+
+        return true;
     }
 }

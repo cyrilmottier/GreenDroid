@@ -20,6 +20,7 @@ import com.cyrilmottier.android.greendroid.R;
 import greendroid.util.Config;
 import greendroid.widget.ActionBar;
 import greendroid.widget.ActionBarHost;
+import greendroid.widget.ActionBarItem;
 import greendroid.widget.ActionBar.OnActionBarListener;
 import greendroid.widget.ActionBar.Type;
 import android.app.Activity;
@@ -63,25 +64,28 @@ import android.widget.FrameLayout;
  * startActivity(intent);
  * </pre>
  * <p>
- * Note: An {@link GDActivity} automatically removed the default drop shadow as
- * it is not appropriate with an ActionBar. Is you do not want it to be removed,
- * make sure your default constructor uses the appropriate {@link GDActivity}
- * constructor
+ * Note: An {@link GDActivity} automatically handle the type of the ActionBar
+ * (Dashboard or Normal) depending on the value returned by the
+ * getHomeActivityClass of your {@link GDApplication}. However you can force the
+ * type of the action bar in your constructor.
  * </p>
  * 
  * <pre>
  * public MyGDActivity() {
- *     super(ActionBar.Type.Normal, false);
+ *     super(ActionBar.Type.Dashboard);
  * }
  * </pre>
  * <p>
  * All Activities that inherits from an {@link GDActivity} are notified when an
- * action button is tapped thanks to the onActionBarItemClicked(int) method. By
- * default this method does nothing except handling the "Home" button.
+ * action button is tapped thanks to the onHandleActionBarItemClick(int) method.
+ * By default this method does nothing except handling the "Home" button.
  * </p>
  * 
  * @see {@link GDApplication#getHomeActivityClass()}
  * @see {@link GDActivity#GD_ACTION_BAR_TITLE}
+ * @see {@link GDActivity#setActionBarContentView(int)}
+ * @see {@link GDActivity#setActionBarContentView(View)}
+ * @see {@link GDActivity#setActionBarContentView(View, LayoutParams)}
  * @author Cyril Mottier
  */
 public class GDActivity extends Activity implements ActionBarActivity {
@@ -123,6 +127,12 @@ public class GDActivity extends Activity implements ActionBarActivity {
         }
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        ensureLayout();
+    }
+
     public ActionBar.Type getActionBarType() {
         return mActionBarType;
     }
@@ -158,18 +168,18 @@ public class GDActivity extends Activity implements ActionBarActivity {
         onPreContentChanged();
         onPostContentChanged();
     }
-    
+
     public void onPreContentChanged() {
         mActionBarHost = (ActionBarHost) findViewById(R.id.gd_action_bar_host);
         if (mActionBarHost == null) {
             throw new RuntimeException(
                     "Your content must have an ActionBarHost whose id attribute is R.id.gd_action_bar_host");
         }
-        mActionBarHost.getActionBar().setOnActionBarListener(this);
+        mActionBarHost.getActionBar().setOnActionBarListener(mActionBarListener);
     }
-    
+
     public void onPostContentChanged() {
-        
+
         boolean titleSet = false;
 
         final Intent intent = getIntent();
@@ -210,6 +220,14 @@ public class GDActivity extends Activity implements ActionBarActivity {
         return mActionBarHost.getActionBar();
     }
 
+    public void addActionBarItem(ActionBarItem item) {
+        getActionBar().addItem(item);
+    }
+
+    public void addActionBarItem(ActionBarItem.Type actionBarItemType) {
+        getActionBar().addItem(actionBarItemType);
+    }
+
     public FrameLayout getContentView() {
         ensureLayout();
         return mActionBarHost.getContentView();
@@ -226,45 +244,47 @@ public class GDActivity extends Activity implements ActionBarActivity {
     public void setActionBarContentView(View view) {
         getContentView().addView(view);
     }
-
-    public final void onActionBarItemClicked(int position) {
-        if (position == OnActionBarListener.HOME_ITEM) {
-
-            final GDApplication app = getGDApplication();
-            switch (mActionBarType) {
-                case Normal:
-                    final Class<?> klass = app.getHomeActivityClass();
-                    if (klass != null && !klass.equals(getClass())) {
-                        if (Config.GD_INFO_LOGS_ENABLED) {
-                            Log.i(LOG_TAG, "Going back to the home activity");
-                        }
-                        Intent homeIntent = new Intent(this, klass);
-                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(homeIntent);
-                    }
-                    break;
-                case Dashboard:
-                    final Intent appIntent = app.getMainApplicationIntent();
-                    if (appIntent != null) {
-                        if (Config.GD_INFO_LOGS_ENABLED) {
-                            Log.i(LOG_TAG, "Launching the main application Intent");
-                        }
-                        startActivity(appIntent);
-                    }
-                    break;
-            }
-
-        } else {
-            if (!onHandleActionBarItemClick(position)) {
-                if (Config.GD_WARNING_LOGS_ENABLED) {
-                    Log.w(LOG_TAG, "Click on item at position " + position + " dropped down to the floor");
-                }
-            }
-        }
-    }
-
-    public boolean onHandleActionBarItemClick(int position) {
+    
+    public boolean onHandleActionBarItemClick(ActionBarItem item, int position) {
         return false;
     }
     
+    private OnActionBarListener mActionBarListener = new OnActionBarListener() {
+        public void onActionBarItemClicked(int position) {
+            if (position == OnActionBarListener.HOME_ITEM) {
+
+                final GDApplication app = getGDApplication();
+                switch (mActionBarType) {
+                    case Normal:
+                        final Class<?> klass = app.getHomeActivityClass();
+                        if (klass != null && !klass.equals(getClass())) {
+                            if (Config.GD_INFO_LOGS_ENABLED) {
+                                Log.i(LOG_TAG, "Going back to the home activity");
+                            }
+                            Intent homeIntent = new Intent(GDActivity.this, klass);
+                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(homeIntent);
+                        }
+                        break;
+                    case Dashboard:
+                        final Intent appIntent = app.getMainApplicationIntent();
+                        if (appIntent != null) {
+                            if (Config.GD_INFO_LOGS_ENABLED) {
+                                Log.i(LOG_TAG, "Launching the main application Intent");
+                            }
+                            startActivity(appIntent);
+                        }
+                        break;
+                }
+
+            } else {
+                if (!onHandleActionBarItemClick(getActionBar().getItem(position), position)) {
+                    if (Config.GD_WARNING_LOGS_ENABLED) {
+                        Log.w(LOG_TAG, "Click on item at position " + position + " dropped down to the floor");
+                    }
+                }
+            }
+        }
+    };
+
 }
