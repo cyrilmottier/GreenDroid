@@ -17,9 +17,9 @@ package greendroid.app;
 
 import greendroid.util.Config;
 import greendroid.widget.ActionBar;
+import greendroid.widget.ActionBar.OnActionBarListener;
 import greendroid.widget.ActionBarHost;
 import greendroid.widget.ActionBarItem;
-import greendroid.widget.ActionBar.OnActionBarListener;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

@@ -15,8 +15,6 @@
  */
 package greendroid.widget.itemview;
 
-import com.cyrilmottier.android.greendroid.R;
-
 import greendroid.widget.item.DrawableItem;
 import greendroid.widget.item.Item;
 import android.content.Context;
@@ -25,6 +23,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 public class DrawableItemView extends LinearLayout implements ItemView {
 

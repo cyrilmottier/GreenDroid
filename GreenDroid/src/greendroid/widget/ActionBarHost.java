@@ -15,12 +15,12 @@
  */
 package greendroid.widget;
 
-import com.cyrilmottier.android.greendroid.R;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import com.cyrilmottier.android.greendroid.R;
 
 public class ActionBarHost extends LinearLayout {
 

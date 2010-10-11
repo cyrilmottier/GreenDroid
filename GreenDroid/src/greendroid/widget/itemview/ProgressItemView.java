@@ -15,7 +15,6 @@
  */
 package greendroid.widget.itemview;
 
-import com.cyrilmottier.android.greendroid.R;
 import greendroid.widget.item.Item;
 import greendroid.widget.item.ProgressItem;
 import android.content.Context;
@@ -24,6 +23,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 public class ProgressItemView extends FrameLayout implements ItemView {
 

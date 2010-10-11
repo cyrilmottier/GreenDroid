@@ -29,5 +29,10 @@
     <string name="gd_take_photo">Prendre une photo</string>
     <string name="gd_pick_photo">Choisir une photo</string>
     <string name="gd_locate">Localiser</string>
+    <string name="gd_edit">Éditer</string>
+    <string name="gd_add">Ajouter</string>
+    <string name="gd_star">Ajouter aux favoris</string>
+    <string name="gd_sort_by_size">Trier par taille</string>
+    <string name="gd_locate_myself">Me localiser</string>
     
 </resources>

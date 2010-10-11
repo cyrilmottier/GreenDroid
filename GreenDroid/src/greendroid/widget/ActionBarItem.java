@@ -23,6 +23,10 @@ import android.view.View;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
+ * Base class representing an {@link ActionBarItem} used in {@link ActionBar}s.
+ * The base implementation exposes a single Drawable as well as a
+ * content description.
+ * 
  * @author Cyril Mottier
  */
 public abstract class ActionBarItem {
@@ -38,12 +42,17 @@ public abstract class ActionBarItem {
         TakePhoto, // A camera
         // PickPhoto, // Two pictures with an arrow
         Locate, // The traditional GMaps pin
+        Edit, // A pencil
+        Add, // A plus sign
+        Star, // A star
+        SortBySize, // Some bars
+        LocateMyself
+        // A surrounded dot
     }
 
     // Why, the hell, are those value protected to View ??? The simplest way to
     // get those sets here is to copy them. Another way would be to subclass
-    // View
-    // just to access those protected fields ... yuck !!!
+    // View just to access those protected fields ... yuck !!!
     private static final int[] ENABLE_STATE_SET = {
         android.R.attr.state_enabled
     };
@@ -172,9 +181,12 @@ public abstract class ActionBarItem {
                 break;
 
             case Refresh:
-                return actionBar.newActionBarItem(LoaderActionBarItem.class).setDrawable(
-                        createStateListDrawable(actionBar.getContext(), R.drawable.gd_action_bar_refresh_normal,
-                                R.drawable.gd_action_bar_refresh_alt)).setContentDescription(R.string.gd_refresh);
+                return actionBar
+                        .newActionBarItem(LoaderActionBarItem.class)
+                        .setDrawable(
+                                createStateListDrawable(actionBar.getContext(),
+                                        R.drawable.gd_action_bar_refresh_normal, R.drawable.gd_action_bar_refresh_alt))
+                        .setContentDescription(R.string.gd_refresh);
 
             case TakePhoto:
                 normalDrawableId = R.drawable.gd_action_bar_take_photo_normal;
@@ -192,6 +204,36 @@ public abstract class ActionBarItem {
                 normalDrawableId = R.drawable.gd_action_bar_locate_normal;
                 altDrawableId = R.drawable.gd_action_bar_locate_alt;
                 descriptionId = R.string.gd_locate;
+                break;
+
+            case Edit:
+                normalDrawableId = R.drawable.gd_action_bar_edit_normal;
+                altDrawableId = R.drawable.gd_action_bar_edit_alt;
+                descriptionId = R.string.gd_edit;
+                break;
+
+            case Add:
+                normalDrawableId = R.drawable.gd_action_bar_add_normal;
+                altDrawableId = R.drawable.gd_action_bar_add_alt;
+                descriptionId = R.string.gd_add;
+                break;
+
+            case Star:
+                normalDrawableId = R.drawable.gd_action_bar_star_normal;
+                altDrawableId = R.drawable.gd_action_bar_star_alt;
+                descriptionId = R.string.gd_star;
+                break;
+
+            case SortBySize:
+                normalDrawableId = R.drawable.gd_action_bar_sort_by_size_normal;
+                altDrawableId = R.drawable.gd_action_bar_sort_by_size_alt;
+                descriptionId = R.string.gd_sort_by_size;
+                break;
+
+            case LocateMyself:
+                normalDrawableId = R.drawable.gd_action_bar_locate_myself_normal;
+                altDrawableId = R.drawable.gd_action_bar_locate_myself_alt;
+                descriptionId = R.string.gd_locate_myself;
                 break;
 
             default:

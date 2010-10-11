@@ -15,18 +15,20 @@
  */
 package greendroid.widget.item;
 
+import greendroid.widget.itemview.ItemView;
+
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.cyrilmottier.android.greendroid.R;
-import greendroid.widget.itemview.ItemView;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+
+import com.cyrilmottier.android.greendroid.R;
 
 /**
  * A DrawableItem displays a single Drawable on the left of the item cell and a

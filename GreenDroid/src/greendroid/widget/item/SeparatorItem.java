@@ -15,10 +15,12 @@
  */
 package greendroid.widget.item;
 
-import com.cyrilmottier.android.greendroid.R;
 import greendroid.widget.itemview.ItemView;
 import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 /**
  * Acts as a separator between important {@link ListView} sections. A separator

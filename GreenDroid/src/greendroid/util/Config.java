@@ -32,9 +32,9 @@ public class Config {
      */
     private static final int GD_LOG_LEVEL = GD_LOG_LEVEL_NONE;
 
-    public static final boolean GD_ERROR_LOGS_ENABLED = (GD_LOG_LEVEL == GD_LOG_LEVEL_ERROR);
-    public static final boolean GD_WARNING_LOGS_ENABLED = GD_ERROR_LOGS_ENABLED
+    public static final boolean GD_INFO_LOGS_ENABLED = (GD_LOG_LEVEL == GD_LOG_LEVEL_INFO);
+    public static final boolean GD_WARNING_LOGS_ENABLED = GD_INFO_LOGS_ENABLED
             || (GD_LOG_LEVEL == GD_LOG_LEVEL_WARNING);
-    public static final boolean GD_INFO_LOGS_ENABLED = GD_WARNING_LOGS_ENABLED || (GD_LOG_LEVEL == GD_LOG_LEVEL_INFO);
+    public static final boolean GD_ERROR_LOGS_ENABLED = (GD_LOG_LEVEL == GD_LOG_LEVEL_ERROR) || GD_WARNING_LOGS_ENABLED;
 
 }

@@ -15,23 +15,26 @@
  */
 package greendroid.widget.item;
 
+import greendroid.widget.itemview.ItemView;
+
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.cyrilmottier.android.greendroid.R;
-import greendroid.widget.itemview.ItemView;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
+import com.cyrilmottier.android.greendroid.R;
+
 /**
  * A SubtextItem is really similar to a SubtitleItem as it displays a two lines
  * of text. The only difference between those two items are the number of lines
- * occupied by the content.
+ * occupied by the content. A SubtextItem may generally used to display a
+ * description text. As a result, it is disabled by default
  * 
  * @author Cyril Mottier
  */

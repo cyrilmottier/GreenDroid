@@ -15,8 +15,6 @@
  */
 package greendroid.widget;
 
-import com.cyrilmottier.android.greendroid.R;
-
 import greendroid.util.Config;
 import greendroid.widget.SegmentedBar.OnSegmentChangeListener;
 import android.content.Context;
@@ -27,6 +25,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import com.cyrilmottier.android.greendroid.R;
 
 /**
  * A SegmentedHost is a wrapper view that handle a SegmentedBar and a

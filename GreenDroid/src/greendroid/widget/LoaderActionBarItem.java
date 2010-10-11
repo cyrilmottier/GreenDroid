@@ -21,6 +21,11 @@ import android.view.View;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
+ * An extension of a {@link NormalActionBarItem} that supports a loading states.
+ * When in loading state, a {@link LoaderActionBarItem} display an indeterminate
+ * circular {@link ProgressBar}. This item is very handful with application
+ * fetching data from the network or performing long background tasks.
+ * 
  * @author Cyril Mottier
  */
 public class LoaderActionBarItem extends NormalActionBarItem {
@@ -51,6 +56,14 @@ public class LoaderActionBarItem extends NormalActionBarItem {
         setLoading(true);
     }
 
+    /**
+     * Sets the loading state of this {@link LoaderActionBarItem}.
+     * 
+     * @param loading The new loading state. If true, an indeterminate
+     *            {@link ProgressBar} is displayed. When false (default value)
+     *            the {@link ActionBarItem} behaves exactly like a regular
+     *            {@link NormalActionBarItem}.
+     */
     public void setLoading(boolean loading) {
         if (loading != mLoading) {
             mProgressBar.setVisibility(loading ? View.VISIBLE : View.GONE);

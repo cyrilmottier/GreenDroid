@@ -21,6 +21,13 @@ import android.widget.ImageButton;
 
 import com.cyrilmottier.android.greendroid.R;
 
+/**
+ * Default implementation of an {@link ActionBarItem}. A
+ * {@link NormalActionBarItem} is a simple {@link ActionBarItem} containing a
+ * single icon.
+ * 
+ * @author Cyril Mottier
+ */
 public class NormalActionBarItem extends ActionBarItem {
 
     @Override

@@ -15,13 +15,14 @@
  */
 package greendroid.widget.itemview;
 
-import com.cyrilmottier.android.greendroid.R;
 import greendroid.widget.item.Item;
 import greendroid.widget.item.SubtextItem;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 public class SubtextItemView extends LinearLayout implements ItemView {
 

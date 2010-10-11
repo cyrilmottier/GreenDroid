@@ -31,7 +31,7 @@ public interface ActionBarActivity {
     /**
      * The key to use to set the title of the launched ActionBarActivity
      */
-    public static final String GD_ACTION_BAR_TITLE = "greendroid.app.ActionBarActivity.GD_ACTION_BAR_TITLE";
+    static final String GD_ACTION_BAR_TITLE = "greendroid.app.ActionBarActivity.GD_ACTION_BAR_TITLE";
 
     /**
      * Clients may use this methods to listen to {@link ActionBarItem}s clicks.
@@ -39,8 +39,9 @@ public interface ActionBarActivity {
      * @param item The {@link ActionBarItem} that has been clicked
      * @param position The position of the clicked item. This number is equal or
      *            greater to zero. 0 is the leftmost item.
-     * @return true if the method has handled the click on the ActionBar item at
-     *         position <em>position</em>. Otherwise it returns false.
+     * @return true if the method has handled the click on the
+     *         {@link ActionBarItem} at position <em>position</em>. Otherwise it
+     *         returns false.
      */
     boolean onHandleActionBarItemClick(ActionBarItem item, int position);
 
@@ -53,18 +54,18 @@ public interface ActionBarActivity {
     FrameLayout getContentView();
 
     /**
-     * Returns the ActionBar. Listening to ActionBar events should be done via
-     * the
+     * Returns the {@link ActionBar}. Listening to {@link ActionBar} events
+     * should be done via the
      * {@link ActionBarActivity#onHandleActionBarItemClick(ActionBarItem, int)}
      * method. Most of the time, this method don't need to be used directly.
      * 
      * @see {@link ActionBarActivity#onHandleActionBarItemClick(ActionBarItem, int)}
      * @see {@link ActionBarActivity#addActionBarItem(ActionBarItem)}
      * @see {@link ActionBarActivity#addActionBarItem(greendroid.widget.ActionBarItem.Type)}
-     * @return The ActionBar currently displayed on screen
+     * @return The {@link ActionBar} currently displayed on screen
      */
     ActionBar getActionBar();
-    
+
     /**
      * A simple utility method that casts the {@link Application} returned by
      * {@link #getApplication()} into a {@link GDApplication}
@@ -74,19 +75,18 @@ public interface ActionBarActivity {
     GDApplication getGDApplication();
 
     /**
-     * Add a new item to the ActionBar.
+     * Add a new item to the {@link ActionBar}.
      * 
-     * @param item The item to add to the ActionBar
+     * @param item The item to add to the {@link ActionBar}
      */
     void addActionBarItem(ActionBarItem item);
 
     /**
-     * Adds a new item of type <em>type</em> to the ActionBar.
+     * Adds a new item of type <em>type</em> to the {@link ActionBar}.
      * 
-     * @param actionBarItemType The item to add to the ActionBar
+     * @param actionBarItemType The item to add to the {@link ActionBar}
      */
     void addActionBarItem(ActionBarItem.Type actionBarItemType);
-
 
     /**
      * Returns the identifier of the layout that needs to be created for this

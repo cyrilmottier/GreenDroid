@@ -15,7 +15,6 @@
  */
 package greendroid.widget.itemview;
 
-import com.cyrilmottier.android.greendroid.R;
 import greendroid.widget.item.Item;
 import greendroid.widget.item.ThumbnailItem;
 import android.content.Context;
@@ -23,6 +22,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 public class ThumbnailItemView extends RelativeLayout implements ItemView {
 

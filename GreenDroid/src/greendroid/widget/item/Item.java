@@ -15,13 +15,13 @@
  */
 package greendroid.widget.item;
 
+import greendroid.widget.itemview.ItemView;
+
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.cyrilmottier.android.greendroid.R;
-import greendroid.widget.itemview.ItemView;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -29,6 +29,9 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.cyrilmottier.android.greendroid.R;
 
 /**
  * Base class for all items used in GreenDroid. An item represents a wrapper of
