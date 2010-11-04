@@ -30,9 +30,10 @@
         android:background="@null" />
 
     <!-- Spacer view to right-align dashboard icons -->
-    <View android:visibility="invisible"
+    <View
       	android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:layout_weight="1.0" />
+        android:layout_weight="1.0"
+        android:visibility="invisible" />
 
 </merge>
