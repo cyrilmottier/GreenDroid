@@ -29,25 +29,10 @@
         android:src="?attr/gdActionBarApplicationDrawable"
         android:background="@null" />
 
-	<!--
-		The following TextView could contain the title of the current screen.
-		Its visibility is set to "invisible" because having a title in a dashboard
-		doesn't make sense. However, if it is removed, the dashboard icons aren't 
-		right-aligned. 
-	-->
-    <TextView
-        style="?attr/gdActionBarTitleStyle"
-        android:id="@+id/gd_action_bar_title"
-        android:layout_width="0dp"
+    <!-- Spacer view to right-align dashboard icons -->
+    <View android:visibility="invisible"
+      	android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:layout_weight="1.0"
-        android:gravity="left|center_vertical"
-        android:singleLine="true"
-        android:textColor="?attr/gdActionBarTitleColor"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:visibility="invisible" />
+        android:layout_weight="1.0" />
 
 </merge>
