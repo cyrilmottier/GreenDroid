@@ -36,7 +36,7 @@ import com.cyrilmottier.android.greendroid.R;
  * @author Cyril Mottier
  */
 public class SegmentedHost extends LinearLayout {
-    
+
     private final static String LOG_TAG = SegmentedHost.class.getSimpleName();
 
     private int mSegmentedBarId;
@@ -130,11 +130,11 @@ public class SegmentedHost extends LinearLayout {
     }
 
     private void setupSegmentedHost(int selectedSegment) {
-        
+
         if (Config.GD_INFO_LOGS_ENABLED) {
             Log.i(LOG_TAG, "Preparing the SegmentedHost with the segment " + selectedSegment);
         }
-        
+
         mSegmentedBar.removeAllViews();
         mContentView.removeAllViews();
         mViews = null;

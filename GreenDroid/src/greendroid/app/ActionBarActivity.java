@@ -34,7 +34,7 @@ public interface ActionBarActivity {
     static final String GD_ACTION_BAR_TITLE = "greendroid.app.ActionBarActivity.GD_ACTION_BAR_TITLE";
 
     /**
-     * Clients may use this methods to listen to {@link ActionBarItem}s clicks.
+     * Clients may use this method to listen to {@link ActionBarItem}s clicks.
      * 
      * @param item The {@link ActionBarItem} that has been clicked
      * @param position The position of the clicked item. This number is equal or
@@ -47,7 +47,7 @@ public interface ActionBarActivity {
 
     /**
      * Returns the content view. Please note the content view is not the entire
-     * view but a FrameLayout that contains everything except the ActionBar.
+     * view but a {@link FrameLayout} that contains everything but the {@link ActionBar}.
      * 
      * @return The content view
      */
@@ -98,13 +98,13 @@ public interface ActionBarActivity {
 
     /**
      * Called at the beginning of the {@link Activity#onContentChanged()}
-     * method. This should be used to initialize all references on elements.
+     * method. This may be used to initialize all references on elements.
      */
     void onPreContentChanged();
 
     /**
      * Called at the end of the {@link Activity#onContentChanged()} method. This
-     * should be use to initialize the content of the layout (titles, etc.)
+     * may be use to initialize the content of the layout (titles, etc.)
      */
     void onPostContentChanged();
 }

@@ -77,8 +77,8 @@ import android.widget.FrameLayout;
  * </pre>
  * <p>
  * All Activities that inherits from an {@link GDActivity} are notified when an
- * action button is tapped thanks to the onHandleActionBarItemClick(int) method.
- * By default this method does nothing except handling the "Home" button.
+ * action button is tapped in the onHandleActionBarItemClick(ActionBarItem, int)
+ * method. By default this method does nothing but return false.
  * </p>
  * 
  * @see {@link GDApplication#getHomeActivityClass()}
@@ -244,11 +244,11 @@ public class GDActivity extends Activity implements ActionBarActivity {
     public void setActionBarContentView(View view) {
         getContentView().addView(view);
     }
-    
+
     public boolean onHandleActionBarItemClick(ActionBarItem item, int position) {
         return false;
     }
-    
+
     private OnActionBarListener mActionBarListener = new OnActionBarListener() {
         public void onActionBarItemClicked(int position) {
             if (position == OnActionBarListener.HOME_ITEM) {

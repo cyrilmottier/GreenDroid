@@ -93,8 +93,14 @@
     <attr name="gdTabIndicatorHeight" format="dimension" />
     <attr name="gdTabIndicatorTextAppearance" format="reference" />
     <attr name="gdTabIndicatorBackground" format="reference" />
-
-
+    
+    <!-- QuickAction related attributes -->
+    <attr name="gdQuickActionBarStyle" format="reference" />
+    <attr name="gdQuickActionBarItemStyle" format="reference" />
+    <attr name="gdQuickActionGridStyle" format="reference" />
+    <attr name="gdQuickActionGridItemStyle" format="reference" />
+    
+    
     <!--            -->
     <!-- Styleables -->
     <!--            -->

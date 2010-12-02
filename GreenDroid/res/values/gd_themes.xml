@@ -90,6 +90,11 @@
         <item name="gdTabIndicatorTextAppearance">@style/TextAppearance.TabIndicator</item>
         <item name="gdTabIndicatorBackground">@drawable/gd_tab_indicator</item>
         
+        <item name="gdQuickActionBarStyle">@style/GreenDroid.Widget.QuickAction.Bar</item>
+        <item name="gdQuickActionBarItemStyle">@style/GreenDroid.Widget.QuickAction.Bar.Item</item>
+        <item name="gdQuickActionGridStyle">@style/GreenDroid.Widget.QuickAction.Grid</item>
+        <item name="gdQuickActionGridItemStyle">@style/GreenDroid.Widget.QuickAction.Grid.Item</item>
+        
     </style>
     
     

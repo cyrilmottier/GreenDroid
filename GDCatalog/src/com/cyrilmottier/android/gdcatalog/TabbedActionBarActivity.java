@@ -15,14 +15,12 @@
  */
 package com.cyrilmottier.android.gdcatalog;
 
-import com.cyrilmottier.android.gdcatalog.util.ColorUtils;
-
+import greendroid.app.GDTabActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
-import greendroid.app.GDTabActivity;
 
 public class TabbedActionBarActivity extends GDTabActivity {
 
@@ -37,17 +35,17 @@ public class TabbedActionBarActivity extends GDTabActivity {
         setTitle("Screen 2");
         
         Intent intent = new Intent(this, FakeActivity.class);
-        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.RED);
+        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.BLACK);
         intent.putExtra(FakeActivity.EXTRA_TEXT, "Content of tab #1");
         addTab(TAB1, "Tab One", intent);
 
         intent = new Intent(this, FakeActivity.class);
-        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.GREEN);
+        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.rgb(20, 20, 20));
         intent.putExtra(FakeActivity.EXTRA_TEXT, "Content of tab #2");
         addTab(TAB2, "Tab Two", intent);
 
         intent = new Intent(this, FakeActivity.class);
-        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.BLUE);
+        intent.putExtra(FakeActivity.EXTRA_COLOR, Color.rgb(40, 40, 40));
         intent.putExtra(FakeActivity.EXTRA_TEXT, "Content of tab #3");
         addTab(TAB3, "Tab Three", intent);
     }
@@ -68,10 +66,7 @@ public class TabbedActionBarActivity extends GDTabActivity {
 
                 TextView textView = (TextView) findViewById(R.id.text);
                 textView.setText(intent.getStringExtra(EXTRA_TEXT));
-                
-                int color = intent.getIntExtra(EXTRA_COLOR, Color.BLACK);
-                textView.setBackgroundColor(color);
-                textView.setTextColor(ColorUtils.negativeColor(color));
+                textView.setBackgroundColor(intent.getIntExtra(EXTRA_COLOR, Color.WHITE));
             }
         }
 

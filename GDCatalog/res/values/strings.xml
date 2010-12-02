@@ -26,6 +26,7 @@
     <string name="xml_item_label">XML items</string>
     <string name="tweaked_item_view_label">Tweaked itemviews</string>
     <string name="segmented_label">SegmentedBar demo</string>
+    <string name="quick_action_label">QuickAction demo</string>
     
     <!-- String used in the SegmentedActivity -->
     <string name="segment_1">Jeff</string>

@@ -36,4 +36,6 @@
     
     <dimen name="gd_action_bar_height">45dp</dimen>
     
+    <dimen name="gd_arrow_offset">5dp</dimen>
+    
 </resources>

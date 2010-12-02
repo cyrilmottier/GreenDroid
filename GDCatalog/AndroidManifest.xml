@@ -61,6 +61,10 @@
         	android:name=".TabbedActionBarActivity" />
         <activity
         	android:name=".TabbedActionBarActivity$FakeActivity" />
+        	
+        <activity
+        	android:name=".QuickActionActivity"
+        	android:label="@string/quick_action_label" />
 
     </application>
     

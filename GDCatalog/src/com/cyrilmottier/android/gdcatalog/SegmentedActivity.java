@@ -18,14 +18,11 @@ package com.cyrilmottier.android.gdcatalog;
 import greendroid.app.GDActivity;
 import greendroid.widget.SegmentedAdapter;
 import greendroid.widget.SegmentedHost;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.cyrilmottier.android.gdcatalog.util.ColorUtils;
 
 public class SegmentedActivity extends GDActivity {
 
@@ -57,16 +54,8 @@ public class SegmentedActivity extends GDActivity {
 
         @Override
         public View getView(int position, ViewGroup parent) {
-
             TextView textView = (TextView) getLayoutInflater().inflate(R.layout.text, parent, false);
-
-            final int color = getColor(mReverse ? ((getCount() - 1) - position) : position);
-            textView.setBackgroundColor(color);
-            textView.setTextColor(ColorUtils.negativeColor(color));
-            // It's not necessary to compute the "reversed" position as the
-            // getSegmentTitle will do it automatically
             textView.setText(getSegmentTitle(position));
-
             return textView;
         }
 
@@ -90,20 +79,6 @@ public class SegmentedActivity extends GDActivity {
             }
 
             return null;
-        }
-
-        private int getColor(int position) {
-            switch (position) {
-                case 0:
-                    return Color.RED;
-                case 1:
-                    return Color.GREEN;
-                case 2:
-                    return Color.BLUE;
-                case 3:
-                    return Color.CYAN;
-            }
-            return Color.TRANSPARENT;
         }
     }
 

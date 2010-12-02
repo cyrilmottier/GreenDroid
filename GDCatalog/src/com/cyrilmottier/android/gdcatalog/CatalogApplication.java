@@ -23,7 +23,5 @@ public class CatalogApplication extends GDApplication {
     public Class<?> getHomeActivityClass() {
         return CatalogActivity.class;
     }
-    
-    
 
 }

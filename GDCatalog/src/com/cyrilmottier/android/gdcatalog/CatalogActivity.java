@@ -31,7 +31,7 @@ public class CatalogActivity extends GDActivity {
     private ListView mListView;
     private Class<?>[] mDemoClasses = {
             BasicItemActivity.class, XmlItemActivity.class, TweakedItemViewActivity.class, SegmentedActivity.class,
-            ActionBarActivity.class
+            ActionBarActivity.class, QuickActionActivity.class
     };
 
     public CatalogActivity() {
@@ -50,6 +50,7 @@ public class CatalogActivity extends GDActivity {
         adapter.add(new TextItem("Tweaked item cell"));
         adapter.add(new TextItem("SegmentedBar"));
         adapter.add(new TextItem("ActionBarActivity"));
+        adapter.add(new TextItem("QuickActionActivity"));
         
         mListView = (ListView) findViewById(android.R.id.list);
         mListView.setAdapter(adapter);

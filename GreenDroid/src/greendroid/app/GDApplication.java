@@ -32,7 +32,7 @@ public class GDApplication extends Application {
      * is the main entrance point of your application. This is usually where the
      * dashboard/general menu is displayed.
      * 
-     * @return The Class of the home Activity
+     * @return The Class of the home {@link Activity}
      */
     public Class<?> getHomeActivityClass() {
         return null;
@@ -42,8 +42,8 @@ public class GDApplication extends Application {
      * Each application may have an "application intent" which will be used when
      * the user clicked on the application button.
      * 
-     * @return The main application Intent (may be null if you don't want to use
-     *         the main application Intent feature)
+     * @return The main application {@link Intent} (may be null if you don't
+     *         want to use the main application {@link Intent} feature)
      */
     public Intent getMainApplicationIntent() {
         return null;
