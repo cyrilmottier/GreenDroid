@@ -257,7 +257,7 @@ public class GDActivity extends Activity implements ActionBarActivity {
                 switch (mActionBarType) {
                     case Normal:
                         final Class<?> klass = app.getHomeActivityClass();
-                        if (klass != null && !klass.equals(getClass())) {
+                        if (klass != null && !klass.equals(GDActivity.this.getClass())) {
                             if (Config.GD_INFO_LOGS_ENABLED) {
                                 Log.i(LOG_TAG, "Going back to the home activity");
                             }
