@@ -37,7 +37,7 @@ public class ActionBar extends LinearLayout {
 
     private static final String LOG_TAG = ActionBar.class.getSimpleName();
 
-    private static final int MAX_ITEMS_COUNT = 3;
+    private static int MAX_ITEMS_COUNT = 3;
 
     public enum Type {
         Normal, Dashboard
@@ -163,6 +163,10 @@ public class ActionBar extends LinearLayout {
         if (mTitleView != null) {
             mTitleView.setText(title);
         }
+    }
+
+    public void setMaxItemsCount(int maxItemsCount) {
+        MAX_ITEMS_COUNT = maxItemsCount;
     }
 
     public void addItem(ActionBarItem.Type actionBarItemType) {
