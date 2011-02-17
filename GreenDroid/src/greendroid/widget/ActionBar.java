@@ -165,8 +165,10 @@ public class ActionBar extends LinearLayout {
         }
     }
 
-    public void addItem(ActionBarItem.Type actionBarItemType) {
-        addItem(ActionBarItem.createWithType(this, actionBarItemType));
+    public ActionBarItem addItem(ActionBarItem.Type actionBarItemType) {
+        ActionBarItem item = ActionBarItem.createWithType(this, actionBarItemType);
+        addItem(item);
+        return item;
     }
 
     public void addItem(ActionBarItem item) {
