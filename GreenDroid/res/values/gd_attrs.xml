@@ -157,10 +157,16 @@
         <attr name="type">
             <enum name="normal" value="0" />
             <enum name="dashboard" value="1" />
+            <enum name="empty" value="2" />
         </attr>
         <attr name="dividerDrawable" />
         <attr name="dividerWidth" />
         <attr name="homeDrawable" format="reference" />
+    </declare-styleable>
+    
+	<declare-styleable name="AsyncImageView">
+    	<attr name="defaultSrc" format="reference" />
+        <attr name="url" format="string" />
     </declare-styleable>
 
 </resources>

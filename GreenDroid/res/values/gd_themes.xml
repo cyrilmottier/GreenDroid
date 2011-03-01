@@ -80,7 +80,7 @@
 		<item name="gdActionBarDividerDrawable">@color/gd_action_bar_divider_tint</item>
 		<item name="gdActionBarDividerWidth">1px</item>
 		<item name="gdActionBarApplicationDrawable">@null</item>
-		<item name="gdActionBarHomeDrawable">@drawable/gd_action_bar_home</item>
+		<item name="gdActionBarHomeDrawable">@null</item>
 		
 		<item name="gdActionBarStyle">@style/GreenDroid.Widget.ActionBar</item>
 		<item name="gdActionBarTitleStyle">@style/GreenDroid.Widget.ActionBar.Title</item>

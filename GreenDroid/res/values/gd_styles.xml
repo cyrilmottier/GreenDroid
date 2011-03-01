@@ -159,6 +159,10 @@
     	<item name="type">dashboard</item>
     </style>
     
+    <style name="GreenDroid.Widget.ActionBar.Empty">
+    	<item name="type">empty</item>
+    </style>
+    
     <style name="GreenDroid.Widget.ActionBar.Item">
     	<item name="android:layout_width">@dimen/gd_action_bar_height</item>
         <item name="android:background">?attr/gdActionBarItemBackground</item>

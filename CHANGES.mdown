@@ -1,0 +1,24 @@
+GreenDroid Changes History
+==========================
+
+Changes from March 1, 2011
+-----------------------------
+
+- [NEW] Add of a complete image loader system: AsyncImageView widget, ImageLoader, ImageCache, etc.
+- [FIXED] Class check issue in GDTabActivity
+- [NEW] GDListActivity does not force Normal ActionBar mode anymore
+- [NEW] Add of a new ActionBar.Type: Empty
+    * In this mode, the ActionBar has no "Home" button   
+- [NEW] addActionBarItem() methods now return the newly added ActionBarItem
+- [NEW] ActionBarItem can be "tagged". This makes ActionBarItem click handling way easier
+- [NEW] Add of a removeItem(ActionBarItem) in the ActionBar widget
+- [NEW] Add of a new ActionBarDrawable class that helps the developer easily creating Drawable for ActionBars
+    * The ActionBarDrawable takes a Drawable and automatically fill the shape with the white or black color
+    depending on its current state. It allows you to decrease the size of your project. (GreenDroid's size 
+    has also decreased thanks to this optimization)
+- [NEW] Add of a GDMapActivity
+    * In order to use it you have to replace GreenDroid by the new GreenDroid-GoogleAPI library.
+    GreenDroid-GoogleAPIs already integrates the GreenDroid library.
+- [NEW] Add of a new ActionBarActivity extra parameter: GD\_ACTION\_BAR_VISIBILITY
+    * Enable ActionBar visibility changes from paramters passed via an Intent. This may be useful when using
+    a reusable GDActivity inside as it and inside GDTabActivity in the same app.
