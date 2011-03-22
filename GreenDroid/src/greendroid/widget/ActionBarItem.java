@@ -46,8 +46,19 @@ public abstract class ActionBarItem {
         Add, // A plus sign
         Star, // A star
         SortBySize, // Some bars
-        LocateMyself
-        // A surrounded dot
+        LocateMyself, // A surrounded dot
+        Compass,
+        Help,
+        Info,
+        Settings,
+        List,
+        Trashcan,
+        Eye,
+        AllFriends,
+        Group,
+        Gallery,
+        Slideshow,
+        Mail
     }
 
     protected Drawable mDrawable;
@@ -133,8 +144,8 @@ public abstract class ActionBarItem {
 
     static ActionBarItem createWithType(ActionBar actionBar, ActionBarItem.Type type) {
 
-        int drawableId;
-        int descriptionId;
+        int drawableId = 0;
+        int descriptionId = 0;
 
         switch (type) {
             case GoHome:
@@ -211,7 +222,44 @@ public abstract class ActionBarItem {
                 drawableId = R.drawable.gd_action_bar_locate_myself;
                 descriptionId = R.string.gd_locate_myself;
                 break;
-
+                
+            case Compass:
+            	drawableId = R.drawable.gd_action_bar_compass;
+            	break;
+            	
+            case Help:
+            	drawableId = R.drawable.gd_action_bar_help;
+            	
+            case Info:
+            	drawableId = R.drawable.gd_action_bar_info;
+            	
+            case Settings:
+            	drawableId = R.drawable.gd_action_bar_settings;
+            	
+            case List:
+            	drawableId = R.drawable.gd_action_bar_list;
+            	
+            case Trashcan:
+            	drawableId = R.drawable.gd_action_bar_trashcan;
+            	
+            case Eye:
+            	drawableId = R.drawable.gd_action_bar_eye;
+            	
+            case AllFriends:
+            	drawableId = R.drawable.gd_action_bar_all_friends;
+            	
+            case Group:
+            	drawableId = R.drawable.gd_action_bar_group;
+            	
+            case Gallery:
+            	drawableId = R.drawable.gd_action_bar_gallery;
+            	
+            case Slideshow:
+            	drawableId = R.drawable.gd_action_bar_slideshow;
+            	
+            case Mail:
+            	drawableId = R.drawable.gd_action_bar_mail;
+            	
             default:
                 // Do nothing but return null
                 return null;

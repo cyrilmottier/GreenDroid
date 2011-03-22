@@ -26,9 +26,9 @@ In order to use GreenDroid you have to do the following steps:
 
 1. Download the GreenDroid library on your computer with a simple: `git clone http://github.com/cyrilmottier/GreenDroid.git`.
    As usual, Git will clone the GreenDroid repository and create a folder GreenDroid that contains a 3 folders:
-   * GreenDroid: the core library. This is the code taht will be mostly linked to your code
-   * GreenDroid-GoogleAPIs: extension to GreenDroid including Google APIs related features (GDMapActivity for instance)
-   * GDCatalog: the demonstration application. This project contains a lot of snippet od code showing you how to use GreenDroid.
+   * GreenDroid: the core library. This is the code that will be mostly linked to your code
+   * GreenDroid-GoogleAPIs: GreenDroid's extension including Google APIs related features (GDMapActivity for instance)
+   * GDCatalog: the demonstration application. This project contains a lot of snippet of code showing you how to use GreenDroid.
 
 2. Since [May 2010][adt_history], the ADT plugin added an amazing new feature: the ability to work with library projects.
    Using GreenDroid consists on applying the GreenDroid project as a library to your application. A complete description on how

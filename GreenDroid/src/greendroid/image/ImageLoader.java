@@ -63,7 +63,7 @@ public class ImageLoader {
     
     private static ImageCache sImageCache;
     private static ExecutorService sExecutor;
-    private static BitmapFactory.Options sOptions;
+    private static BitmapFactory.Options sDefaultOptions;
 
     public ImageLoader(Context context) {
         if (sImageCache == null) {
@@ -72,12 +72,12 @@ public class ImageLoader {
         if (sExecutor == null) {
             sExecutor = GDUtils.getExecutor(context);
         }
-        if (sOptions == null) {
-            sOptions = new BitmapFactory.Options();
-            sOptions.inDither = true;
-            sOptions.inScaled = true;
-            sOptions.inDensity = DisplayMetrics.DENSITY_MEDIUM;
-            sOptions.inTargetDensity = context.getResources().getDisplayMetrics().densityDpi;
+        if (sDefaultOptions == null) {
+        	sDefaultOptions = new BitmapFactory.Options();
+        	sDefaultOptions.inDither = true;
+        	sDefaultOptions.inScaled = true;
+        	sDefaultOptions.inDensity = DisplayMetrics.DENSITY_MEDIUM;
+        	sDefaultOptions.inTargetDensity = context.getResources().getDisplayMetrics().densityDpi;
         }
     }
 
@@ -86,7 +86,11 @@ public class ImageLoader {
     }
 
     public Future<?> loadImage(String url, ImageLoaderCallback callback, ImageProcessor bitmapProcessor) {
-        return sExecutor.submit(new ImageFetcher(url, callback, bitmapProcessor));
+        return loadImage(url, callback, bitmapProcessor, null);
+    }
+    
+    public Future<?> loadImage(String url, ImageLoaderCallback callback, ImageProcessor bitmapProcessor, BitmapFactory.Options options) {
+        return sExecutor.submit(new ImageFetcher(url, callback, bitmapProcessor, options));
     }
 
     private class ImageFetcher implements Runnable {
@@ -94,11 +98,13 @@ public class ImageLoader {
         private String mUrl;
         private ImageHandler mHandler;
         private ImageProcessor mBitmapProcessor;
+        private BitmapFactory.Options mOptions;
 
-        public ImageFetcher(String url, ImageLoaderCallback callback, ImageProcessor bitmapProcessor) {
+        public ImageFetcher(String url, ImageLoaderCallback callback, ImageProcessor bitmapProcessor, BitmapFactory.Options options) {
             mUrl = url;
             mHandler = new ImageHandler(url, callback);
             mBitmapProcessor = bitmapProcessor;
+            mOptions = options;
         }
 
         public void run() {
@@ -118,7 +124,7 @@ public class ImageLoader {
                 }
 
                 // TODO Cyril: Use a AndroidHttpClient?
-                bitmap = BitmapFactory.decodeStream(new URL(mUrl).openStream(), null, sOptions);
+                bitmap = BitmapFactory.decodeStream(new URL(mUrl).openStream(), null, (mOptions == null) ? sDefaultOptions : mOptions);
 
                 if (mBitmapProcessor != null && bitmap != null) {
                     final Bitmap processedBitmap = mBitmapProcessor.processImage(bitmap);
@@ -132,6 +138,7 @@ public class ImageLoader {
                 if (Config.GD_ERROR_LOGS_ENABLED) {
                     Log.e(LOG_TAG, "Error while fetching image", e);
                 }
+                throwable = e;
             }
 
             if (bitmap == null) {

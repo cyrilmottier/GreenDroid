@@ -8,9 +8,12 @@ import greendroid.util.GDUtils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
@@ -31,284 +34,418 @@ import com.cyrilmottier.android.greendroid.R;
  * </p>
  * <p>
  * {@link AsyncImageView} may be extremely useful in {@link ListView}'s row. To
- * prevent your {@link AsyncImageView} from downloading while scrolling or flinging
- * it is a good idea to pause it using {@link #setPaused(boolean)} method. Once
- * the scrolling/flinging is over, <em>un-pause</em> your {@link AsyncImageView}s
- * using <code>setPaused(false)</code>
+ * prevent your {@link AsyncImageView} from downloading while scrolling or
+ * flinging it is a good idea to pause it using {@link #setPaused(boolean)}
+ * method. Once the scrolling/flinging is over, <em>un-pause</em> your
+ * {@link AsyncImageView}s using <code>setPaused(false)</code>
  * </p>
  * 
  * @author Cyril Mottier
  */
 public class AsyncImageView extends ImageView implements ImageRequestCallback {
 
-    private static final String LOG_TAG = AsyncImageView.class.getSimpleName();
+	private static final String LOG_TAG = AsyncImageView.class.getSimpleName();
 
-    /**
-     * Clients may listen to {@link AsyncImageView}Êchanges using a
-     * {@link OnImageViewLoadListener}.
-     * 
-     * @author Cyril Mottier
-     */
-    public static interface OnImageViewLoadListener {
+	/**
+	 * Clients may listen to {@link AsyncImageView} changes using a
+	 * {@link OnImageViewLoadListener}.
+	 * 
+	 * @author Cyril Mottier
+	 */
+	public static interface OnImageViewLoadListener {
 
-        void onLoadingStarted(AsyncImageView imageView);
+		/**
+		 * Called when the image started to load
+		 * 
+		 * @param imageView
+		 *            The AsyncImageView that started loading
+		 */
+		void onLoadingStarted(AsyncImageView imageView);
 
-        void onLoadingEnded(AsyncImageView imageView, Bitmap image);
+		/**
+		 * Called when the image ended to load that is when the image has been
+		 * downloaded and is ready to be displayed on screen
+		 * 
+		 * @param imageView
+		 *            The AsyncImageView that ended loading
+		 */
+		void onLoadingEnded(AsyncImageView imageView, Bitmap image);
 
-        void onLoadingFailed(AsyncImageView imageView, Throwable throwable);
-    }
-    
-    private static final int IMAGE_SOURCE_UNKNOWN = -1;
-    private static final int IMAGE_SOURCE_RESOURCE = 0;
-    private static final int IMAGE_SOURCE_DRAWABLE = 1;
-    private static final int IMAGE_SOURCE_BITMAP = 2;
+		/**
+		 * Called when the image loading failed
+		 * 
+		 * @param imageView
+		 *            The AsyncImageView that failed to load
+		 */
+		void onLoadingFailed(AsyncImageView imageView, Throwable throwable);
+	}
 
-    private int mImageSource;
-    private Bitmap mDefaultBitmap;
-    private Drawable mDefaultDrawable;
-    private int mDefaultResId;
+	private static final int IMAGE_SOURCE_UNKNOWN = -1;
+	private static final int IMAGE_SOURCE_RESOURCE = 0;
+	private static final int IMAGE_SOURCE_DRAWABLE = 1;
+	private static final int IMAGE_SOURCE_BITMAP = 2;
 
-    private String mUrl;
-    private ImageRequest mRequest;
-    private boolean mPaused;
+	private int mImageSource;
+	private Bitmap mDefaultBitmap;
+	private Drawable mDefaultDrawable;
+	private int mDefaultResId;
 
-    private Bitmap mBitmap;
-    private OnImageViewLoadListener mOnImageViewLoadListener;
-    private ImageProcessor mImageProcessor;
+	private String mUrl;
+	private ImageRequest mRequest;
+	private boolean mPaused;
 
-    public AsyncImageView(Context context) {
-        this(context, null);
-    }
+	private Bitmap mBitmap;
+	private OnImageViewLoadListener mOnImageViewLoadListener;
+	private ImageProcessor mImageProcessor;
+	private BitmapFactory.Options mOptions;
 
-    public AsyncImageView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
+	public AsyncImageView(Context context) {
+		this(context, null);
+	}
 
-    public AsyncImageView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+	public AsyncImageView(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
 
-        initializeDefaultValues();
+	public AsyncImageView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AsyncImageView);
+		initializeDefaultValues();
 
-        setUrl(a.getString(R.styleable.AsyncImageView_url));
+		TypedArray a = context.obtainStyledAttributes(attrs,
+				R.styleable.AsyncImageView);
 
-        Drawable d = a.getDrawable(R.styleable.AsyncImageView_defaultSrc);
-        if (d != null) {
-            setDefaultImageDrawable(d);
-        }
+		setUrl(a.getString(R.styleable.AsyncImageView_url));
 
-        a.recycle();
-    }
+		Drawable d = a.getDrawable(R.styleable.AsyncImageView_defaultSrc);
+		if (d != null) {
+			setDefaultImageDrawable(d);
+		}
+		
+		final int inDensity = a.getInt(R.styleable.AsyncImageView_inDensity, -1);
+		if (inDensity != -1) {
+			setInDensity(inDensity);
+		}
 
-    private void initializeDefaultValues() {
-        mImageSource = IMAGE_SOURCE_UNKNOWN;
-        mPaused = false;
-    }
+		a.recycle();
+	}
 
-    public boolean isLoading() {
-        return mRequest != null;
-    }
+	private void initializeDefaultValues() {
+		mImageSource = IMAGE_SOURCE_UNKNOWN;
+		mPaused = false;
+	}
 
-    public boolean isLoaded() {
-        return mRequest == null && mBitmap != null;
-    }
+	/**
+	 * Return true if this AsyncImageView is currently loading an image.
+	 * 
+	 * @return true if this AsyncImageView is currently loading an image.
+	 *         Otherwise it returns false.
+	 */
+	public boolean isLoading() {
+		return mRequest != null;
+	}
 
-    public void setPaused(boolean paused) {
-        if (mPaused != paused) {
-            mPaused = paused;
-            if (!paused) {
-                reload();
-            }
-        }
-    }
-    
-    public void reload() {
-        reload(false);
-    }
+	/**
+	 * Return true if the displayed image has been correctly loaded.
+	 * 
+	 * @return true if this AsyncImageView succeed to load the image at the
+	 *         given url.
+	 */
+	public boolean isLoaded() {
+		return mRequest == null && mBitmap != null;
+	}
 
-    public void reload(boolean force) {
-        if (mRequest == null && mUrl != null) {
+	/**
+	 * Pause this AsyncImageView preventing it from downloading the image. The
+	 * download process will start back once setPaused(false) is called.
+	 * 
+	 * @param paused
+	 */
+	public void setPaused(boolean paused) {
+		if (mPaused != paused) {
+			mPaused = paused;
+			if (!paused) {
+				reload();
+			}
+		}
+	}
+	
+	/**
+	 * Helper to {@link #setBitmapFactoryOptions(Options)} that simply
+	 * sets the inDensity for loaded image.
+	 * 
+	 * @param inDensity
+	 * @see AsyncImageView#setBitmapFactoryOptions(Options)
+	 */
+	public void setInDensity(int inDensity) {
+		if (mOptions == null) {
+			mOptions = new BitmapFactory.Options();
+			mOptions.inDither = true;
+			mOptions.inScaled = true;
+			mOptions.inTargetDensity = getContext().getResources().getDisplayMetrics().densityDpi;
+		}
+		
+		mOptions.inDensity = inDensity;
+	}
 
-            // Prior downloading the image ... let's look in a cache !
-            // TODO cyril: This is a synchronous call ... make it asynchronous
-            mBitmap = null;
-            if (!force) {
-                mBitmap = GDUtils.getImageCache(getContext()).get(mUrl);
-            }
+	/**
+	 * Assign a {@link Options} object to this {@link AsyncImageView}. Those
+	 * options are used internally by the {@link AsyncImageView} when decoding
+	 * the image. This may be used to prevent the default behavior that loads
+	 * all images as mdpi density.
+	 * 
+	 * @param options
+	 */
+	public void setOptions(BitmapFactory.Options options) {
+		mOptions = options;
+	}
 
-            if (mBitmap != null) {
-                setImageBitmap(mBitmap);
-                return;
-            }
+	/**
+	 * Reload the image pointed by the given URL
+	 */
+	public void reload() {
+		reload(false);
+	}
 
-            if (Config.GD_INFO_LOGS_ENABLED) {
-                Log.i(LOG_TAG, "Cache miss. Starting to load the image at the given URL");
-            }
+	/**
+	 * Reload the image pointed by the given URL. You may want to force
+	 * reloading by setting the force parameter to true.
+	 * 
+	 * @param force
+	 *            if true the AsyncImageView won't look into the
+	 *            application-wide cache.
+	 */
+	public void reload(boolean force) {
+		if (mRequest == null && mUrl != null) {
 
-            setDefaultImage();
-            mRequest = new ImageRequest(mUrl, this, mImageProcessor);
-            mRequest.load(getContext());
-        }
-    }
+			// Prior downloading the image ... let's look in a cache !
+			// TODO cyril: This is a synchronous call ... make it asynchronous
+			mBitmap = null;
+			if (!force) {
+				mBitmap = GDUtils.getImageCache(getContext()).get(mUrl);
+			}
 
-    public void stopLoading() {
-        if (mRequest != null) {
-            mRequest.cancel();
-            mRequest = null;
-        }
-    }
+			if (mBitmap != null) {
+				setImageBitmap(mBitmap);
+				return;
+			}
 
-    public void setOnImageViewLoadListener(OnImageViewLoadListener listener) {
-        mOnImageViewLoadListener = listener;
-    }
+			if (Config.GD_INFO_LOGS_ENABLED) {
+				Log.i(LOG_TAG,
+						"Cache miss. Starting to load the image at the given URL");
+			}
 
-    public void setUrl(String url) {
+			setDefaultImage();
+			mRequest = new ImageRequest(mUrl, this, mImageProcessor, mOptions);
+			mRequest.load(getContext());
+		}
+	}
 
-        // Check the url has changed
-        if (mBitmap != null && url != null && url.equals(mUrl)) {
-            return;
-        }
+	/**
+	 * Force the loading to be stopped.
+	 */
+	public void stopLoading() {
+		if (mRequest != null) {
+			mRequest.cancel();
+			mRequest = null;
+		}
+	}
 
-        stopLoading();
-        mUrl = url;
+	/**
+	 * Register a callback to be invoked when an event occured for this
+	 * AsyncImageView.
+	 * 
+	 * @param listener
+	 *            The listener that will be notified
+	 */
+	public void setOnImageViewLoadListener(OnImageViewLoadListener listener) {
+		mOnImageViewLoadListener = listener;
+	}
 
-        // Setting the url to an empty string force the displayed image to the
-        // default image
-        if (mUrl == null || mUrl.length() == 0) {
-            mBitmap = null;
-            setDefaultImage();
-        } else {
-            if (!mPaused) {
-                reload();
-            } else {
-                // We're paused: let's look in a synchronous and efficient cache
-                // prior using the default image.
-                mBitmap = GDUtils.getImageCache(getContext()).get(mUrl);
-                if (mBitmap != null) {
-                    setImageBitmap(mBitmap);
-                    return;
-                } else {
-                    setDefaultImage();
-                }
-            }
-        }
-    }
+	/**
+	 * Set the url of the image that will be used as the content of this
+	 * AsyncImageView. The given may be null in order to display the default
+	 * image. Please note the url may be a local url. For instance, you can
+	 * asynchronously load images from the disk memory is the url scheme is
+	 * <code>file://</code>
+	 * 
+	 * @param url
+	 *            The url of the image to set. Pass null to force the
+	 *            AsyncImageView to display the default image
+	 */
+	public void setUrl(String url) {
 
-    public void setDefaultImageBitmap(Bitmap bitmap) {
-        mImageSource = IMAGE_SOURCE_BITMAP;
-        mDefaultBitmap = bitmap;
-        setDefaultImage();
-    }
+		// Check the url has changed
+		if (mBitmap != null && url != null && url.equals(mUrl)) {
+			return;
+		}
 
-    public void setDefaultImageDrawable(Drawable drawable) {
-        mImageSource = IMAGE_SOURCE_DRAWABLE;
-        mDefaultDrawable = drawable;
-        setDefaultImage();
-    }
+		stopLoading();
+		mUrl = url;
 
-    public void setDefaultImageResource(int resId) {
-        mImageSource = IMAGE_SOURCE_RESOURCE;
-        mDefaultResId = resId;
-        setDefaultImage();
-    }
+		// Setting the url to an empty string force the displayed image to the
+		// default image
+		if (TextUtils.isEmpty(mUrl)) {
+			mBitmap = null;
+			setDefaultImage();
+		} else {
+			if (!mPaused) {
+				reload();
+			} else {
+				// We're paused: let's look in a synchronous and efficient cache
+				// prior using the default image.
+				mBitmap = GDUtils.getImageCache(getContext()).get(mUrl);
+				if (mBitmap != null) {
+					setImageBitmap(mBitmap);
+					return;
+				} else {
+					setDefaultImage();
+				}
+			}
+		}
+	}
 
-    public void setImageProcessor(ImageProcessor imageProcessor) {
-        mImageProcessor = imageProcessor;
-    }
+	/**
+	 * Set the default bitmap as the content of this AsyncImageView
+	 * 
+	 * @param bitmap
+	 *            The bitmap to set
+	 */
+	public void setDefaultImageBitmap(Bitmap bitmap) {
+		mImageSource = IMAGE_SOURCE_BITMAP;
+		mDefaultBitmap = bitmap;
+		setDefaultImage();
+	}
 
-    private void setDefaultImage() {
-        if (mBitmap == null) {
-            switch (mImageSource) {
-                case IMAGE_SOURCE_BITMAP:
-                    setImageBitmap(mDefaultBitmap);
-                    break;
-                case IMAGE_SOURCE_DRAWABLE:
-                    setImageDrawable(mDefaultDrawable);
-                    break;
-                case IMAGE_SOURCE_RESOURCE:
-                    setImageResource(mDefaultResId);
-                    break;
-                default:
-                    setImageDrawable(null);
-                    break;
-            }
-        }
-    }
+	/**
+	 * Set the default drawable as the content of this AsyncImageView
+	 * 
+	 * @param drawable
+	 *            The drawable to set
+	 */
+	public void setDefaultImageDrawable(Drawable drawable) {
+		mImageSource = IMAGE_SOURCE_DRAWABLE;
+		mDefaultDrawable = drawable;
+		setDefaultImage();
+	}
 
-    static class SavedState extends BaseSavedState {
-        String url;
+	/**
+	 * Set the default resource as the content of this AsyncImageView
+	 * 
+	 * @param resId
+	 *            The resource identifier to set
+	 */
+	public void setDefaultImageResource(int resId) {
+		mImageSource = IMAGE_SOURCE_RESOURCE;
+		mDefaultResId = resId;
+		setDefaultImage();
+	}
 
-        SavedState(Parcelable superState) {
-            super(superState);
-        }
+	/**
+	 * Set an image processor to this AsyncImageView. An ImageProcessor may be
+	 * used in order to work on the retrieved Bitmap prior displaying it on
+	 * screen.
+	 * 
+	 * @param imageProcessor
+	 *            The {@link ImageProcessor} to set
+	 * @see ImageProcessor
+	 */
+	public void setImageProcessor(ImageProcessor imageProcessor) {
+		mImageProcessor = imageProcessor;
+	}
 
-        private SavedState(Parcel in) {
-            super(in);
-            url = in.readString();
-        }
+	private void setDefaultImage() {
+		if (mBitmap == null) {
+			switch (mImageSource) {
+			case IMAGE_SOURCE_BITMAP:
+				setImageBitmap(mDefaultBitmap);
+				break;
+			case IMAGE_SOURCE_DRAWABLE:
+				setImageDrawable(mDefaultDrawable);
+				break;
+			case IMAGE_SOURCE_RESOURCE:
+				setImageResource(mDefaultResId);
+				break;
+			default:
+				setImageDrawable(null);
+				break;
+			}
+		}
+	}
 
-        @Override
-        public void writeToParcel(Parcel out, int flags) {
-            super.writeToParcel(out, flags);
-            out.writeString(url);
-        }
+	static class SavedState extends BaseSavedState {
+		String url;
 
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
+		SavedState(Parcelable superState) {
+			super(superState);
+		}
 
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
-    }
+		private SavedState(Parcel in) {
+			super(in);
+			url = in.readString();
+		}
 
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Parcelable superState = super.onSaveInstanceState();
-        SavedState ss = new SavedState(superState);
+		@Override
+		public void writeToParcel(Parcel out, int flags) {
+			super.writeToParcel(out, flags);
+			out.writeString(url);
+		}
 
-        ss.url = mUrl;
+		public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+			public SavedState createFromParcel(Parcel in) {
+				return new SavedState(in);
+			}
 
-        return ss;
-    }
+			public SavedState[] newArray(int size) {
+				return new SavedState[size];
+			}
+		};
+	}
 
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-        SavedState ss = (SavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
+	@Override
+	public Parcelable onSaveInstanceState() {
+		Parcelable superState = super.onSaveInstanceState();
+		SavedState ss = new SavedState(superState);
 
-        setUrl(ss.url);
-    }
+		ss.url = mUrl;
 
-    public void onImageRequestStarted(ImageRequest request) {
-        if (mOnImageViewLoadListener != null) {
-            mOnImageViewLoadListener.onLoadingStarted(this);
-        }
-    }
+		return ss;
+	}
 
-    public void onImageRequestFailed(ImageRequest request, Throwable throwable) {
-        mRequest = null;
-        if (mOnImageViewLoadListener != null) {
-            mOnImageViewLoadListener.onLoadingFailed(this, throwable);
-        }
-    }
+	@Override
+	public void onRestoreInstanceState(Parcelable state) {
+		SavedState ss = (SavedState) state;
+		super.onRestoreInstanceState(ss.getSuperState());
 
-    public void onImageRequestEnded(ImageRequest request, Bitmap image) {
-        mBitmap = image;
-        setImageBitmap(image);
-        if (mOnImageViewLoadListener != null) {
-            mOnImageViewLoadListener.onLoadingEnded(this, image);
-        }
-        mRequest = null;
-    }
+		setUrl(ss.url);
+	}
 
-    public void onImageRequestCancelled(ImageRequest request) {
-        mRequest = null;
-        if (mOnImageViewLoadListener != null) {
-            mOnImageViewLoadListener.onLoadingFailed(this, null);
-        }
-    }
+	public void onImageRequestStarted(ImageRequest request) {
+		if (mOnImageViewLoadListener != null) {
+			mOnImageViewLoadListener.onLoadingStarted(this);
+		}
+	}
+
+	public void onImageRequestFailed(ImageRequest request, Throwable throwable) {
+		mRequest = null;
+		if (mOnImageViewLoadListener != null) {
+			mOnImageViewLoadListener.onLoadingFailed(this, throwable);
+		}
+	}
+
+	public void onImageRequestEnded(ImageRequest request, Bitmap image) {
+		mBitmap = image;
+		setImageBitmap(image);
+		if (mOnImageViewLoadListener != null) {
+			mOnImageViewLoadListener.onLoadingEnded(this, image);
+		}
+		mRequest = null;
+	}
+
+	public void onImageRequestCancelled(ImageRequest request) {
+		mRequest = null;
+		if (mOnImageViewLoadListener != null) {
+			mOnImageViewLoadListener.onLoadingFailed(this, null);
+		}
+	}
 }

@@ -19,7 +19,7 @@
 
 <resources>
 
-    <style name="SeparatorItemView" parent="GreenDroid.SeparatorItemView">
+    <style name="SeparatorItemView" parent="GreenDroid.Widget.ItemView.SeparatorItemView">
         <item name="android:background">@drawable/separator_bg</item>
     </style>
     

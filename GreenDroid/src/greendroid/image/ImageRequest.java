@@ -21,6 +21,7 @@ import java.util.concurrent.Future;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * An {@link ImageRequest} may be used to request an image from the network. The
@@ -35,6 +36,9 @@ import android.graphics.Bitmap;
  */
 public class ImageRequest {
 
+    /**
+     * @author Cyril Mottier
+     */
     public static interface ImageRequestCallback {
         void onImageRequestStarted(ImageRequest request);
 
@@ -51,15 +55,21 @@ public class ImageRequest {
     private String mUrl;
     private ImageRequestCallback mCallback;
     private ImageProcessor mBitmapProcessor;
+    private BitmapFactory.Options mOptions;
 
     public ImageRequest(String url, ImageRequestCallback callback) {
         this(url, callback, null);
     }
     
     public ImageRequest(String url, ImageRequestCallback callback, ImageProcessor bitmapProcessor) {
+    	this(url, callback, bitmapProcessor, null);
+    }
+    
+    public ImageRequest(String url, ImageRequestCallback callback, ImageProcessor bitmapProcessor, BitmapFactory.Options options) {
         mUrl = url;
         mCallback = callback;
         mBitmapProcessor = bitmapProcessor;
+        mOptions = options;
     }
 
     public void setImageRequestCallback(ImageRequestCallback callback) {
@@ -75,7 +85,7 @@ public class ImageRequest {
             if (sImageLoader == null) {
                 sImageLoader = new ImageLoader(context);
             }
-            mFuture = sImageLoader.loadImage(mUrl, new InnerCallback(), mBitmapProcessor);
+            mFuture = sImageLoader.loadImage(mUrl, new InnerCallback(), mBitmapProcessor, mOptions);
         }
     }
 
