@@ -32,6 +32,7 @@
 	<string name="gd_edit">Edit</string>
 	<string name="gd_add">Add</string>
 	<string name="gd_star">Star</string>
+	<string name="gd_settings">Settings</string>
 	<string name="gd_sort_by_size">Sort by size</string>
 	<string name="gd_locate_myself">Locate myself</string>
 

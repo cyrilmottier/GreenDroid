@@ -229,37 +229,49 @@ public abstract class ActionBarItem {
             	
             case Help:
             	drawableId = R.drawable.gd_action_bar_help;
-            	
+            	break;
+
             case Info:
             	drawableId = R.drawable.gd_action_bar_info;
-            	
+            	break;
+
             case Settings:
             	drawableId = R.drawable.gd_action_bar_settings;
-            	
+            	descriptionId = R.string.gd_settings;
+            	break;
+
             case List:
             	drawableId = R.drawable.gd_action_bar_list;
+            	break;
             	
             case Trashcan:
             	drawableId = R.drawable.gd_action_bar_trashcan;
-            	
+            	break;
+
             case Eye:
             	drawableId = R.drawable.gd_action_bar_eye;
-            	
+            	break;
+
             case AllFriends:
             	drawableId = R.drawable.gd_action_bar_all_friends;
-            	
+            	break;
+
             case Group:
             	drawableId = R.drawable.gd_action_bar_group;
-            	
+            	break;
+
             case Gallery:
             	drawableId = R.drawable.gd_action_bar_gallery;
-            	
+            	break;
+
             case Slideshow:
             	drawableId = R.drawable.gd_action_bar_slideshow;
-            	
+            	break;
+
             case Mail:
             	drawableId = R.drawable.gd_action_bar_mail;
-            	
+            	break;
+
             default:
                 // Do nothing but return null
                 return null;
