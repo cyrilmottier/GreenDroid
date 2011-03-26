@@ -225,14 +225,17 @@ public abstract class ActionBarItem {
                 
             case Compass:
             	drawableId = R.drawable.gd_action_bar_compass;
+            	descriptionId = R.string.gd_compass;
             	break;
             	
             case Help:
             	drawableId = R.drawable.gd_action_bar_help;
+            	descriptionId = R.string.gd_help;
             	break;
 
             case Info:
             	drawableId = R.drawable.gd_action_bar_info;
+            	descriptionId = R.string.gd_info;
             	break;
 
             case Settings:
@@ -242,34 +245,42 @@ public abstract class ActionBarItem {
 
             case List:
             	drawableId = R.drawable.gd_action_bar_list;
+            	descriptionId = R.string.gd_list;
             	break;
             	
             case Trashcan:
             	drawableId = R.drawable.gd_action_bar_trashcan;
+            	descriptionId = R.string.gd_trashcan;
             	break;
 
             case Eye:
             	drawableId = R.drawable.gd_action_bar_eye;
+            	descriptionId = R.string.gd_eye;
             	break;
 
             case AllFriends:
             	drawableId = R.drawable.gd_action_bar_all_friends;
+            	descriptionId = R.string.gd_all_friends;
             	break;
 
             case Group:
             	drawableId = R.drawable.gd_action_bar_group;
+            	descriptionId = R.string.gd_group;
             	break;
 
             case Gallery:
             	drawableId = R.drawable.gd_action_bar_gallery;
+            	descriptionId = R.string.gd_gallery;
             	break;
 
             case Slideshow:
             	drawableId = R.drawable.gd_action_bar_slideshow;
+            	descriptionId = R.string.gd_slideshow;
             	break;
 
             case Mail:
             	drawableId = R.drawable.gd_action_bar_mail;
+            	descriptionId = R.string.gd_mail;
             	break;
 
             default:

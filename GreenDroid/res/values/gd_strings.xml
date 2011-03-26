@@ -32,8 +32,19 @@
 	<string name="gd_edit">Edit</string>
 	<string name="gd_add">Add</string>
 	<string name="gd_star">Star</string>
-	<string name="gd_settings">Settings</string>
 	<string name="gd_sort_by_size">Sort by size</string>
 	<string name="gd_locate_myself">Locate myself</string>
+	<string name="gd_compass">Compass</string>
+	<string name="gd_help">Help</string>
+	<string name="gd_info">Info</string>
+	<string name="gd_settings">Settings</string>
+	<string name="gd_list">List</string>
+	<string name="gd_trashcan">Delete</string>
+	<string name="gd_eye">See</string>
+	<string name="gd_all_friends">All friends</string>
+	<string name="gd_group">Group</string>
+	<string name="gd_gallery">Gallery</string>
+	<string name="gd_slideshow">Slideshow</string>
+	<string name="gd_mail">Mail</string>
 
 </resources>
