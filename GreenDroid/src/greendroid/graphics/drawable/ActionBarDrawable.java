@@ -66,8 +66,7 @@ public class ActionBarDrawable extends BitmapDrawable {
     protected boolean onStateChange(int[] stateSet) {
         final boolean useAlt = StateSet.stateSetMatches(DrawableStateSet.ENABLED_PRESSED_STATE_SET, stateSet)
                 || StateSet.stateSetMatches(DrawableStateSet.ENABLED_FOCUSED_STATE_SET, stateSet);
-        ColorFilter cf = useAlt ? mAltCf : mNormalCf;
-        setColorFilter(cf);
+        setColorFilter(useAlt ? mAltCf : mNormalCf);
         return true;
     }
 }
