@@ -62,7 +62,7 @@ public class ActionBar extends LinearLayout {
 
     private boolean mMerging = false;
 
-    private String mTitle;
+    private CharSequence mTitle;
     private ActionBar.Type mType;
     private OnActionBarListener mOnActionBarListener;
     private LinkedList<ActionBarItem> mItems;
@@ -113,7 +113,7 @@ public class ActionBar extends LinearLayout {
                 break;
         }
 
-        // HACK cyril: Without this, the onFinishInflate is called twice !?!
+        // HACK Cyril: Without this, the onFinishInflate is called twice !?!
         // This issue is due to a bug when Android inflates a layout with a
         // parent - which is compulsory with a <merge /> tag. I've reported this
         // bug to Romain Guy who fixed it (patch will probably be available in
@@ -143,9 +143,7 @@ public class ActionBar extends LinearLayout {
 
                 case Empty:
                     mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
-                    if (mTitle != null) {
-                        setTitle(mTitle);
-                    }
+                    setTitle(mTitle);
                     break;
 
                 case Normal:
@@ -155,9 +153,7 @@ public class ActionBar extends LinearLayout {
                     mHomeButton.setImageDrawable(mHomeDrawable);
                     mHomeButton.setContentDescription(getContext().getString(R.string.gd_go_home));
                     mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
-                    if (mTitle != null) {
-                        setTitle(mTitle);
-                    }
+                    setTitle(mTitle);
                     break;
 
             }
@@ -169,6 +165,7 @@ public class ActionBar extends LinearLayout {
     }
 
     public void setTitle(CharSequence title) {
+		mTitle = title;
         if (mTitleView != null) {
             mTitleView.setText(title);
         }
@@ -244,12 +241,9 @@ public class ActionBar extends LinearLayout {
         mItems.remove(position);
     }
 
-    /**
-     * @hide TODO cyril: To be tested.
-     */
     public void setType(Type type) {
         if (type != mType) {
-
+        	
             removeAllViews();
 
             int layoutId = 0;
@@ -264,10 +258,9 @@ public class ActionBar extends LinearLayout {
                     layoutId = R.layout.gd_action_bar_normal;
                     break;
             }
-
-            mMerging = true;
+            
+            mType = type;
             LayoutInflater.from(getContext()).inflate(layoutId, this);
-            mMerging = false;
 
             // Reset all items
             LinkedList<ActionBarItem> itemsCopy = new LinkedList<ActionBarItem>(mItems);
