@@ -32,6 +32,8 @@
         android:theme="@style/Theme.GDCatalog"
         android:name=".CatalogApplication">
         
+        <uses-library android:name="com.google.android.maps" />
+        
         <activity android:name=".CatalogActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,6 +63,8 @@
         <activity android:name=".QuickActionActivity" />
         <activity android:name=".SimpleAsyncImageViewActivity" />
 		<activity android:name=".AsyncImageViewListActivity" />
+		
+		<activity android:name=".MapPinMapActivity" />
 
     </application>
     

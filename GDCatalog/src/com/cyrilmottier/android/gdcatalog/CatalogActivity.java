@@ -41,6 +41,7 @@ public class CatalogActivity extends GDListActivity {
         adapter.add(createTextItem(R.string.quick_action_label, QuickActionActivity.class));
         adapter.add(createTextItem(R.string.simple_async_image_view_label, SimpleAsyncImageViewActivity.class));
         adapter.add(createTextItem(R.string.async_image_view_list_view_label, AsyncImageViewListActivity.class));
+        adapter.add(createTextItem(R.string.map_pin_drawable_label, MapPinMapActivity.class));
 
         setListAdapter(adapter);
 

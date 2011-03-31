@@ -18,7 +18,10 @@
 -->
 
 <resources>
-    
+	
+	<!-- Release key is in the p_strings.xml file ignored by Git -->
+	<string name="google_map_api_key_debug">0IgVgWFseCoAyOOEFSXlrEhfjQE99UGBY_sh2CA</string>
+	
     <string name="app_name">GDCatalog</string>
     <string name="app_url">http://github.com/cyrilmottier/GreenDroid</string>
     
@@ -34,6 +37,7 @@
     <string name="quick_action_label">QuickAction</string>
     <string name="simple_async_image_view_label">Simple AsyncImageView</string>
     <string name="async_image_view_list_view_label">AsyncImageView in ListView</string>
+    <string name="map_pin_drawable_label">MapPinDrawable</string>
     
     <string name="about">About</string>
     <string name="license">License</string>

@@ -1,4 +1,10 @@
+## Exclude file used by compilators, interpreters, etc.
 */bin/*
 */gen/*
-*.DS_Store
 *.pyc
+
+## Exclude Mac OS X files
+*.DS_Store
+
+## The following files contain private values
+*/res/values/p_*.xml
