@@ -209,6 +209,10 @@
 		<item name="android:layout_width">fill_parent</item>
 		<item name="android:layout_height">65dp</item>
 	</style>
+	
+	<style name="GreenDroid.Widget.PageIndicator">
+		<item name="dotDrawable">@drawable/gd_page_indicator_dot</item>
+	</style>
 	   
 	   <!-- PopDownMenu -->
 	<style name="GreenDroid.Animation" />

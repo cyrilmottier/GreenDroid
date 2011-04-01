@@ -65,6 +65,8 @@
 		<activity android:name=".AsyncImageViewListActivity" />
 		
 		<activity android:name=".MapPinMapActivity" />
+		<activity android:name=".PagedScrollViewActivity" />
+		<activity android:name=".PagedViewActivity" />
 
     </application>
     

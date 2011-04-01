@@ -99,6 +99,7 @@
 		<item name="gdQuickActionGridStyle">@style/GreenDroid.Widget.QuickAction.Grid</item>
 		<item name="gdQuickActionGridItemStyle">@style/GreenDroid.Widget.QuickAction.Grid.Item</item>
 		
+		<item name="gdPageIndicatorStyle">@style/GreenDroid.Widget.PageIndicator</item>
 	</style>
 	
 	
