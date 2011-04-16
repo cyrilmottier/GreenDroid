@@ -28,12 +28,12 @@
 	<string name="gd_refresh">Neu laden</string>
 	<string name="gd_take_photo">Foto aufnehmen</string>
 	<string name="gd_pick_photo">Foto auswählen</string>
-	<string name="gd_locate">Locate TODO</string>
+	<string name="gd_locate">Lokalisieren</string>
 	<string name="gd_edit">Bearbeiten</string>
 	<string name="gd_add">Hinzufügen</string>
 	<string name="gd_star">Stern</string>
 	<string name="gd_sort_by_size">Nach Größe ordnen</string>
-	<string name="gd_locate_myself">Locate myself TODO</string>
+	<string name="gd_locate_myself">Sich selbst lokalisieren</string>
 	<string name="gd_compass">Kompass</string>
 	<string name="gd_help">Hilfe</string>
 	<string name="gd_info">Info</string>
