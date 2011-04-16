@@ -16,17 +16,19 @@
 package com.cyrilmottier.android.gdcatalog;
 
 import greendroid.app.GDListActivity;
+import greendroid.image.ChainImageProcessor;
 import greendroid.image.ImageProcessor;
+import greendroid.image.MaskImageProcessor;
+import greendroid.image.ScaleImageProcessor;
 import greendroid.widget.AsyncImageView;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.graphics.Paint.Style;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,13 +36,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
 public class AsyncImageViewListActivity extends GDListActivity implements OnScrollListener {
 
-    private static final String BASE_URL_PREFIX = "http://www.cyrilmottier.com/files/greendroid/images/image";
-    private static final String BASE_URL_SUFFIX = ".png";
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +49,12 @@ public class AsyncImageViewListActivity extends GDListActivity implements OnScro
         getListView().setOnScrollListener(this);
     }
 
-    private static class MyAdapter extends BaseAdapter implements ImageProcessor {
+    private static class MyAdapter extends BaseAdapter {
 
+        private static final String BASE_URL_PREFIX = "http://www.cyrilmottier.com/files/greendroid/images/image";
+        private static final String BASE_URL_SUFFIX = ".png";
         private static final StringBuilder BUILDER = new StringBuilder();
 
-        private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        private final Rect mRectSrc = new Rect();
-        private final Rect mRectDest = new Rect();
         private final String mImageForPosition;
 
         static class ViewHolder {
@@ -64,33 +63,57 @@ public class AsyncImageViewListActivity extends GDListActivity implements OnScro
             public StringBuilder textBuilder = new StringBuilder();
         }
 
-        private Bitmap mMask;
-        private int mThumbnailSize;
-        private int mThumbnailRadius;
         private LayoutInflater mInflater;
+        private ImageProcessor mImageProcessor;
 
         public MyAdapter(Context context) {
             mInflater = LayoutInflater.from(context);
-            
             mImageForPosition = context.getString(R.string.image_for_position);
 
-            mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-
-            mThumbnailSize = context.getResources().getDimensionPixelSize(R.dimen.thumbnail_size);
-            mThumbnailRadius = context.getResources().getDimensionPixelSize(R.dimen.thumbnail_radius);
-
-            prepareMask();
+            prepareImageProcessor(context);
         }
 
-        private void prepareMask() {
-            mMask = Bitmap.createBitmap(mThumbnailSize, mThumbnailSize, Bitmap.Config.ARGB_8888);
+        private void prepareImageProcessor(Context context) {
+            
+            final int thumbnailSize = context.getResources().getDimensionPixelSize(R.dimen.thumbnail_size);
+            final int thumbnailRadius = context.getResources().getDimensionPixelSize(R.dimen.thumbnail_radius);
 
-            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setColor(Color.RED);
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-
-            Canvas c = new Canvas(mMask);
-            c.drawRoundRect(new RectF(0, 0, mThumbnailSize, mThumbnailSize), mThumbnailRadius, mThumbnailRadius, paint);
+            if (Math.random() >= 0.5f) {
+                //@formatter:off
+                mImageProcessor = new ChainImageProcessor(
+                        new ScaleImageProcessor(thumbnailSize, thumbnailSize, ScaleType.FIT_XY),
+                        new MaskImageProcessor(thumbnailRadius));
+                //@formatter:on
+            } else {
+                
+                Path path = new Path();
+                path.moveTo(thumbnailRadius, 0);
+                
+                path.lineTo(thumbnailSize - thumbnailRadius, 0);
+                path.lineTo(thumbnailSize, thumbnailRadius);
+                path.lineTo(thumbnailSize, thumbnailSize - thumbnailRadius);
+                path.lineTo(thumbnailSize - thumbnailRadius, thumbnailSize);
+                path.lineTo(thumbnailRadius, thumbnailSize);
+                path.lineTo(0, thumbnailSize - thumbnailRadius);
+                path.lineTo(0, thumbnailRadius);
+                
+                path.close();
+                
+                Bitmap mask = Bitmap.createBitmap(thumbnailSize, thumbnailSize, Config.ARGB_8888);
+                Canvas canvas = new Canvas(mask);
+                
+                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paint.setStyle(Style.FILL_AND_STROKE);
+                paint.setColor(Color.RED);
+                
+                canvas.drawPath(path, paint);
+                
+                //@formatter:off
+                mImageProcessor = new ChainImageProcessor(
+                        new ScaleImageProcessor(thumbnailSize, thumbnailSize, ScaleType.FIT_XY),
+                        new MaskImageProcessor(mask));
+                //@formatter:on
+            }
         }
 
         public int getCount() {
@@ -113,7 +136,7 @@ public class AsyncImageViewListActivity extends GDListActivity implements OnScro
                 convertView = mInflater.inflate(R.layout.image_item_view, parent, false);
                 holder = new ViewHolder();
                 holder.imageView = (AsyncImageView) convertView.findViewById(R.id.async_image);
-                holder.imageView.setImageProcessor(this);
+                holder.imageView.setImageProcessor(mImageProcessor);
                 holder.textView = (TextView) convertView.findViewById(R.id.text);
                 convertView.setTag(holder);
             } else {
@@ -133,18 +156,6 @@ public class AsyncImageViewListActivity extends GDListActivity implements OnScro
             holder.textView.setText(textBuilder);
 
             return convertView;
-        }
-
-        public Bitmap processImage(Bitmap bitmap) {
-            Bitmap result = Bitmap.createBitmap(mThumbnailSize, mThumbnailSize, Bitmap.Config.ARGB_8888);
-            Canvas c = new Canvas(result);
-
-            mRectSrc.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            mRectDest.set(0, 0, mThumbnailSize, mThumbnailSize);
-            c.drawBitmap(bitmap, mRectSrc, mRectDest, null);
-            c.drawBitmap(mMask, 0, 0, mPaint);
-
-            return result;
         }
     }
 
