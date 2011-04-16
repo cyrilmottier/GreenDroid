@@ -28,8 +28,6 @@ public class InfoTabActivity extends GDTabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(R.layout.info);
-        
         final String aboutText =  getString(R.string.about);
         final Intent aboutIntent = new Intent(this, AboutActivity.class);
         aboutIntent.putExtra(ActionBarActivity.GD_ACTION_BAR_VISIBILITY, View.GONE);
@@ -40,6 +38,11 @@ public class InfoTabActivity extends GDTabActivity {
         licenseIntent.putExtra(ActionBarActivity.GD_ACTION_BAR_VISIBILITY, View.GONE);
         licenseIntent.putExtra(WebContentActivity.EXTRA_CONTENT_URL, "file:///android_asset/LICENSE.txt");
         addTab(licenseText, licenseText, licenseIntent);
+    }
+    
+    @Override
+    public int createLayout() {
+        return R.layout.info;
     }
 
     public void onAppUrlClicked(View v) {

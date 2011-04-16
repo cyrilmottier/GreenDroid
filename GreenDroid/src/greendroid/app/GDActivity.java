@@ -247,15 +247,21 @@ public class GDActivity extends Activity implements ActionBarActivity {
     }
 
     public void setActionBarContentView(int resID) {
-        LayoutInflater.from(this).inflate(resID, getContentView());
+        final FrameLayout contentView = getContentView();
+        contentView.removeAllViews();
+        LayoutInflater.from(this).inflate(resID, contentView);
     }
 
     public void setActionBarContentView(View view, LayoutParams params) {
-        getContentView().addView(view, params);
+        final FrameLayout contentView = getContentView();
+        contentView.removeAllViews();
+        contentView.addView(view, params);
     }
 
     public void setActionBarContentView(View view) {
-        getContentView().addView(view);
+        final FrameLayout contentView = getContentView();
+        contentView.removeAllViews();
+        contentView.addView(view);
     }
 
     public boolean onHandleActionBarItemClick(ActionBarItem item, int position) {

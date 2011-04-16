@@ -21,6 +21,7 @@ import android.app.ListActivity;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -38,7 +39,7 @@ public class GDListActivity extends GDActivity {
     private static final String LOG_TAG = GDListActivity.class.getSimpleName();
 
     private ListAdapter mAdapter;
-    private ListView mList;
+    private ListView mListView;
     private View mEmptyView;
 
     private Handler mHandler = new Handler();
@@ -46,10 +47,10 @@ public class GDListActivity extends GDActivity {
 
     private Runnable mRequestFocus = new Runnable() {
         public void run() {
-            mList.focusableViewAvailable(mList);
+            mListView.focusableViewAvailable(mListView);
         }
     };
-    
+
     public GDListActivity() {
         super();
     }
@@ -73,61 +74,75 @@ public class GDListActivity extends GDActivity {
     }
 
     /**
-     * Provide the cursor for the list view.
-     */
-    public void setListAdapter(ListAdapter adapter) {
-        synchronized (this) {
-            ensureLayout();
-            mAdapter = adapter;
-            mList.setAdapter(adapter);
-        }
-    }
-
-    /**
      * Set the currently selected list item to the specified position with the
      * adapter's data
      * 
-     * @param position
+     * @param position The position to select in the managed {@link ListView}
      */
     public void setSelection(int position) {
-        mList.setSelection(position);
+        mListView.setSelection(position);
     }
 
     /**
      * Get the position of the currently selected list item.
+     * 
+     * @return The position of the currently selected {@link ListView} item.
      */
     public int getSelectedItemPosition() {
-        return mList.getSelectedItemPosition();
+        return mListView.getSelectedItemPosition();
     }
 
     /**
-     * Get the cursor row ID of the currently selected list item.
+     * Get the {@link ListAdapter} row ID of the currently selected list item.
+     * 
+     * @return The identifier of the selected {@link ListView} item.
      */
     public long getSelectedItemId() {
-        return mList.getSelectedItemId();
+        return mListView.getSelectedItemId();
     }
 
     /**
-     * Get the activity's list view widget.
+     * Get the activity's {@link ListView} widget.
+     * 
+     * @return The {@link ListView} managed by the current
+     *         {@link GDListActivity}
      */
     public ListView getListView() {
         ensureLayout();
-        return mList;
+        return mListView;
     }
 
     /**
-     * Get the ListAdapter associated with this activity's ListView.
+     * Get the {@link ListAdapter} associated with this activity's
+     * {@link ListView}.
+     * 
+     * @return The {@link ListAdapter} currently associated to the underlying
+     *         {@link ListView}
      */
     public ListAdapter getListAdapter() {
         return mAdapter;
     }
 
+    /**
+     * Provides the Adapter for the ListView handled by this
+     * {@link GDListActivity}
+     * 
+     * @param adapter The {@link ListAdapter} to set.
+     */
+    public void setListAdapter(ListAdapter adapter) {
+        synchronized (this) {
+            ensureLayout();
+            mAdapter = adapter;
+            mListView.setAdapter(adapter);
+        }
+    }
+
     @Override
     public int createLayout() {
         if (Config.GD_INFO_LOGS_ENABLED) {
-            Log.d(LOG_TAG, "No layout specified : creating the default layout");
+            Log.i(LOG_TAG, "No layout specified : creating the default layout");
         }
-        
+
         switch (getActionBarType()) {
             case Dashboard:
                 return R.layout.gd_list_content_dashboard;
@@ -141,7 +156,7 @@ public class GDListActivity extends GDActivity {
 
     @Override
     protected boolean verifyLayout() {
-        return super.verifyLayout() && mList != null;
+        return super.verifyLayout() && mListView != null;
     }
 
     @Override
@@ -149,10 +164,9 @@ public class GDListActivity extends GDActivity {
         super.onPreContentChanged();
 
         mEmptyView = findViewById(android.R.id.empty);
-        mList = (ListView) findViewById(android.R.id.list);
-        if (mList == null) {
-            throw new RuntimeException("Your content must have a ListView whose id attribute is "
-                    + "'android.R.id.list'");
+        mListView = (ListView) findViewById(android.R.id.list);
+        if (mListView == null) {
+            throw new RuntimeException("Your content must have a ListView whose id attribute is " + "'android.R.id.list'");
         }
     }
 
@@ -161,9 +175,9 @@ public class GDListActivity extends GDActivity {
         super.onPostContentChanged();
 
         if (mEmptyView != null) {
-            mList.setEmptyView(mEmptyView);
+            mListView.setEmptyView(mEmptyView);
         }
-        mList.setOnItemClickListener(mOnClickListener);
+        mListView.setOnItemClickListener(mOnItemClickListener);
         if (mFinishedStart) {
             setListAdapter(mAdapter);
         }
@@ -171,7 +185,28 @@ public class GDListActivity extends GDActivity {
         mFinishedStart = true;
     }
 
-    private AdapterView.OnItemClickListener mOnClickListener = new AdapterView.OnItemClickListener() {
+    @Override
+    public void setActionBarContentView(int resID) {
+        throwSetActionBarContentViewException();
+    }
+
+    @Override
+    public void setActionBarContentView(View view, LayoutParams params) {
+        throwSetActionBarContentViewException();
+    }
+
+    @Override
+    public void setActionBarContentView(View view) {
+        throwSetActionBarContentViewException();
+    }
+
+    private void throwSetActionBarContentViewException() {
+        throw new UnsupportedOperationException(
+                "The setActionBarContentView method is not supported for GDListActivity. In order to get a custom layout you must return a layout identifier in createLayout");
+
+    }
+
+    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             onListItemClick((ListView) parent, v, position, id);
         }
