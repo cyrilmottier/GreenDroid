@@ -84,6 +84,17 @@ public class GDExpandableListActivity extends GDActivity implements
     }
     
     /**
+     * Get the activity's expandable list view widget.  This can be used to get the selection,
+     * set the selection, and many other useful functions.
+     * 
+     * @see ExpandableListView
+     */
+    public ExpandableListView getExpandableListView() {
+        ensureLayout();
+        return mList;
+    }
+    
+    /**
      * Get the ExpandableListAdapter associated with this activity's
      * ExpandableListView.
      */
