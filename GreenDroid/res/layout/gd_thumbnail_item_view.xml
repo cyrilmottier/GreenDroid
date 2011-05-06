@@ -24,7 +24,7 @@
 	android:minHeight="?attr/gdItemViewPreferredHeight"
 	android:paddingLeft="?attr/gdItemViewPreferredPaddingLeft">
 	
-	<ImageView
+	<greendroid.widget.AsyncImageView
 		style="?attr/gdThumbnailItemViewStyleThumbnail"
 		android:id="@+id/gd_thumbnail"
 		android:layout_height="?attr/gdItemViewPreferredHeight"

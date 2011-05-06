@@ -138,8 +138,8 @@
 
 	<declare-styleable name="ThumbnailItem">
 		<attr name="thumbnail" format="reference" />
+		<attr name="thumbnailURL" format="string" />
 	</declare-styleable>
-
 
 	<!-- SegmentedBar related attributes -->
 	<declare-styleable name="SegmentedBar">

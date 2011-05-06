@@ -44,6 +44,11 @@ public class ThumbnailItem extends SubtitleItem {
      * The resource ID for the drawable.
      */
     public int drawableId;
+    
+    /**
+     * An optional URL that may be used to retrieve an image
+     */
+    public String drawableURL;
 
     /**
      * @hide
@@ -57,8 +62,19 @@ public class ThumbnailItem extends SubtitleItem {
      * @param drawableId
      */
     public ThumbnailItem(String text, String subtitle, int drawableId) {
+        this(text, subtitle, drawableId, null);
+    }
+    
+    /**
+     * @param text
+     * @param subtitle
+     * @param drawableId
+     * @param drawableURL
+     */
+    public ThumbnailItem(String text, String subtitle, int drawableId, String drawableURL) {
         super(text, subtitle);
         this.drawableId = drawableId;
+        this.drawableURL = drawableURL;
     }
 
     @Override
@@ -73,6 +89,7 @@ public class ThumbnailItem extends SubtitleItem {
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.ThumbnailItem);
         drawableId = a.getResourceId(R.styleable.ThumbnailItem_thumbnail, drawableId);
+        drawableURL = a.getString(R.styleable.ThumbnailItem_thumbnailURL);
         a.recycle();
     }
 
