@@ -173,6 +173,12 @@
 		<item name="android:textColor">?attr/gdActionBarTitleColor</item>
 	</style>
 	
+	<style name="GreenDroid.Widget.TabIndicator" parent="@style/GreenDroid.Widget">
+		<item name="android:layout_height">?attr/gdTabIndicatorHeight</item>
+		<item name="android:textAppearance">?attr/gdTabIndicatorTextAppearance</item>
+		<item name="android:background">?attr/gdTabIndicatorBackground</item>
+	</style>
+	
 	<style name="GreenDroid.Widget.QuickAction" />
 	<style name="GreenDroid.Widget.QuickAction.Bar" />
 	<style name="GreenDroid.Widget.QuickAction.Grid">
