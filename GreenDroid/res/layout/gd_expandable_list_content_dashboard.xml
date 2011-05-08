@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright (C) 2010 Cyril Mottier (http://www.cyrilmottier.com)
+** Copyright (C) 2011 Cyril Mottier (http://www.cyrilmottier.com)
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@
 		applied to a LinearLayout
 	-->
 	<greendroid.widget.ActionBar
+		style="@style/GreenDroid.Widget.ActionBar.Dashboard"
 		android:id="@id/gd_action_bar"
         android:layout_height="@dimen/gd_action_bar_height"
         android:layout_width="fill_parent"
