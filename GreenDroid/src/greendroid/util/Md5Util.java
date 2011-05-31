@@ -30,7 +30,11 @@ public class Md5Util {
         
         sStringBuilder.setLength(0);
         for (int i=0; i<digest.length; i++) {
-            sStringBuilder.append(Integer.toHexString(0xFF & digest[i]));
+        	int b = digest[i] & 255;
+        	if (b < 16) {
+        		sStringBuilder.append('0');
+        	}
+        	sStringBuilder.append(Integer.toHexString(b));
         }
                 
         return sStringBuilder.toString();
