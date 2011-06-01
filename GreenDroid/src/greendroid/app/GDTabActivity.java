@@ -153,7 +153,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
             if (position == OnActionBarListener.HOME_ITEM) {
 
                 final Class<?> klass = getGDApplication().getHomeActivityClass();
-                if (klass != null && !klass.equals(GDTabActivity.class.getClass())) {
+                if (klass != null && !klass.equals(GDTabActivity.this.getClass())) {
                     if (Config.GD_INFO_LOGS_ENABLED) {
                         Log.i(LOG_TAG, "Going back to the home activity");
                     }
