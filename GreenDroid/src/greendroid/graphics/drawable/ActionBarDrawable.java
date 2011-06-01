@@ -16,7 +16,10 @@
 package greendroid.graphics.drawable;
 
 import greendroid.widget.ActionBar;
+import greendroid.widget.ActionBarItem;
+import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.Resources.Theme;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
@@ -24,6 +27,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.StateSet;
+import android.util.TypedValue;
+
+import com.cyrilmottier.android.greendroid.R;
 
 /**
  * A specialized {@link Drawable} that is dedicated to {@link ActionBarItem}s.
@@ -36,25 +42,65 @@ import android.util.StateSet;
  */
 public class ActionBarDrawable extends BitmapDrawable {
 
+    private static final TypedValue sTypedValue = new TypedValue();
+
     private ColorFilter mNormalCf;
     private ColorFilter mAltCf;
-    
+
+    @Deprecated
     public ActionBarDrawable(Resources res, int resId) {
-        this(res, res.getDrawable(resId), Color.WHITE, Color.BLACK);
+        this(res, res.getDrawable(resId));
     }
-    
+
+    @Deprecated
     public ActionBarDrawable(Resources res, Drawable d) {
         this(res, d, Color.WHITE, Color.BLACK);
     }
 
+    @Deprecated
     public ActionBarDrawable(Resources res, int resId, int normalColor, int altColor) {
         this(res, res.getDrawable(resId), normalColor, altColor);
     }
 
+    @Deprecated
     public ActionBarDrawable(Resources res, Drawable d, int normalColor, int altColor) {
         super(res, (d instanceof BitmapDrawable) ? ((BitmapDrawable) d).getBitmap() : null);
         mNormalCf = new LightingColorFilter(Color.BLACK, normalColor);
         mAltCf = new LightingColorFilter(Color.BLACK, altColor);
+    }
+
+    public ActionBarDrawable(Context context, int resId) {
+        this(context, context.getResources().getDrawable(resId));
+    }
+
+    public ActionBarDrawable(Context context, Drawable d) {
+        this(context, d, getColorFromTheme(context, R.attr.gdActionBarItemColorNormal, Color.WHITE),
+                getColorFromTheme(context, R.attr.gdActionBarItemColorAlt, Color.BLACK));
+    }
+
+    public ActionBarDrawable(Context context, int resId, int normalColor, int altColor) {
+        this(context, context.getResources().getDrawable(resId), normalColor, altColor);
+    }
+
+    public ActionBarDrawable(Context context, Drawable d, int normalColor, int altColor) {
+        super(context.getResources(), (d instanceof BitmapDrawable) ? ((BitmapDrawable) d).getBitmap() : null);
+        mNormalCf = new LightingColorFilter(Color.BLACK, normalColor);
+        mAltCf = new LightingColorFilter(Color.BLACK, altColor);
+    }
+
+    private static int getColorFromTheme(Context context, int attr, int defaultColor) {
+        synchronized (sTypedValue) {
+            final TypedValue value = sTypedValue;
+            final Theme theme = context.getTheme();
+            if (theme != null) {
+                theme.resolveAttribute(attr, value, true);
+                if (value.type >= TypedValue.TYPE_FIRST_INT && value.type <= TypedValue.TYPE_LAST_INT) {
+                    return value.data;
+                }
+            }
+
+            return defaultColor;
+        }
     }
 
     @Override

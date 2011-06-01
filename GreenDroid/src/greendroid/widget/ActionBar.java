@@ -92,7 +92,7 @@ public class ActionBar extends LinearLayout {
         mDividerWidth = a.getDimensionPixelSize(R.styleable.ActionBar_dividerWidth, -1);
         mHomeDrawable = a.getDrawable(R.styleable.ActionBar_homeDrawable);
         if (mHomeDrawable == null) {
-            mHomeDrawable = new ActionBarDrawable(getResources(), R.drawable.gd_action_bar_home);
+            mHomeDrawable = new ActionBarDrawable(context, R.drawable.gd_action_bar_home);
         }
 
         int layoutID;

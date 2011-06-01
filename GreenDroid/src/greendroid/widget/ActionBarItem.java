@@ -180,7 +180,7 @@ public abstract class ActionBarItem {
 
             case Refresh:
                 return actionBar.newActionBarItem(LoaderActionBarItem.class)
-                        .setDrawable(new ActionBarDrawable(actionBar.getResources(), R.drawable.gd_action_bar_refresh))
+                        .setDrawable(new ActionBarDrawable(actionBar.getContext(), R.drawable.gd_action_bar_refresh))
                         .setContentDescription(R.string.gd_refresh);
 
             case TakePhoto:
@@ -288,7 +288,7 @@ public abstract class ActionBarItem {
                 return null;
         }
 
-        final Drawable d = new ActionBarDrawable(actionBar.getResources(), drawableId);
+        final Drawable d = new ActionBarDrawable(actionBar.getContext(), drawableId);
 
         return actionBar.newActionBarItem(NormalActionBarItem.class).setDrawable(d)
                 .setContentDescription(descriptionId);

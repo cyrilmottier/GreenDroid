@@ -84,6 +84,8 @@
 	<attr name="gdActionBarDividerWidth" format="dimension" />
 	<attr name="gdActionBarApplicationDrawable" format="reference" /> 
 	<attr name="gdActionBarHomeDrawable" format="reference" />
+	<attr name="gdActionBarItemColorNormal" format="reference|color" />
+	<attr name="gdActionBarItemColorAlt" format="reference|color" />
 
 	<attr name="gdActionBarStyle" format="reference" />
 	<attr name="gdActionBarTitleStyle" format="reference" />
