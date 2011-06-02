@@ -7,8 +7,8 @@ GreenDroid is a development library for the Android platform. It is intented to 
 Keep in mind this is still a work in progress. There are thousands of things to do and I hope I'll have enough time to develop all of the features I have in mind :)
 
 [![](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFQZTft6OI/AAAAAAAAMpY/hAloaii6kRA/s288/gd7.png)](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFQZTft6OI/AAAAAAAAMpY/hAloaii6kRA/s800/gd7.png)
-[![](http://lh5.ggpht.com/_OHO4y8YcQbs/TQFQZWFmWII/AAAAAAAAMpU/MDUQi5mW60o/s288/gd6.png)](http://lh5.ggpht.com/_OHO4y8YcQbs/TQFQZWFmWII/AAAAAAAAMpU/MDUQi5mW60o/s800/gd6.png)
-[![](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFQSXwRv1I/AAAAAAAAMpA/f2XR1qr1KfI/s288/gd1.png)](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFQSXwRv1I/AAAAAAAAMpA/f2XR1qr1KfI/s800/gd1.png)
+[![](https://lh6.googleusercontent.com/-DuebAvhlkYo/Ted7VA4WzoI/AAAAAAAAMvc/fs9IRD4ZtgU/s288/gd8.png)](https://lh6.googleusercontent.com/-DuebAvhlkYo/Ted7VA4WzoI/AAAAAAAAMvc/fs9IRD4ZtgU/s800/gd8.png)
+[![](https://lh6.googleusercontent.com/-oQoXEMJcO0E/Ted7UeGFemI/AAAAAAAAMvY/HpfJVIVE6-4/s288/gd9.png)](https://lh6.googleusercontent.com/-oQoXEMJcO0E/Ted7UeGFemI/AAAAAAAAMvY/HpfJVIVE6-4/s800/gd9.png)
 [![](http://lh6.ggpht.com/_OHO4y8YcQbs/TQFQTfazM2I/AAAAAAAAMpQ/lgPpIKImdZw/s288/gd5.png)](http://lh6.ggpht.com/_OHO4y8YcQbs/TQFQTfazM2I/AAAAAAAAMpQ/lgPpIKImdZw/s800/gd5.png)
 [![](http://lh3.ggpht.com/_OHO4y8YcQbs/TQFQS5hyrKI/AAAAAAAAMpM/4hqL9y_tVgM/s288/gd4.png)](http://lh3.ggpht.com/_OHO4y8YcQbs/TQFQS5hyrKI/AAAAAAAAMpM/4hqL9y_tVgM/s800/gd4.png)
 

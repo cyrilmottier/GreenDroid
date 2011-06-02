@@ -1,5 +1,27 @@
 #GreenDroid Changes History
 
+##Changes from June 2, 2011 (version 0.2)
+
+- [NEW] Add a new `GDExpandableListActivity`. This is the GreenDroid equivalent to a regular `ExpandableListActivity`
+- [NEW] Add of a new theme attribute `gdTabIndicatorStyle` allowing basic `GDTabActivity` tabs styling
+- [NEW] Add of some basic `ImageProcessor`s.
+    * `ScaleImageProcessor` may be used to scale an image from the network prior displaying it
+    * `MaskImageProcessor` masks an image according to a given shape or `Bitmap`
+    * `ChainImageProcessor` sequentially applies `ImageProcessor`s to an image
+- [NEW] Add a new attribute in the style to change the color of all `ActionBarItem`
+    * `gdActionBarItemColorNormal` changes the color of all `ActionBarItem`s in normal mode
+    * `gdActionBarItemColorAlt` changes the color of all `ActionBarItem`s in alternative (pressed/focused) mode
+- [NEW] Add of a `MapPinDrawable` helping developers to easily create colored pins for `MapView`
+    * `MapPinDrawable` is based on the original creation of Roman Nurik for the [Cycle Hire Surgery][cycle_hire_surgery]
+- [NEW] Add of a new `PagedView` widget. A `PagedView` shows items in a 'paged' manner. Pages can be scrolled horizontally by swiping the `View`. The `PagedView` uses a reuse mechanism similar to the one used by the `ListView`. It is usually a good idea to show the user which page is currently on screen. This can be easily done with a `PageIndicator`.
+- [CHANGE] The `ThumbnailItemView` now uses an `AsyncImageView` instead of the regular `ImageView`
+    * This change allow developer to use URLs directly via the `greendroid:thumbnailURL` XML attribute or via the `thumbnailURL` property of the `ThumbnailItem`.
+- [CHANGE] Time related constants are now of type `long` (types previously used was `int`)
+- [CHANGE] Using one of the `setActionBarContentView` more than once was stacking views on top of each other. Starting from now `setActionBarContentView` acts like `setContentView` and remove all subviews prior setting the new one.
+- [FIXED] Using one of the `setActionBarContentView` in `GDListActivity` was buggy. The `setActionBarContentView` methods are helpers that should only be used in `GDActivity` to help developers adding an `ActionBar` to their already existing layouts. If you really want a custom layout in `GDListActivity` you should be using the `createLayout` method.
+- [FIXED] The `GDTabActivity` was not correctly handling clicks on the home button
+- [FIXED] Add missing leading zero for single digit hex values in the `MD5Utils` class
+
 ##Changes from March 22, 2011 (version 0.11)
 
 - [CHANGE] Refactor on some GreenDroid style. Styles related to `ItemView`s are now named `@style/GreenDroid.Widget.ItemView.<The-Item-View>`
@@ -38,3 +60,4 @@
     a reusable `GDActivity` inside a `GDTabActivity`.
     
 [android_assets_studio]: http://j.mp/androidassetstudio
+[cycle_hire_surgery]: http://blog.radioactiveyak.com/2010/10/android-app-surgery-cycle-hire-widget.html
