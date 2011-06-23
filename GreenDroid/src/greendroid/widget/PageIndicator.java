@@ -115,6 +115,9 @@ public class PageIndicator extends View {
         mActiveDot = 0;
         mDotSpacing = 0;
         mDotType = DotType.SINGLE;
+        
+        mExtraState = onCreateDrawableState(1);
+        mergeDrawableStates(mExtraState, SELECTED_STATE_SET);
     }
 
     /**
