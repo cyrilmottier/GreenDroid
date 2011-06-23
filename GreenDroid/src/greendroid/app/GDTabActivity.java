@@ -27,6 +27,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -69,8 +70,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
     public void onPreContentChanged() {
         mActionBarHost = (ActionBarHost) findViewById(R.id.gd_action_bar_host);
         if (mActionBarHost == null) {
-            throw new RuntimeException(
-                    "Your content must have an ActionBarHost whose id attribute is R.id.gd_action_bar_host");
+            throw new RuntimeException("Your content must have an ActionBarHost whose id attribute is R.id.gd_action_bar_host");
         }
         mActionBarHost.getActionBar().setOnActionBarListener(mActionBarListener);
     }
@@ -100,7 +100,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
                 // Do nothing
             }
         }
-        
+
         final int visibility = intent.getIntExtra(ActionBarActivity.GD_ACTION_BAR_VISIBILITY, View.VISIBLE);
         getActionBar().setVisibility(visibility);
     }
@@ -127,7 +127,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
     public ActionBarItem addActionBarItem(ActionBarItem item) {
         return getActionBar().addItem(item);
     }
-    
+
     public ActionBarItem addActionBarItem(ActionBarItem item, int itemId) {
         return getActionBar().addItem(item, itemId);
     }
@@ -135,7 +135,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
     public ActionBarItem addActionBarItem(ActionBarItem.Type actionBarItemType) {
         return getActionBar().addItem(actionBarItemType);
     }
-    
+
     public ActionBarItem addActionBarItem(ActionBarItem.Type actionBarItemType, int itemId) {
         return getActionBar().addItem(actionBarItemType, itemId);
     }
@@ -183,10 +183,9 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
     public void addTab(String tag, CharSequence label, Intent intent) {
         final TabHost host = getTabHost();
 
-        View indicator = createTabIndicator(label);
+        View indicator = createTabIndicator(tag, label, getTabWidget());
         if (indicator == null) {
-            final TextView textIndicator = (TextView) getLayoutInflater().inflate(R.layout.gd_tab_indicator,
-                    getTabWidget(), false);
+            final TextView textIndicator = (TextView) getLayoutInflater().inflate(R.layout.gd_tab_indicator, getTabWidget(), false);
             textIndicator.setText(label);
             indicator = textIndicator;
         }
@@ -194,7 +193,22 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
         host.addTab(host.newTabSpec(tag).setIndicator(indicator).setContent(intent));
     }
 
+    @Deprecated
     protected View createTabIndicator(CharSequence label) {
+        return createTabIndicator(null, label, getTabWidget());
+    }
+
+    /**
+     * Callback allowing client to create their own tabs.
+     * 
+     * @param tag The tag of the tab to create
+     * @param label The label that need to be displayed in the tab
+     * @param parent The parent in which the tab will be added.Please note you
+     *            shouldn't add the newly created/inflated View to the parent.
+     *            GDTabActivity will deal with this automatically.
+     * @return
+     */
+    protected View createTabIndicator(String tag, CharSequence label, ViewGroup parent) {
         return null;
     }
 
