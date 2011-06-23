@@ -128,7 +128,7 @@ public class AsyncImageView extends ImageView implements ImageRequestCallback {
 		initializeDefaultValues();
 
 		TypedArray a = context.obtainStyledAttributes(attrs,
-				R.styleable.AsyncImageView);
+				R.styleable.AsyncImageView, defStyle, 0);
 
 		setUrl(a.getString(R.styleable.AsyncImageView_url));
 
