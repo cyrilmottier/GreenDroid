@@ -64,6 +64,8 @@ public abstract class QuickActionWidget extends PopupWindow {
     private OnQuickActionClickListener mOnQuickActionClickListener;
     private ArrayList<QuickAction> mQuickActions = new ArrayList<QuickAction>();
 
+    private Object anchorTag;
+
     /**
      * Interface that may be used to listen to clicks on quick actions.
      * 
@@ -175,6 +177,24 @@ public abstract class QuickActionWidget extends PopupWindow {
     }
 
     /**
+     * Sets the tag of the widget's anchor
+     * 
+     * @param The tag of the widget's anchor
+     */
+    public void setAnchorTag(final Object anchorTag) {
+        this.anchorTag = anchorTag;
+    }
+
+    /**
+     * Sets the tag of the widget's anchor
+     * 
+     * @return The tag of the widget's anchor
+     */
+    public Object getAnchorTag() {
+        return anchorTag;
+    }
+
+    /**
      * @param listener
      */
     public void setOnQuickActionClickListener(OnQuickActionClickListener listener) {
@@ -239,6 +259,7 @@ public abstract class QuickActionWidget extends PopupWindow {
                     + " setWidgetSpecs()");
         }
 
+        setAnchorTag(anchor.getTag());
         showArrow();
         prepareAnimationStyle();
         showAtLocation(anchor, Gravity.NO_GRAVITY, 0, mPopupY);
