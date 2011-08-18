@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright (C) 2010 Cyril Mottier (http://www.cyrilmottier.com)
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources>
+
+	<string name="gd_go_home">Ana Sayfa</string>
+	<string name="gd_search">Ara</string>
+	<string name="gd_talk">Konuş</string>
+	<string name="gd_compose">Yeni</string>
+	<string name="gd_export">Dışarı Aktar</string>
+	<string name="gd_share">Paylaş</string>
+	<string name="gd_refresh">Yenile</string>
+	<string name="gd_take_photo">Fotoğraf Makinasından</string>
+	<string name="gd_pick_photo">Galeriden</string>
+	<string name="gd_locate">Yerini belirle</string>
+	<string name="gd_edit">Düzenle</string>
+	<string name="gd_add">Ekle</string>
+	<string name="gd_star">Yıldız</string>
+	<string name="gd_sort_by_size">Boyuta göre sırala</string>
+	<string name="gd_locate_myself">Konumumu bul</string>
+	<string name="gd_compass">Pusula</string>
+	<string name="gd_help">Yardım</string>
+	<string name="gd_info">Bilgi</string>
+	<string name="gd_settings">Ayarlar</string>
+	<string name="gd_list">Liste</string>
+	<string name="gd_trashcan">Sil</string>
+	<string name="gd_eye">Bak</string>
+	<string name="gd_all_friends">Tüm arkadaşlar</string>
+	<string name="gd_group">Grup</string>
+	<string name="gd_gallery">Galeri</string>
+	<string name="gd_slideshow">Slide gösterisi</string>
+	<string name="gd_mail">Posta</string>
+
+</resources>
