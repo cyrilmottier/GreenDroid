@@ -23,6 +23,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -64,6 +65,7 @@ public class ImageLoader {
     private static ImageCache sImageCache;
     private static ExecutorService sExecutor;
     private static BitmapFactory.Options sDefaultOptions;
+    private static AssetManager sAssetManager;
 
     public ImageLoader(Context context) {
         if (sImageCache == null) {
@@ -79,6 +81,7 @@ public class ImageLoader {
         	sDefaultOptions.inDensity = DisplayMetrics.DENSITY_MEDIUM;
         	sDefaultOptions.inTargetDensity = context.getResources().getDisplayMetrics().densityDpi;
         }
+        sAssetManager = context.getAssets();
     }
 
     public Future<?> loadImage(String url, ImageLoaderCallback callback) {
@@ -124,8 +127,14 @@ public class ImageLoader {
                 }
 
                 // TODO Cyril: Use a AndroidHttpClient?
-                bitmap = BitmapFactory.decodeStream(new URL(mUrl).openStream(), null, (mOptions == null) ? sDefaultOptions : mOptions);
-
+                if (mUrl.startsWith("file:///android_asset/")) {
+                	String mPath = mUrl.replaceFirst("file:///android_asset/", "");
+                	bitmap = BitmapFactory.decodeStream(sAssetManager.open(mPath));
+                }
+                else {
+                	bitmap = BitmapFactory.decodeStream(new URL(mUrl).openStream(), null, (mOptions == null) ? sDefaultOptions : mOptions);
+                }
+                
                 if (mBitmapProcessor != null && bitmap != null) {
                     final Bitmap processedBitmap = mBitmapProcessor.processImage(bitmap);
                     if (processedBitmap != null) {
