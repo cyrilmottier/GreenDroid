@@ -111,6 +111,12 @@
 	
 	</style>
 	
+	<!-- 
+	   The following themes inherits from the Theme.Light Android base theme. 
+	   They are strict copies of the previous themes which a large source of errors
+	   However, it looks like there are no way to overcome this (multiple inheritance
+	   is not permitted).
+	-->
 	<style name="Theme.GreenDroid.Light" parent="@android:style/Theme.Light">
 	
 		<item name="gdTextAppearance">@style/TextAppearance</item>
@@ -175,6 +181,7 @@
 		<item name="gdActionBarHomeDrawable">@null</item>
 		<item name="gdActionBarItemColorNormal">@android:color/white</item>
 		<item name="gdActionBarItemColorAlt">@android:color/black</item>
+		<item name="gdActionBarMaxItems">3</item>
 
 		<item name="gdActionBarStyle">@style/GreenDroid.Widget.ActionBar</item>
 		<item name="gdActionBarTitleStyle">@style/GreenDroid.Widget.ActionBar.Title</item>
@@ -194,7 +201,7 @@
 		<item name="gdPageIndicatorStyle">@style/GreenDroid.Widget.PageIndicator</item>
 	</style>
 	
-	<style name="Theme.GreenDroid.NoTitleBar.Light" parent="@style/Theme.GreenDroid.Light">
+	<style name="Theme.GreenDroid.Light.NoTitleBar" parent="@style/Theme.GreenDroid.Light">
 	
 		<item name="android:windowContentOverlay">@null</item>
 		<item name="android:windowNoTitle">true</item>
