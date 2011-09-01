@@ -18,6 +18,8 @@ package greendroid.image;
 import greendroid.util.Config;
 import greendroid.util.GDUtils;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -125,15 +127,17 @@ public class ImageLoader {
                 if (TextUtils.isEmpty(mUrl)) {
                     throw new Exception("The given URL cannot be null or empty");
                 }
+                
+                InputStream inputStream = null;
+                
+                if (mUrl.startsWith("file:///android_asset/")) {
+                    inputStream = sAssetManager.open(mUrl.replaceFirst("file:///android_asset/", ""));
+                } else {
+                    inputStream = new URL(mUrl).openStream();
+                }
 
                 // TODO Cyril: Use a AndroidHttpClient?
-                if (mUrl.startsWith("file:///android_asset/")) {
-                	String mPath = mUrl.replaceFirst("file:///android_asset/", "");
-                	bitmap = BitmapFactory.decodeStream(sAssetManager.open(mPath));
-                }
-                else {
-                	bitmap = BitmapFactory.decodeStream(new URL(mUrl).openStream(), null, (mOptions == null) ? sDefaultOptions : mOptions);
-                }
+                bitmap = BitmapFactory.decodeStream(inputStream, null, (mOptions == null) ? sDefaultOptions : mOptions);
                 
                 if (mBitmapProcessor != null && bitmap != null) {
                     final Bitmap processedBitmap = mBitmapProcessor.processImage(bitmap);
