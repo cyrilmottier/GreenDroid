@@ -33,6 +33,7 @@
 	<string name="gd_add">Ajouter</string>
 	<string name="gd_star">Ajouter aux favoris</string>
 	<string name="gd_sort_by_size">Trier par taille</string>
+	<string name="gd_sort_alpha">Trier alphabétiquement</string>
 	<string name="gd_locate_myself">Me localiser</string>
 	<string name="gd_compass">Naviguer</string>
 	<string name="gd_help">Aide</string>

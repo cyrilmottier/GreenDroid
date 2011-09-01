@@ -46,6 +46,7 @@ public abstract class ActionBarItem {
         Add, // A plus sign
         Star, // A star
         SortBySize, // Some bars
+        SortAlphabetically, // A-Z
         LocateMyself, // A surrounded dot
         Compass,
         Help,
@@ -216,6 +217,11 @@ public abstract class ActionBarItem {
             case SortBySize:
                 drawableId = R.drawable.gd_action_bar_sort_by_size;
                 descriptionId = R.string.gd_sort_by_size;
+                break;
+                
+            case SortAlphabetically:
+                drawableId = R.drawable.gd_action_bar_sort_alpha;
+                descriptionId = R.string.gd_sort_alpha;
                 break;
 
             case LocateMyself:
