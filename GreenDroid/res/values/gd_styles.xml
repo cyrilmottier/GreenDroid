@@ -154,6 +154,7 @@
 		<item name="dividerDrawable">?attr/gdActionBarDividerDrawable</item>
 		<item name="dividerWidth">?attr/gdActionBarDividerWidth</item>
 		<item name="homeDrawable">?attr/gdActionBarHomeDrawable</item>
+		<item name="maxItems">?attr/gdActionBarMaxItems</item>
 	</style>
 	
 	<style name="GreenDroid.Widget.ActionBar.Dashboard">

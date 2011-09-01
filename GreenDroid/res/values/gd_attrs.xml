@@ -86,6 +86,7 @@
 	<attr name="gdActionBarHomeDrawable" format="reference" />
 	<attr name="gdActionBarItemColorNormal" format="reference|color" />
 	<attr name="gdActionBarItemColorAlt" format="reference|color" />
+	<attr name="gdActionBarMaxItems" format="integer" />
 
 	<attr name="gdActionBarStyle" format="reference" />
 	<attr name="gdActionBarTitleStyle" format="reference" />
@@ -169,6 +170,7 @@
 		<attr name="dividerDrawable" />
 		<attr name="dividerWidth" />
 		<attr name="homeDrawable" format="reference" />
+		<attr name="maxItems" format="integer" />
 	</declare-styleable>
 	
 	<declare-styleable name="AsyncImageView">

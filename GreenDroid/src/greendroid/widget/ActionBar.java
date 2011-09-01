@@ -35,7 +35,6 @@ import com.cyrilmottier.android.greendroid.R;
 public class ActionBar extends LinearLayout {
 
     public static final int NONE = 0;
-    private static final int MAX_ITEMS_COUNT = 3;
 
     public enum Type {
         Normal, Dashboard, Empty
@@ -70,6 +69,8 @@ public class ActionBar extends LinearLayout {
     private Drawable mDividerDrawable;
     private Drawable mHomeDrawable;
     private int mDividerWidth;
+    
+    private int mMaxItemsCount;
 
     public ActionBar(Context context) {
         this(context, null);
@@ -91,6 +92,7 @@ public class ActionBar extends LinearLayout {
         mDividerDrawable = a.getDrawable(R.styleable.ActionBar_dividerDrawable);
         mDividerWidth = a.getDimensionPixelSize(R.styleable.ActionBar_dividerWidth, -1);
         mHomeDrawable = a.getDrawable(R.styleable.ActionBar_homeDrawable);
+        mMaxItemsCount = a.getInt(R.styleable.ActionBar_maxItems, 3);
         if (mHomeDrawable == null) {
             mHomeDrawable = new ActionBarDrawable(context, R.drawable.gd_action_bar_home);
         }
@@ -185,7 +187,7 @@ public class ActionBar extends LinearLayout {
 
     public ActionBarItem addItem(ActionBarItem item, int itemId) {
 
-        if (mItems.size() >= MAX_ITEMS_COUNT) {
+        if (mItems.size() >= mMaxItemsCount) {
             /*
              * An ActionBar must contain as few items as possible. So let's keep
              * a limit :)

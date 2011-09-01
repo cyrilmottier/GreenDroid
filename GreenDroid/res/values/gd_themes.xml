@@ -83,6 +83,7 @@
 		<item name="gdActionBarHomeDrawable">@null</item>
 		<item name="gdActionBarItemColorNormal">@android:color/white</item>
 		<item name="gdActionBarItemColorAlt">@android:color/black</item>
+		<item name="gdActionBarMaxItems">3</item>
 
 		<item name="gdActionBarStyle">@style/GreenDroid.Widget.ActionBar</item>
 		<item name="gdActionBarTitleStyle">@style/GreenDroid.Widget.ActionBar.Title</item>
