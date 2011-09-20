@@ -1,6 +1,6 @@
 #GreenDroid
  
-GreenDroid is a development library for the Android platform. It is intented to make UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog].
+GreenDroid is a development library for the Android platform. It is intended to make UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog].
 
 [![](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)
 
@@ -35,7 +35,7 @@ In order to use GreenDroid you have to do the following steps:
    to use library projects is given on the [Android documentation website][library_project_doc]. Make sure your
    development environment uses the latest tools and platforms, since older releases of the tools and platforms do not support
    building with library project.
-   * In case you want to use some Google APIs features, make sure you are using the GreenDroid-GoogleAPIs library. GreenDroid-GoogleAPIs is base on GreenDroid. As a result, you don't need to link GreenDroid as an Android library to your project.
+   * In case you want to use some Google APIs features, make sure you are using the GreenDroid-GoogleAPIs library. GreenDroid-GoogleAPIs is based on GreenDroid. As a result, you don't need to link GreenDroid as an Android library to your project.
 
 3. By default, the GreenDroid theme inherits from `@android:style/Theme`. If your project inherits from a different theme, 
    you'll have to modify the GreenDroid library on your own (and do that everytime you are updating GreenDroid as updating 
