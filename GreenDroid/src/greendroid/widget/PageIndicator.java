@@ -376,7 +376,12 @@ public class PageIndicator extends View {
                     if (mDotType == DotType.MULTIPLE || i == mActiveDot) {
                         state = mExtraState;
                     }
+                    // HACK Cyril: The following code prevent the setState call
+                    // from invalidating the View again (which will result in
+                    // calling onDraw over and over again).
+                    d.setCallback(null);
                     d.setState(state);
+                    d.setCallback(this);
                 }
                 d.draw(canvas);
                 canvas.translate(mDotSpacing + d.getIntrinsicWidth(), 0);
