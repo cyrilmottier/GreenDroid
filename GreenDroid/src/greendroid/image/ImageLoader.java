@@ -18,7 +18,6 @@ package greendroid.image;
 import greendroid.util.Config;
 import greendroid.util.GDUtils;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
