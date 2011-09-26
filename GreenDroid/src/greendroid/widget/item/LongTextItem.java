@@ -29,10 +29,18 @@ import com.cyrilmottier.android.greendroid.R;
  */
 public class LongTextItem extends TextItem {
 
+    /**
+     * @hide
+     */
     public LongTextItem() {
         this(null);
     }
 
+    /**
+     * Create a new LongTextItem
+     * 
+     * @param text The text being used in this LongTextItem
+     */
     public LongTextItem(String text) {
         super(text);
     }

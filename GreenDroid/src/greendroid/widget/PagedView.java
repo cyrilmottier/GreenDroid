@@ -35,19 +35,18 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ListView;
 import android.widget.Scroller;
 
 /**
  * <p>
- * A {@link View} that shows items in a "paged" manner. Pages can be
- * scrolled horizontally by swiping the {@link View}. The {@link PagedView} uses
- * a reuse mechanism similar to the one used by the {@link ListView}. Pages come
- * from a {@link PagedAdapter}.
+ * A View that shows items in a "paged" manner. Pages can be scrolled
+ * horizontally by swiping the View. The PagedView uses a reuse mechanism
+ * similar to the one used by the ListView widget. Pages come from a
+ * {@link PagedAdapter}.
  * </p>
  * <p>
- * Clients may listen to {@link PagedView} changes (scrolling, page change,
- * etc.) using an {@link OnPagedViewChangeListener} .
+ * Clients may listen to PagedView changes (scrolling, page change, etc.) using
+ * an {@link OnPagedViewChangeListener} .
  * </p>
  * <p>
  * It is usually a good idea to show the user which page is currently on screen.
@@ -61,32 +60,33 @@ public class PagedView extends ViewGroup {
     private static final String LOG_TAG = PagedView.class.getSimpleName();
 
     /**
-     * Clients may listen to changes occurring on a {@link PagedView} via this
+     * Clients may listen to changes occurring on a PagedView via this
      * interface.
      * 
      * @author Cyril Mottier
      */
     public interface OnPagedViewChangeListener {
+
         /**
-         * Notifies the client the page has changed.
+         * Notify the client the current page has changed.
          * 
-         * @param pagedView The {@link PagedView} that changed its current page
-         * @param previousPage The previous selected page
-         * @param newPage The new selected
+         * @param pagedView The PagedView that changed its current page
+         * @param previousPage The previously selected page
+         * @param newPage The newly selected page
          */
         void onPageChanged(PagedView pagedView, int previousPage, int newPage);
 
         /**
-         * Notifies the client the user started tracking.
+         * Notify the client the user started tracking.
          * 
-         * @param pagedView The {@link PagedView} the user started to track.
+         * @param pagedView The PagedView the user started to track.
          */
         void onStartTracking(PagedView pagedView);
 
         /**
-         * Notifies the client the user ended tracking.
+         * Notify the client the user ended tracking.
          * 
-         * @param pagedView The {@link PagedView} the user ended to track.
+         * @param pagedView The PagedView the user ended to track.
          */
         void onStopTracking(PagedView pagedView);
     }
@@ -420,7 +420,8 @@ public class PagedView extends ViewGroup {
     }
 
     /**
-     * Instantly moves from the current position to the given page.
+     * Instantly moves the PagedView from the current position to the given
+     * page.
      * 
      * @param page The page to scroll to.
      */

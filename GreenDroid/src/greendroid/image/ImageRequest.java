@@ -40,12 +40,36 @@ public class ImageRequest {
      * @author Cyril Mottier
      */
     public static interface ImageRequestCallback {
+
+        /**
+         * Callback to be invoked when the request processing started.
+         * 
+         * @param request The ImageRequest that started
+         */
         void onImageRequestStarted(ImageRequest request);
 
+        /**
+         * Callback to be invoked when the request processing failed.
+         * 
+         * @param request ImageRequest that failed
+         * @param throwable The Throwable that occurs
+         */
         void onImageRequestFailed(ImageRequest request, Throwable throwable);
 
+        /**
+         * Callback to be invoked when the request processing ended.
+         * 
+         * @param request ImageRequest that ended
+         * @param image The resulting Bitmap
+         */
         void onImageRequestEnded(ImageRequest request, Bitmap image);
 
+        /**
+         * Callback to be invoked when the request processing has been
+         * cancelled.
+         * 
+         * @param request ImageRequest that has been cancelled
+         */
         void onImageRequestCancelled(ImageRequest request);
     }
 
@@ -60,11 +84,11 @@ public class ImageRequest {
     public ImageRequest(String url, ImageRequestCallback callback) {
         this(url, callback, null);
     }
-    
+
     public ImageRequest(String url, ImageRequestCallback callback, ImageProcessor bitmapProcessor) {
-    	this(url, callback, bitmapProcessor, null);
+        this(url, callback, bitmapProcessor, null);
     }
-    
+
     public ImageRequest(String url, ImageRequestCallback callback, ImageProcessor bitmapProcessor, BitmapFactory.Options options) {
         mUrl = url;
         mCallback = callback;
@@ -75,7 +99,7 @@ public class ImageRequest {
     public void setImageRequestCallback(ImageRequestCallback callback) {
         mCallback = callback;
     }
-    
+
     public String getUrl() {
         return mUrl;
     }
@@ -99,13 +123,13 @@ public class ImageRequest {
             }
         }
     }
-    
+
     public final boolean isCancelled() {
         return mFuture.isCancelled();
     }
 
     private class InnerCallback implements ImageLoaderCallback {
-        
+
         public void onImageLoadingStarted(ImageLoader loader) {
             if (mCallback != null) {
                 mCallback.onImageRequestStarted(ImageRequest.this);

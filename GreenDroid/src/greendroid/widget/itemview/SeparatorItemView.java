@@ -16,11 +16,17 @@
 package greendroid.widget.itemview;
 
 import greendroid.widget.item.Item;
+import greendroid.widget.item.SeparatorItem;
 import greendroid.widget.item.TextItem;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+/**
+ * View representation of the {@link SeparatorItem}.
+ * 
+ * @author Cyril Mottier
+ */
 public class SeparatorItemView extends TextView implements ItemView {
 
     public SeparatorItemView(Context context) {

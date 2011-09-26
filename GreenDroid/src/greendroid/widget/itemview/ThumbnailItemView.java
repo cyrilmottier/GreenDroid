@@ -25,6 +25,11 @@ import android.widget.TextView;
 
 import com.cyrilmottier.android.greendroid.R;
 
+/**
+ * View representation of the {@link ThumbnailItem}.
+ * 
+ * @author Cyril Mottier
+ */
 public class ThumbnailItemView extends RelativeLayout implements ItemView {
 
     private TextView mTextView;

@@ -31,34 +31,203 @@ import com.cyrilmottier.android.greendroid.R;
  */
 public abstract class ActionBarItem {
 
+    /**
+     * The Type specifies a large set of pre-defined {@link ActionBarItem}s that
+     * may be added to an {@link ActionBar}.
+     * 
+     * @author Cyril Mottier
+     */
     public enum Type {
-        GoHome, // A house
-        Search, // A magnifying glass
-        Talk, // A speech bubble
-        Compose, // A sheet of paper with a pen
-        Export, // A dot with an arrow
-        Share, // A dot with two arrows
-        Refresh, // Two curved arrows
-        TakePhoto, // A camera
+        /**
+         * A house. This type should only be used for actions going back to the
+         * main screen/menu of an application.
+         * 
+         * @see R.drawable#gd_action_bar_home
+         */
+        GoHome,
+        
+        /**
+         * A magnifying glass
+         * 
+         * @see R.drawable#gd_action_bar_search
+         */
+        Search,
+        
+        /**
+         * A speech bubble
+         * 
+         * @see R.drawable#gd_action_bar_talk
+         */
+        Talk,
+        
+        /**
+         * A sheet of paper with a pen
+         * 
+         * @see R.drawable#gd_action_bar_compose
+         */
+        Compose,
+        
+        /**
+         * A dot with an arrow
+         * 
+         * @see R.drawable#gd_action_bar_export
+         */
+        Export,
+        
+        /**
+         * A dot with two arrows
+         * 
+         * @see R.drawable#gd_action_bar_share
+         */
+        Share,
+        
+        /**
+         * Two curved arrows
+         * 
+         * @see R.drawable#gd_action_bar_refresh
+         */
+        Refresh,
+        
+        /**
+         * A camera
+         * 
+         * @see R.drawable#gd_action_bar_take_photo
+         */
+        TakePhoto,
+        
         // PickPhoto, // Two pictures with an arrow
-        Locate, // The traditional GMaps pin
-        Edit, // A pencil
-        Add, // A plus sign
-        Star, // A star
-        SortBySize, // Some bars
-        SortAlphabetically, // A-Z
-        LocateMyself, // A surrounded dot
+        
+        /**
+         * The traditional GMaps pin
+         * 
+         * @see R.drawable#gd_action_bar_locate
+         */
+        Locate,
+        
+        /**
+         * A pencil
+         * 
+         * @see R.drawable#gd_action_bar_edit
+         */
+        Edit,
+        
+        /**
+         * A plus sign
+         * 
+         * @see R.drawable#gd_action_bar_add
+         */
+        Add,
+        
+        /**
+         * A star
+         * 
+         * @see R.drawable#gd_action_bar_star
+         */
+        Star,
+        
+        /**
+         * Some variable-size horizontal bars
+         * 
+         * @see R.drawable#gd_action_bar_sort_by_size
+         */
+        SortBySize,
+        
+        /**
+         * A-Z
+         * 
+         * @see R.drawable#gd_action_bar_sort_alpha
+         */
+        SortAlphabetically,
+        
+        /**
+         * A surrounded dot
+         * 
+         * @see R.drawable#gd_action_bar_locate_myself
+         */
+        LocateMyself,
+        
+        /**
+         * A compass
+         * 
+         * @see R.drawable#gd_action_bar_compass
+         */
         Compass,
+        
+        /**
+         * A plain circle with a question mark engraved in the center
+         * 
+         * @see R.drawable#gd_action_bar_help
+         */
         Help,
+        
+        /**
+         * A plain circle with a 'I' engraved in the center
+         * 
+         * @see R.drawable#gd_action_bar_info
+         */
         Info,
+        
+        /**
+         * The Android-like 'Settings' icon
+         * 
+         * @see R.drawable#gd_action_bar_settings
+         */
         Settings,
+        
+        /**
+         * Some horizontal bars.
+         * 
+         * @see R.drawable#gd_action_bar_list
+         */
         List,
+        
+        /**
+         * A trashcan. May be used for a "delete" action.
+         * 
+         * @see R.drawable#gd_action_bar_trashcan
+         */
         Trashcan,
+        
+        /**
+         * An eye. May be used for a "preview" action.
+         * 
+         * @see R.drawable#gd_action_bar_eye
+         */
         Eye,
+        
+        /**
+         * A group of 3 people.
+         * 
+         * @see R.drawable#gd_action_bar_all_friends
+         */
         AllFriends,
+        
+        /**
+         * A group of 2 people.
+         * 
+         * @see R.drawable#gd_action_bar_group
+         */
         Group,
+        
+        /**
+         * A polaroid-like picture.
+         * 
+         * @see R.drawable#gd_action_bar_gallery
+         */
         Gallery,
+        
+        /**
+         * A stack of polaroid-like pictures.
+         * 
+         * @see R.drawable#gd_action_bar_slideshow
+         */
         Slideshow,
+        
+        /**
+         * An envelope.
+         * 
+         * @see R.drawable#gd_action_bar_mail
+         */
         Mail
     }
 
@@ -218,7 +387,7 @@ public abstract class ActionBarItem {
                 drawableId = R.drawable.gd_action_bar_sort_by_size;
                 descriptionId = R.string.gd_sort_by_size;
                 break;
-                
+
             case SortAlphabetically:
                 drawableId = R.drawable.gd_action_bar_sort_alpha;
                 descriptionId = R.string.gd_sort_alpha;
@@ -228,66 +397,66 @@ public abstract class ActionBarItem {
                 drawableId = R.drawable.gd_action_bar_locate_myself;
                 descriptionId = R.string.gd_locate_myself;
                 break;
-                
+
             case Compass:
-            	drawableId = R.drawable.gd_action_bar_compass;
-            	descriptionId = R.string.gd_compass;
-            	break;
-            	
+                drawableId = R.drawable.gd_action_bar_compass;
+                descriptionId = R.string.gd_compass;
+                break;
+
             case Help:
-            	drawableId = R.drawable.gd_action_bar_help;
-            	descriptionId = R.string.gd_help;
-            	break;
+                drawableId = R.drawable.gd_action_bar_help;
+                descriptionId = R.string.gd_help;
+                break;
 
             case Info:
-            	drawableId = R.drawable.gd_action_bar_info;
-            	descriptionId = R.string.gd_info;
-            	break;
+                drawableId = R.drawable.gd_action_bar_info;
+                descriptionId = R.string.gd_info;
+                break;
 
             case Settings:
-            	drawableId = R.drawable.gd_action_bar_settings;
-            	descriptionId = R.string.gd_settings;
-            	break;
+                drawableId = R.drawable.gd_action_bar_settings;
+                descriptionId = R.string.gd_settings;
+                break;
 
             case List:
-            	drawableId = R.drawable.gd_action_bar_list;
-            	descriptionId = R.string.gd_list;
-            	break;
-            	
+                drawableId = R.drawable.gd_action_bar_list;
+                descriptionId = R.string.gd_list;
+                break;
+
             case Trashcan:
-            	drawableId = R.drawable.gd_action_bar_trashcan;
-            	descriptionId = R.string.gd_trashcan;
-            	break;
+                drawableId = R.drawable.gd_action_bar_trashcan;
+                descriptionId = R.string.gd_trashcan;
+                break;
 
             case Eye:
-            	drawableId = R.drawable.gd_action_bar_eye;
-            	descriptionId = R.string.gd_eye;
-            	break;
+                drawableId = R.drawable.gd_action_bar_eye;
+                descriptionId = R.string.gd_eye;
+                break;
 
             case AllFriends:
-            	drawableId = R.drawable.gd_action_bar_all_friends;
-            	descriptionId = R.string.gd_all_friends;
-            	break;
+                drawableId = R.drawable.gd_action_bar_all_friends;
+                descriptionId = R.string.gd_all_friends;
+                break;
 
             case Group:
-            	drawableId = R.drawable.gd_action_bar_group;
-            	descriptionId = R.string.gd_group;
-            	break;
+                drawableId = R.drawable.gd_action_bar_group;
+                descriptionId = R.string.gd_group;
+                break;
 
             case Gallery:
-            	drawableId = R.drawable.gd_action_bar_gallery;
-            	descriptionId = R.string.gd_gallery;
-            	break;
+                drawableId = R.drawable.gd_action_bar_gallery;
+                descriptionId = R.string.gd_gallery;
+                break;
 
             case Slideshow:
-            	drawableId = R.drawable.gd_action_bar_slideshow;
-            	descriptionId = R.string.gd_slideshow;
-            	break;
+                drawableId = R.drawable.gd_action_bar_slideshow;
+                descriptionId = R.string.gd_slideshow;
+                break;
 
             case Mail:
-            	drawableId = R.drawable.gd_action_bar_mail;
-            	descriptionId = R.string.gd_mail;
-            	break;
+                drawableId = R.drawable.gd_action_bar_mail;
+                descriptionId = R.string.gd_mail;
+                break;
 
             default:
                 // Do nothing but return null
@@ -296,8 +465,7 @@ public abstract class ActionBarItem {
 
         final Drawable d = new ActionBarDrawable(actionBar.getContext(), drawableId);
 
-        return actionBar.newActionBarItem(NormalActionBarItem.class).setDrawable(d)
-                .setContentDescription(descriptionId);
+        return actionBar.newActionBarItem(NormalActionBarItem.class).setDrawable(d).setContentDescription(descriptionId);
     }
 
 }

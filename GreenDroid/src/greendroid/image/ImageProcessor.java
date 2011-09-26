@@ -27,14 +27,13 @@ import android.graphics.Bitmap;
  */
 public interface ImageProcessor {
 
-	/**
-	 * Called whenever the bitmap need to be processed. The returned may have
-	 * been modified or completely different.
-	 * 
-	 * @param bitmap
-	 *            The Bitmap to process
-	 * @return A Bitmap that has been modified
-	 */
-	Bitmap processImage(Bitmap bitmap);
+    /**
+     * Called whenever the bitmap need to be processed. The returned may have
+     * been modified or completely different.
+     * 
+     * @param bitmap The Bitmap to process
+     * @return A Bitmap that has been modified
+     */
+    Bitmap processImage(Bitmap bitmap);
 
 }

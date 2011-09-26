@@ -6,6 +6,9 @@ package greendroid.util;
  * @author Cyril Mottier
  */
 public class Time {
+    
+    private Time() {
+    }
 
 	/**
 	 * The number of milliseconds in a second.

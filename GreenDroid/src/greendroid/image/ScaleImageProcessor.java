@@ -24,12 +24,8 @@ import android.widget.ImageView.ScaleType;
 
 /**
  * Scales Bitmaps according to a given width and height. The scaling method may
- * be one of the {@link ScaleType} values
+ * be one of the ScaleType values
  * 
- * @see ScaleType#CENTER
- * @see ScaleType#CENTER_CROP
- * @see ScaleType#CENTER_INSIDE
- * @see ScaleType#FIT_XY
  * @author Cyril Mottier
  * @author kennydude
  */
@@ -43,6 +39,13 @@ public class ScaleImageProcessor implements ImageProcessor {
     private final RectF mTempSrc = new RectF();
     private final RectF mTempDst = new RectF();
 
+    /**
+     * Create a new ScaleImageProcessor.
+     * 
+     * @param width The width of the final surrounding box
+     * @param height The height of the final surrounding box
+     * @param scaleType The ScaleType method used to scale the original Bitmap
+     */
     public ScaleImageProcessor(int width, int height, ScaleType scaleType) {
         mWidth = width;
         mHeight = height;

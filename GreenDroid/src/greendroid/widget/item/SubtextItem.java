@@ -31,10 +31,19 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * A SubtextItem is really similar to a SubtitleItem as it displays a two lines
- * of text. The only difference between those two items are the number of lines
- * occupied by the content. A SubtextItem may generally used to display a
- * description text. As a result, it is disabled by default
+ * <p>
+ * A SubtextItem is really similar to a {@link SubtitleItem} as it displays two
+ * pieces of text. The only difference between those two items are the number of
+ * lines occupied by the content.
+ * </p>
+ * <ul>
+ * <li>SubtextItem: subtext is displayed on several lines</li>
+ * <li>{@link SubtitleItem}: subtitle is displayed on a single line</li>
+ * </ul>
+ * <p>
+ * A SubtextItem may generally used to display a description text. As a result,
+ * it is disabled by default
+ * </p>
  * 
  * @author Cyril Mottier
  */
@@ -78,8 +87,7 @@ public class SubtextItem extends TextItem {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
-            IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.SubtextItem);

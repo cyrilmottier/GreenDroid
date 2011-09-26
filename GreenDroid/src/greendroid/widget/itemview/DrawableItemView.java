@@ -26,6 +26,11 @@ import android.widget.TextView;
 
 import com.cyrilmottier.android.greendroid.R;
 
+/**
+ * View representation of the {@link DrawableItem}.
+ * 
+ * @author Cyril Mottier
+ */
 public class DrawableItemView extends LinearLayout implements ItemView {
 
     private TextView mTextView;

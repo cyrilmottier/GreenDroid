@@ -31,8 +31,8 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * A TextItem is a very basic item that only contains a single text. This text
- * will be displayed on a single line onto the screen.
+ * A TextItem is a very basic item that only contains a single text. The text
+ * will be displayed on a single line on screen.
  * 
  * @author Cyril Mottier
  */
@@ -43,11 +43,14 @@ public class TextItem extends Item {
      */
     public String text;
 
+    /**
+     * @hide
+     */
     public TextItem() {
     }
 
     /**
-     * Constructs a new TextItem with the specified text.
+     * Create a new TextItem with the specified text.
      * 
      * @param text The text used to create this item.
      */
@@ -61,8 +64,7 @@ public class TextItem extends Item {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
-            IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.TextItem);

@@ -31,10 +31,10 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * An Item that contains two Strings : a text and a subtitle. The representation
- * of this Item is a view containing two lines of text. Uf you want to be sure,
- * the subtitle can occupy more than a single line, please use a
- * {@link SubtextItem}
+ * An {@link Item} that contains two Strings : a text and a subtitle. The
+ * representation of this {@link Item} is a view containing two lines of text.
+ * If you want to be sure, the subtitle can occupy more than a single line,
+ * please use a {@link SubtextItem}
  * 
  * @author Cyril Mottier
  */
@@ -52,7 +52,7 @@ public class SubtitleItem extends TextItem {
     }
 
     /**
-     * Constructs a new SubtitleItem with the specified text and subtitle.
+     * Construct a new SubtitleItem with the specified text and subtitle.
      * 
      * @param text The text for this item
      * @param subtitle The item's subtitle
@@ -68,8 +68,7 @@ public class SubtitleItem extends TextItem {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
-            IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.SubtitleItem);

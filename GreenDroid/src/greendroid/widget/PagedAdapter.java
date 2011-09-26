@@ -22,10 +22,12 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 
 /**
- * The base implementation of an {@link Adapter} to use with a {@link PagedView}
- * . Clients may create classes that extends from this base implementation and
- * will most of the time override the {@link PagedAdapter#getCount()} and
+ * <p>
+ * The base implementation of an Adapter to use with a {@link PagedView}.
+ * Clients may create classes that extends from this base implementation. The
+ * work consists on overriding the {@link PagedAdapter#getCount()} and
  * {@link PagedAdapter#getView(int, View, ViewGroup)} methods.
+ * </p>
  * 
  * @author Cyril Mottier
  */

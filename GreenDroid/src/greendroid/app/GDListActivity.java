@@ -17,7 +17,6 @@ package greendroid.app;
 
 import greendroid.util.Config;
 import greendroid.widget.ActionBar;
-import android.app.ListActivity;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -29,9 +28,8 @@ import android.widget.ListView;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * An equivalent to {@link ListActivity} that manages a ListView.
+ * An equivalent to ListActivity that manages a ListView.
  * 
- * @see {@link ListActivity}
  * @author Cyril Mottier
  */
 public class GDListActivity extends GDActivity {
@@ -77,7 +75,7 @@ public class GDListActivity extends GDActivity {
      * Set the currently selected list item to the specified position with the
      * adapter's data
      * 
-     * @param position The position to select in the managed {@link ListView}
+     * @param position The position to select in the managed ListView
      */
     public void setSelection(int position) {
         mListView.setSelection(position);
@@ -86,26 +84,25 @@ public class GDListActivity extends GDActivity {
     /**
      * Get the position of the currently selected list item.
      * 
-     * @return The position of the currently selected {@link ListView} item.
+     * @return The position of the currently selected ListView item.
      */
     public int getSelectedItemPosition() {
         return mListView.getSelectedItemPosition();
     }
 
     /**
-     * Get the {@link ListAdapter} row ID of the currently selected list item.
+     * Get the ListAdapter row ID of the currently selected list item.
      * 
-     * @return The identifier of the selected {@link ListView} item.
+     * @return The identifier of the selected ListView item.
      */
     public long getSelectedItemId() {
         return mListView.getSelectedItemId();
     }
 
     /**
-     * Get the activity's {@link ListView} widget.
+     * Get the activity's ListView widget.
      * 
-     * @return The {@link ListView} managed by the current
-     *         {@link GDListActivity}
+     * @return The ListView managed by the current {@link GDListActivity}
      */
     public ListView getListView() {
         ensureLayout();
@@ -113,11 +110,9 @@ public class GDListActivity extends GDActivity {
     }
 
     /**
-     * Get the {@link ListAdapter} associated with this activity's
-     * {@link ListView}.
+     * Get the ListAdapter associated with this activity's ListView.
      * 
-     * @return The {@link ListAdapter} currently associated to the underlying
-     *         {@link ListView}
+     * @return The ListAdapter currently associated to the underlying ListView
      */
     public ListAdapter getListAdapter() {
         return mAdapter;
@@ -127,7 +122,7 @@ public class GDListActivity extends GDActivity {
      * Provides the Adapter for the ListView handled by this
      * {@link GDListActivity}
      * 
-     * @param adapter The {@link ListAdapter} to set.
+     * @param adapter The ListAdapter to set.
      */
     public void setListAdapter(ListAdapter adapter) {
         synchronized (this) {
@@ -203,7 +198,6 @@ public class GDListActivity extends GDActivity {
     private void throwSetActionBarContentViewException() {
         throw new UnsupportedOperationException(
                 "The setActionBarContentView method is not supported for GDListActivity. In order to get a custom layout you must return a layout identifier in createLayout");
-
     }
 
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {

@@ -31,8 +31,8 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * Progress indicator that displays a centered text with a circular progress bar
- * when something is in progress.@
+ * Progress indicator that displays a centered text with a circular and
+ * indeterminate ProgressBar when something is in progress.
  * 
  * @author Cyril Mottier
  */
@@ -54,7 +54,7 @@ public class ProgressItem extends TextItem {
     }
 
     /**
-     * Constructs a ProgressItem with the given text. By default, the circular
+     * Create a ProgressItem with the given text. By default, the circular
      * progress bar is not visible ... which indicates nothing is currently in
      * progress.
      * 
@@ -65,7 +65,7 @@ public class ProgressItem extends TextItem {
     }
 
     /**
-     * Constructs a ProgressItem with the given text and state.
+     * Create a ProgressItem with the given text and state.
      * 
      * @param text The text for this item
      * @param isInProgress The state for this item
@@ -81,8 +81,7 @@ public class ProgressItem extends TextItem {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
-            IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.ProgressItem);

@@ -24,28 +24,31 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 
 /**
- * Defines various methods that should be overridden in order to style your
+ * Define various methods that should be overridden in order to style your
  * application.
  * 
  * @author Cyril Mottier
  */
 public class GDApplication extends Application {
-    
+
     /**
      * Used for receiving low memory system notification. You should definitely
-     * use it in order to clear caches and not important data everytime the
-     * system need memory.
+     * use it in order to clear caches and not important data every time the
+     * system needs memory.
      * 
      * @author Cyril Mottier
      * @see GDApplication#registerOnLowMemoryListener(OnLowMemoryListener)
      * @see GDApplication#unregisterOnLowMemoryListener(OnLowMemoryListener)
      */
     public static interface OnLowMemoryListener {
+        
+        /**
+         * Callback to be invoked when the system needs memory.
+         */
         public void onLowMemoryReceived();
     }
 
@@ -58,15 +61,24 @@ public class GDApplication extends Application {
             return new Thread(r, "GreenDroid thread #" + mCount.getAndIncrement());
         }
     };
-    
+
     private ExecutorService mExecutorService;
     private ImageCache mImageCache;
     private ArrayList<WeakReference<OnLowMemoryListener>> mLowMemoryListeners;
 
+    /**
+     * @hide
+     */
     public GDApplication() {
         mLowMemoryListeners = new ArrayList<WeakReference<OnLowMemoryListener>>();
     }
-    
+
+    /**
+     * Return an ExecutorService (global to the entire application) that may be
+     * used by clients when running long tasks in the background.
+     * 
+     * @return An ExecutorService to used when processing long running tasks
+     */
     public ExecutorService getExecutor() {
         if (mExecutorService == null) {
             mExecutorService = Executors.newFixedThreadPool(CORE_POOL_SIZE, sThreadFactory);
@@ -74,6 +86,11 @@ public class GDApplication extends Application {
         return mExecutorService;
     }
 
+    /**
+     * Return this application {@link ImageCache}.
+     * 
+     * @return The application {@link ImageCache}
+     */
     public ImageCache getImageCache() {
         if (mImageCache == null) {
             mImageCache = new ImageCache(this);
@@ -82,11 +99,11 @@ public class GDApplication extends Application {
     }
 
     /**
-     * Returns the class of the home {@link Activity}. The home {@link Activity}
-     * is the main entrance point of your application. This is usually where the
+     * Return the class of the home Activity. The home Activity is the main
+     * entrance point of your application. This is usually where the
      * dashboard/general menu is displayed.
      * 
-     * @return The Class of the home {@link Activity}
+     * @return The Class of the home Activity
      */
     public Class<?> getHomeActivityClass() {
         return null;
@@ -96,18 +113,18 @@ public class GDApplication extends Application {
      * Each application may have an "application intent" which will be used when
      * the user clicked on the application button.
      * 
-     * @return The main application {@link Intent} (may be null if you don't
-     *         want to use the main application {@link Intent} feature)
+     * @return The main application Intent (may be null if you don't want to use
+     *         the main application Intent feature)
      */
     public Intent getMainApplicationIntent() {
         return null;
     }
-    
+
     /**
-     * Adds a new listener to the list
+     * Add a new listener to registered {@link OnLowMemoryListener}.
      * 
      * @param listener The listener to unregister
-     * @see {@link OnLowMemoryListener}
+     * @see OnLowMemoryListener
      */
     public void registerOnLowMemoryListener(OnLowMemoryListener listener) {
         if (listener != null) {
@@ -116,10 +133,10 @@ public class GDApplication extends Application {
     }
 
     /**
-     * Removes a previously registered listener
+     * Remove a previously registered listener
      * 
      * @param listener The listener to unregister
-     * @see {@link OnLowMemoryListener}
+     * @see OnLowMemoryListener
      */
     public void unregisterOnLowMemoryListener(OnLowMemoryListener listener) {
         if (listener != null) {

@@ -15,12 +15,18 @@
  */
 package greendroid.widget.itemview;
 
+import greendroid.widget.item.DescriptionItem;
 import greendroid.widget.item.Item;
 import greendroid.widget.item.TextItem;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+/**
+ * View representation of the {@link DescriptionItem}.
+ * 
+ * @author Cyril Mottier
+ */
 public class DescriptionItemView extends TextView implements ItemView {
 
     public DescriptionItemView(Context context) {

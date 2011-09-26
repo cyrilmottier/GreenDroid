@@ -25,19 +25,33 @@ import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
 import android.util.StateSet;
 import android.util.TypedValue;
 
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * A specialized {@link Drawable} that is dedicated to {@link ActionBarItem}s.
- * It automatically adapts its color depending on its current state (black when
- * pressed or focused and white otherwise). As a result, the
- * {@link AutoColorDrawable} is a replacement {@link StateListDrawable} that
+ * <p>
+ * A specialized Drawable dedicated to {@link ActionBarItem}s. It automatically
+ * adapts its color depending on its current state. By default, the colors are:
+ * </p>
+ * <ul>
+ * <li>Color.BLACK in alternative (pressed/focused)</li>
+ * <li>Color.WHITE in otherwise</li>
+ * </ul>
+ * <p>
+ * The ActionBarDrawable is a great replacement to the StateListDrawable that
  * should be used in {@link ActionBar}s.
+ * </p>
+ * <p>
+ * GreenDroid offers a smart way to change the default alternative and normal
+ * colors in an application-wide manner. In order to do that, override the
+ * {@link R.attr#gdActionBarItemColorNormal} and
+ * {@link R.attr#gdActionBarItemColorAlt} attributes in your application theme.
+ * </p>
  * 
+ * @see R.attr#gdActionBarItemColorNormal
+ * @see R.attr#gdActionBarItemColorAlt
  * @author Cyril Mottier
  */
 public class ActionBarDrawable extends BitmapDrawable {
@@ -47,42 +61,119 @@ public class ActionBarDrawable extends BitmapDrawable {
     private ColorFilter mNormalCf;
     private ColorFilter mAltCf;
 
+    /**
+     * Create a new ActionBarDrawable
+     * 
+     * @param res The Resources from which the given icon is retrieved
+     * @param resId The icon's resource ID
+     * @deprecated Use {@link ActionBarDrawable#ActionBarDrawable(Context, int)}
+     *             as it looks for the default alternative/normal colors in the
+     *             theme.
+     */
     @Deprecated
     public ActionBarDrawable(Resources res, int resId) {
         this(res, res.getDrawable(resId));
     }
 
+    /**
+     * Create a new ActionBarDrawable
+     * 
+     * @param res The Resources from which the given icon is retrieved
+     * @param d The icon's Drawable
+     * @deprecated Use
+     *             {@link ActionBarDrawable#ActionBarDrawable(Context, Drawable)}
+     *             as it looks for the default alternative/normal colors in the
+     *             theme.
+     */
     @Deprecated
     public ActionBarDrawable(Resources res, Drawable d) {
         this(res, d, Color.WHITE, Color.BLACK);
     }
 
+    /**
+     * Create a new ActionBarDrawable
+     * 
+     * @param res The Resources from which the given icon is retrieved
+     * @param resId The icon's resource ID
+     * @param normalColor The color used to color the icon in normal mode
+     * @param altColor The color used to color the icon in alternative mode
+     * @deprecated Use
+     *             {@link ActionBarDrawable#ActionBarDrawable(Context, int, int, int)}
+     *             as it looks for the default alternative/normal colors in the
+     *             theme.
+     */
     @Deprecated
     public ActionBarDrawable(Resources res, int resId, int normalColor, int altColor) {
+        // TODO Cyril: Remove this constructor or the similar Context-based one.
+        // They are actually the same ...
         this(res, res.getDrawable(resId), normalColor, altColor);
     }
 
+    /**
+     * Create a new ActionBarDrawable
+     * 
+     * @param res The Resources from which the given icon is retrieved
+     * @param d The icon's Drawable
+     * @param normalColor The color used to color the icon in normal mode
+     * @param altColor The color used to color the icon in alternative mode
+     * @deprecated Use
+     *             {@link ActionBarDrawable#ActionBarDrawable(Context, Drawable, int, int)}
+     *             as it looks for the default alternative/normal colors in the
+     *             theme.
+     */
     @Deprecated
     public ActionBarDrawable(Resources res, Drawable d, int normalColor, int altColor) {
+        // TODO Cyril: Remove this constructor or the similar Context-based one.
+        // They are actually the same ...
         super(res, (d instanceof BitmapDrawable) ? ((BitmapDrawable) d).getBitmap() : null);
         mNormalCf = new LightingColorFilter(Color.BLACK, normalColor);
         mAltCf = new LightingColorFilter(Color.BLACK, altColor);
     }
 
+    /**
+     * Create a new ActionBarDrawable using the specified resource identifier.
+     * 
+     * @param context The Context used to retrieve resources (Bitmap/theme)
+     * @param resId The resource identifier pointing to the icon's Bitmap
+     */
     public ActionBarDrawable(Context context, int resId) {
         this(context, context.getResources().getDrawable(resId));
     }
 
+    /**
+     * Create a new ActionBarDrawable using the specified Drawable.
+     * 
+     * @param context The Context used to retrieve resources (Bitmap/theme)
+     * @param d The icon's Drawable (should be a BitmapDrawable)
+     */
     public ActionBarDrawable(Context context, Drawable d) {
-        this(context, d, getColorFromTheme(context, R.attr.gdActionBarItemColorNormal, Color.WHITE),
-                getColorFromTheme(context, R.attr.gdActionBarItemColorAlt, Color.BLACK));
+        // TODO Cyril: Should use a Bitmap instead of a Drawable ...
+        this(context, d, getColorFromTheme(context, R.attr.gdActionBarItemColorNormal, Color.WHITE), getColorFromTheme(context,
+                R.attr.gdActionBarItemColorAlt, Color.BLACK));
     }
 
+    /**
+     * Create a new ActionBarDrawable using the specified resource identifier.
+     * 
+     * @param context The Context used to retrieve resources (Bitmap/theme)
+     * @param resId The resource identifier pointing to the icon's Bitmap
+     * @param normalColor The color used to color the icon in normal mode
+     * @param altColor The color used to color the icon in alternative mode
+     */
     public ActionBarDrawable(Context context, int resId, int normalColor, int altColor) {
         this(context, context.getResources().getDrawable(resId), normalColor, altColor);
     }
 
+    /**
+     * Create a new ActionBarDrawable using the specified Drawable.
+     * 
+     * @param context The Context used to retrieve resources (Bitmap/theme)
+     * @param d The icon's Drawable (should be a BitmapDrawable)
+     * @param normalColor The color used to color the icon in normal mode
+     * @param altColor The color used to color the icon in alternative mode
+     */
     public ActionBarDrawable(Context context, Drawable d, int normalColor, int altColor) {
+        // TODO Cyril: Should use a Bitmap instead of a Drawable ...
         super(context.getResources(), (d instanceof BitmapDrawable) ? ((BitmapDrawable) d).getBitmap() : null);
         mNormalCf = new LightingColorFilter(Color.BLACK, normalColor);
         mAltCf = new LightingColorFilter(Color.BLACK, altColor);

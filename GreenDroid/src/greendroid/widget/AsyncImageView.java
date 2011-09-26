@@ -32,15 +32,14 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.cyrilmottier.android.greendroid.R;
 
 /**
  * <p>
- * A {@link AsyncImageView} is a network-aware {@link ImageView}. It may display
- * images from the web according to a URL. {@link AsyncImageView} takes care of
- * loading asynchronously images on the Internet. It also caches images in an
+ * A {@link AsyncImageView} is a network-aware ImageView. It may display images
+ * from the web according to a URL. {@link AsyncImageView} takes care of loading
+ * asynchronously images on the Internet. It also caches images in an
  * application-wide cache to prevent loading images several times.
  * </p>
  * <p>
@@ -48,11 +47,11 @@ import com.cyrilmottier.android.greendroid.R;
  * current image loading state.
  * </p>
  * <p>
- * {@link AsyncImageView} may be extremely useful in {@link ListView}'s row. To
- * prevent your {@link AsyncImageView} from downloading while scrolling or
- * flinging it is a good idea to pause it using {@link #setPaused(boolean)}
- * method. Once the scrolling/flinging is over, <em>un-pause</em> your
- * {@link AsyncImageView}s using <code>setPaused(false)</code>
+ * {@link AsyncImageView} may be extremely useful in ListView's row. To prevent
+ * your {@link AsyncImageView} from downloading while scrolling or flinging it
+ * is a good idea to pause it using {@link #setPaused(boolean)} method. Once the
+ * scrolling/flinging is over, <em>un-pause</em> your {@link AsyncImageView}s
+ * using <code>setPaused(false)</code>
  * </p>
  * 
  * @author Cyril Mottier
@@ -182,11 +181,11 @@ public class AsyncImageView extends ImageView implements ImageRequestCallback {
     }
 
     /**
-     * Helper to {@link #setBitmapFactoryOptions(Options)} that simply sets the
-     * inDensity for loaded image.
+     * Helper to {@link #setOptions(Options)} that simply sets the inDensity for
+     * loaded image.
      * 
      * @param inDensity
-     * @see AsyncImageView#setBitmapFactoryOptions(Options)
+     * @see AsyncImageView#setOptions(Options)
      */
     public void setInDensity(int inDensity) {
         if (mOptions == null) {
@@ -200,10 +199,10 @@ public class AsyncImageView extends ImageView implements ImageRequestCallback {
     }
 
     /**
-     * Assign a {@link Options} object to this {@link AsyncImageView}. Those
-     * options are used internally by the {@link AsyncImageView} when decoding
-     * the image. This may be used to prevent the default behavior that loads
-     * all images as mdpi density.
+     * Assign an Options object to this {@link AsyncImageView}. Those options
+     * are used internally by the {@link AsyncImageView} when decoding the
+     * image. This may be used to prevent the default behavior that loads all
+     * images as mdpi density.
      * 
      * @param options
      */
