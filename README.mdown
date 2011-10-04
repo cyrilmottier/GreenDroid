@@ -1,6 +1,6 @@
 #GreenDroid
  
-GreenDroid is a development library for the Android platform. It is intended to make UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog].
+GreenDroid is a development library for the Android platform. It is intended to make UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog]. You can also take a tour to the GreenDroid website at <http://greendroid.cyrilmottier.com>!
 
 [![](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)
 
@@ -55,6 +55,10 @@ In order to use GreenDroid you have to do the following steps:
 The GreenDroid project includes a demo projet called GDCatalog. This project shows some of the GreenDroid's features. I strongly encourage you to look at it as it's a great way to apprehend the library and understand how to use it in a correct manner.
 
 GDCatalog obviously uses the GreenDroid library. As a result, it won't build until GreenDroid has been applied to it. If your IDE is up-to-date you'll have nothing particular to do. Simply press the "Play" button!
+
+##Documentation
+
+GreenDroid documentation is available online at <http://greendroid.cyrilmottier.com>.
 
 ##Software Requirements
 
