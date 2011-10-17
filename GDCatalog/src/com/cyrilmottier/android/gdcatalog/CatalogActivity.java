@@ -46,7 +46,7 @@ public class CatalogActivity extends GDListActivity {
 
         setListAdapter(adapter);
 
-        addActionBarItem(getActionBar()
+        addActionBarItem(getGDActionBar()
                 .newActionBarItem(NormalActionBarItem.class)
                 .setDrawable(new ActionBarDrawable(this, R.drawable.ic_action_bar_info)), R.id.action_bar_view_info);
     }
