@@ -17,6 +17,7 @@ package greendroid.widget.itemview;
 
 import greendroid.widget.AsyncImageView;
 import greendroid.widget.item.Item;
+import greendroid.widget.item.TextItem;
 import greendroid.widget.item.ThumbnailItem;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -48,17 +49,24 @@ public class ThumbnailItemView extends RelativeLayout implements ItemView {
         super(context, attrs, defStyle);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
         mTextView = (TextView) findViewById(R.id.gd_text);
         mSubtitleView = (TextView) findViewById(R.id.gd_subtitle);
         mThumbnailView = (AsyncImageView) findViewById(R.id.gd_thumbnail);
     }
 
-    public void setObject(Item object) {
+    @Override
+	public void setObject(Item object) {
         final ThumbnailItem item = (ThumbnailItem) object;
         mTextView.setText(item.text);
         mSubtitleView.setText(item.subtitle);
         mThumbnailView.setDefaultImageResource(item.drawableId);
         mThumbnailView.setUrl(item.drawableURL);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return ThumbnailItem.class;
+	}
 }

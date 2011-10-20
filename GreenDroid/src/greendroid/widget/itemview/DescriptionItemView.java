@@ -41,11 +41,17 @@ public class DescriptionItemView extends TextView implements ItemView {
         super(context, attrs, defStyle);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
     }
 
     public void setObject(Item item) {
         setText(((TextItem) item).text);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return TextItem.class;
+	}
 
 }

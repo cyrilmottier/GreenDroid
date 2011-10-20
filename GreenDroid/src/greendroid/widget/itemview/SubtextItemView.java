@@ -17,6 +17,8 @@ package greendroid.widget.itemview;
 
 import greendroid.widget.item.Item;
 import greendroid.widget.item.SubtextItem;
+import greendroid.widget.item.TextItem;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -42,15 +44,22 @@ public class SubtextItemView extends LinearLayout implements ItemView {
         super(context, attrs);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
         mTextView = (TextView) findViewById(R.id.gd_text);
         mSubtextView = (TextView) findViewById(R.id.gd_subtext);
     }
 
-    public void setObject(Item object) {
+    @Override
+	public void setObject(Item object) {
         final SubtextItem item = (SubtextItem) object;
         mTextView.setText(item.text);
         mSubtextView.setText(item.subtext);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return SubtextItem.class;
+	}
 
 }

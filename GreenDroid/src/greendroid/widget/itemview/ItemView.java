@@ -48,4 +48,6 @@ public interface ItemView {
      */
     void setObject(Item item);
 
+	Class<? extends Item> getItemClass();
+
 }

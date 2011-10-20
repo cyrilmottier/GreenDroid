@@ -16,6 +16,7 @@
 package greendroid.widget.itemview;
 
 import greendroid.widget.item.Item;
+import greendroid.widget.item.LongTextItem;
 import greendroid.widget.item.ProgressItem;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -48,15 +49,22 @@ public class ProgressItemView extends FrameLayout implements ItemView {
         super(context, attrs, defStyle);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
         mProgressBar = (ProgressBar) findViewById(R.id.gd_progress_bar);
         mTextView = (TextView) findViewById(R.id.gd_text);
     }
 
-    public void setObject(Item object) {
+    @Override
+	public void setObject(Item object) {
         final ProgressItem item = (ProgressItem) object;
         mProgressBar.setVisibility(item.isInProgress ? View.VISIBLE : View.GONE);
         mTextView.setText(item.text);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return ProgressItem.class;
+	}
 
 }

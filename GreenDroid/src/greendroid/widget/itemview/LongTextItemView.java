@@ -15,6 +15,7 @@
  */
 package greendroid.widget.itemview;
 
+import greendroid.widget.item.DrawableItem;
 import greendroid.widget.item.Item;
 import greendroid.widget.item.LongTextItem;
 import android.content.Context;
@@ -40,11 +41,18 @@ public class LongTextItemView extends TextView implements ItemView {
         super(context, attrs, defStyle);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
     }
 
-    public void setObject(Item item) {
+    @Override
+	public void setObject(Item item) {
         setText(((LongTextItem) item).text);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return LongTextItem.class;
+	}
 
 }

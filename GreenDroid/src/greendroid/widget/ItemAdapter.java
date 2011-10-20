@@ -76,9 +76,9 @@ public class ItemAdapter extends BaseAdapter {
         int type;
     }
 
-    private List<Item> mItems;
-    private HashMap<Class<? extends Item>, TypeInfo> mTypes;
-    private Context mContext;
+    private final List<Item> mItems;
+    private final HashMap<Class<? extends Item>, TypeInfo> mTypes;
+    private final Context mContext;
 
     private boolean mNotifyOnChange;
     private int mMaxViewTypeCount;
@@ -403,15 +403,18 @@ public class ItemAdapter extends BaseAdapter {
         return new ItemAdapter(context, items);
     }
 
-    public int getCount() {
+    @Override
+	public int getCount() {
         return mItems.size();
     }
 
-    public Object getItem(int position) {
+    @Override
+	public Object getItem(int position) {
         return mItems.get(position);
     }
 
-    public long getItemId(int position) {
+    @Override
+	public long getItemId(int position) {
         return position;
     }
 
@@ -430,12 +433,13 @@ public class ItemAdapter extends BaseAdapter {
         return mMaxViewTypeCount;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    @Override
+	public View getView(int position, View convertView, ViewGroup parent) {
 
         final Item item = (Item) getItem(position);
         ItemView cell = (ItemView) convertView;
 
-        if (cell == null) {
+        if (cell == null || cell.getItemClass() != item.getClass()) {
             cell = item.newView(mContext, null);
             cell.prepareItemView();
         }
