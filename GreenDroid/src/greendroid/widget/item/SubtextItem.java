@@ -80,6 +80,19 @@ public class SubtextItem extends TextItem {
         this.subtext = subtext;
         enabled = false;
     }
+    
+    /**
+     * Constructs a new SubtextItem
+     * 
+     * @param text The main text for this item
+     * @param subtext The subtext
+     * @param enabled
+     */
+    public SubtextItem(String text, String subtext, Boolean enabled) {
+        super(text);
+        this.subtext = subtext;
+        this.enabled = enabled;
+    }
 
     @Override
     public ItemView newView(Context context, ViewGroup parent) {
