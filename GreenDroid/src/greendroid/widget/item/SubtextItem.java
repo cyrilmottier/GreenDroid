@@ -86,7 +86,7 @@ public class SubtextItem extends TextItem {
      * 
      * @param text The main text for this item
      * @param subtext The subtext
-     * @param enabled
+     * @param enabled Enable this item
      */
     public SubtextItem(String text, String subtext, Boolean enabled) {
         super(text);
