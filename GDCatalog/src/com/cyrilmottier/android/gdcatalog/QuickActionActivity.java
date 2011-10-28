@@ -22,7 +22,6 @@ import greendroid.widget.QuickAction;
 import greendroid.widget.QuickActionBar;
 import greendroid.widget.QuickActionGrid;
 import greendroid.widget.QuickActionWidget;
-import greendroid.widget.QuickActionWidget.OnQuickActionClickListener;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
@@ -77,8 +76,6 @@ public class QuickActionActivity extends GDActivity {
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_compose, R.string.gd_compose));
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_export, R.string.gd_export));
         mBar.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_share, R.string.gd_share));
-
-        mBar.setOnQuickActionClickListener(mActionListener);
     }
 
     private void prepareQuickActionGrid() {
@@ -89,22 +86,16 @@ public class QuickActionActivity extends GDActivity {
         mGrid.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_search, R.string.gd_search));
         mGrid.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_edit, R.string.gd_edit));
         mGrid.addQuickAction(new MyQuickAction(this, R.drawable.gd_action_bar_locate, R.string.gd_locate));
-
-        mGrid.setOnQuickActionClickListener(mActionListener);
     }
-
-    private OnQuickActionClickListener mActionListener = new OnQuickActionClickListener() {
-        public void onQuickActionClicked(QuickActionWidget widget, int position) {
-            Toast.makeText(QuickActionActivity.this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
-        }
-    };
     
     private static class MyQuickAction extends QuickAction {
         
         private static final ColorFilter BLACK_CF = new LightingColorFilter(Color.BLACK, Color.BLACK);
 
+        private Context context;
         public MyQuickAction(Context ctx, int drawableId, int titleId) {
             super(ctx, buildDrawable(ctx, drawableId), titleId);
+            this.context = ctx;
         }
         
         private static Drawable buildDrawable(Context ctx, int drawableId) {
@@ -113,5 +104,9 @@ public class QuickActionActivity extends GDActivity {
             return d;
         }
         
+        @Override
+        public void onClick(QuickActionWidget widget, int position) {
+        	Toast.makeText(context, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
+        }
     }
 }

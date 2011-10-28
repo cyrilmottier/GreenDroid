@@ -24,9 +24,11 @@ import android.view.View;
 /**
  * A QuickAction implements an item in a {@link QuickActionWidget}. A
  * QuickAction represents a single action and may contain a text and an icon.
+ * When it is tapped, its {@link #onClick(QuickActionWidget)} method will be called.
  * 
  * @author Benjamin Fellous
  * @author Cyril Mottier
+ * @author Eric Rizzo
  */
 public class QuickAction {
 
@@ -55,4 +57,7 @@ public class QuickAction {
         mTitle = ctx.getResources().getString(titleId);
     }
 
+    public void onClick(QuickActionWidget widget, int position) {
+        // Subclass and override to provide action-specific handling
+    }
 }

@@ -128,13 +128,15 @@ public class QuickActionBar extends QuickActionWidget {
 
             final OnQuickActionClickListener listener = getOnQuickActionClickListener();
 
-            if (listener != null) {
-                final int itemCount = mQuickActions.size();
-                for (int i = 0; i < itemCount; i++) {
-                    if (view == mQuickActions.get(i).mView.get()) {
-                        listener.onQuickActionClicked(QuickActionBar.this, i);
-                        break;
+            final int itemCount = mQuickActions.size();
+            for (int i = 0; i < itemCount; i++) {
+                QuickAction action = mQuickActions.get(i);
+				if (view == action.mView.get()) {
+                    action.onClick(QuickActionBar.this, i);
+                    if (listener != null) {
+                    	listener.onQuickActionClicked(QuickActionBar.this, i);
                     }
+                    break;
                 }
             }
 

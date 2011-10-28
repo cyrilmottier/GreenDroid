@@ -16,6 +16,7 @@
 package greendroid.widget;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.content.Context;
@@ -190,7 +191,7 @@ public abstract class QuickActionWidget extends PopupWindow {
      * @param action The new {@link QuickAction} to add
      */
     public void addQuickAction(QuickAction action) {
-        if (action != null) {
+        if (action != null && !mQuickActions.contains(action)) {
             mQuickActions.add(action);
             mIsDirty = true;
         }
@@ -308,5 +309,17 @@ public abstract class QuickActionWidget extends PopupWindow {
 
     protected OnQuickActionClickListener getOnQuickActionClickListener() {
         return mOnQuickActionClickListener;
+    }
+
+    public List<QuickAction> getQuickActions() {
+        return Collections.unmodifiableList(mQuickActions);
+    }
+
+    public QuickAction getQuickAction(int position) {
+        return mQuickActions.get(position);
+    }
+    
+    public void removeQuickAction(QuickAction action) {
+        mQuickActions.remove(action);
     }
 }
