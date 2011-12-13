@@ -87,6 +87,16 @@
 	<attr name="gdActionBarItemColorNormal" format="reference|color" />
 	<attr name="gdActionBarItemColorAlt" format="reference|color" />
 	<attr name="gdActionBarMaxItems" format="integer" />
+	<attr name="gdActionBarColorstripBackground" format="reference|color" />
+	<attr name="gdActionBarColorstripForeground" format="reference|color" />
+	<attr name="gdActionBarColorstripVisibility">
+	    <!-- Visible on screen; the default value. -->
+        <enum name="visible" value="0" />
+        <!-- Not displayed, but taken into account during layout (space is left for it). -->
+        <enum name="invisible" value="1" />
+        <!-- Completely hidden, as if the view had not been added. -->
+    	<enum name="gone" value="2" />
+    </attr>
 
 	<attr name="gdActionBarStyle" format="reference" />
 	<attr name="gdActionBarTitleStyle" format="reference" />
