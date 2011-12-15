@@ -20,6 +20,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -45,6 +46,19 @@ import com.cyrilmottier.android.greendroid.R;
  * @author Cyril Mottier
  */
 public class QuickActionBar extends QuickActionWidget {
+	
+    /**
+     * Delayed time to dismiss the balloon hint.
+     */
+    public static final int TIME_DELAY_DISMISS = 200;
+	
+	private final Handler mHandler = new Handler();
+    private final Runnable mDismissAction = new Runnable() {
+		@Override
+		public void run() {
+			dismiss();
+		}
+	};
 
     private HorizontalScrollView mScrollView;
     private Animation mRackAnimation;
@@ -139,10 +153,10 @@ public class QuickActionBar extends QuickActionWidget {
             }
 
             if (getDismissOnClick()) {
-                dismiss();
+            	mHandler.postDelayed(mDismissAction, TIME_DELAY_DISMISS);
             }
         }
 
     };
-
+    
 }
