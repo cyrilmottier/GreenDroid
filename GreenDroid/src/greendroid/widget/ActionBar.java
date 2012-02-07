@@ -41,12 +41,10 @@ public class ActionBar extends LinearLayout {
     /**
      * Default identifier applied to a newly added {@link ActionBarItem}s.
      * 
-     * @deprecated Adding items to the ActionBar with no identifier does not
-     *             allow client to retrieve a particular {@link ActionBarItem}
-     *             safely. In order to avoid this problem, {@link ActionBarItem}
-     *             s should be added with methods that requires explicit
-     *             identifiers such as
-     *             {@link ActionBar#addItem(ActionBarItem, int)} or
+     * @deprecated Adding items to the ActionBar with no identifier does not allow client to retrieve a
+     *             particular {@link ActionBarItem} safely. In order to avoid this problem,
+     *             {@link ActionBarItem} s should be added with methods that requires explicit identifiers
+     *             such as {@link ActionBar#addItem(ActionBarItem, int)} or
      *             {@link ActionBar#addItem(greendroid.widget.ActionBarItem.Type, int)}
      */
     public static final int NONE = 0;
@@ -58,32 +56,29 @@ public class ActionBar extends LinearLayout {
      */
     public enum Type {
         /**
-         * ActionBar layout will contain a home item on the left and optional
-         * {@link ActionBarItem}s on the right. The space that left between is
-         * used to display the title of the current Activity.
+         * ActionBar layout will contain a home item on the left and optional {@link ActionBarItem}s on the
+         * right. The space that left between is used to display the title of the current Activity.
          */
         Normal,
 
         /**
-         * ActionBar layout will contain the application Drawable on the left
-         * and optional {@link ActionBarItem}s on the right. Please note the
-         * Dashboard type does not display the title of the current Activity.
+         * ActionBar layout will contain the application Drawable on the left and optional
+         * {@link ActionBarItem}s on the right. Please note the Dashboard type does not display the title of
+         * the current Activity.
          * 
          * @see R.attr#gdActionBarApplicationDrawable
          */
         Dashboard,
 
         /**
-         * ActionBar layout will contain optional {@link ActionBarItem}s on the
-         * right. The space that left will be used to display the title of the
-         * current Activity.
+         * ActionBar layout will contain optional {@link ActionBarItem}s on the right. The space that left
+         * will be used to display the title of the current Activity.
          */
         Empty
     }
 
     /**
-     * Interface definition for a callback to be invoked when a user is
-     * interacting with an {@link ActionBar}.
+     * Interface definition for a callback to be invoked when a user is interacting with an {@link ActionBar}.
      * 
      * @author Cyril Mottier
      */
@@ -95,29 +90,33 @@ public class ActionBar extends LinearLayout {
         int HOME_ITEM = -1;
 
         /**
-         * Clients may listen to this method in order to be notified the user
-         * has clicked on an item.
+         * Clients may listen to this method in order to be notified the user has clicked on an item.
          * 
-         * @param position The position of the item in the action bar.
-         *            {@link OnActionBarListener#HOME_ITEM} means the user
-         *            pressed the "Home" button. 0 means the user clicked the
-         *            first {@link ActionBarItem} (the leftmost item) and so on.
+         * @param position The position of the item in the action bar. {@link OnActionBarListener#HOME_ITEM}
+         *            means the user pressed the "Home" button. 0 means the user clicked the first
+         *            {@link ActionBarItem} (the leftmost item) and so on.
          */
         void onActionBarItemClicked(int position);
     }
 
     private TextView mTitleView;
+
     private ImageButton mHomeButton;
 
     private boolean mMerging = false;
 
     private CharSequence mTitle;
+
     private ActionBar.Type mType;
+
     private OnActionBarListener mOnActionBarListener;
+
     private LinkedList<ActionBarItem> mItems;
 
     private Drawable mDividerDrawable;
+
     private Drawable mHomeDrawable;
+
     private int mDividerWidth;
 
     private int mMaxItemsCount;
@@ -150,19 +149,19 @@ public class ActionBar extends LinearLayout {
         int layoutID;
         int type = a.getInteger(R.styleable.ActionBar_type, -1);
         switch (type) {
-            case 2:
-                mType = Type.Empty;
-                layoutID = R.layout.gd_action_bar_empty;
-                break;
-            case 1:
-                mType = Type.Dashboard;
-                layoutID = R.layout.gd_action_bar_dashboard;
-                break;
-            case 0:
-            default:
-                mType = Type.Normal;
-                layoutID = R.layout.gd_action_bar_normal;
-                break;
+        case 2:
+            mType = Type.Empty;
+            layoutID = R.layout.gd_action_bar_empty;
+            break;
+        case 1:
+            mType = Type.Dashboard;
+            layoutID = R.layout.gd_action_bar_dashboard;
+            break;
+        case 0:
+        default:
+            mType = Type.Normal;
+            layoutID = R.layout.gd_action_bar_normal;
+            break;
         }
 
         // HACK Cyril: Without this, the onFinishInflate is called twice !?!
@@ -188,33 +187,30 @@ public class ActionBar extends LinearLayout {
         if (!mMerging) {
 
             switch (mType) {
-                case Dashboard:
-                    mHomeButton = (ImageButton) findViewById(R.id.gd_action_bar_home_item);
-                    mHomeButton.setOnClickListener(mClickHandler);
-                    break;
+            case Dashboard:
+                mHomeButton = (ImageButton) findViewById(R.id.gd_action_bar_home_item);
+                mHomeButton.setOnClickListener(mClickHandler);
+                break;
 
-                case Empty:
-                    mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
-                    setTitle(mTitle);
-                    break;
+            case Empty:
+                setTitle(mTitle);
+                break;
 
-                case Normal:
-                default:
-                    mHomeButton = (ImageButton) findViewById(R.id.gd_action_bar_home_item);
-                    mHomeButton.setOnClickListener(mClickHandler);
-                    mHomeButton.setImageDrawable(mHomeDrawable);
-                    mHomeButton.setContentDescription(getContext().getString(R.string.gd_go_home));
-                    mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
-                    setTitle(mTitle);
-                    break;
+            case Normal:
+            default:
+                mHomeButton = (ImageButton) findViewById(R.id.gd_action_bar_home_item);
+                mHomeButton.setOnClickListener(mClickHandler);
+                mHomeButton.setImageDrawable(mHomeDrawable);
+                mHomeButton.setContentDescription(getContext().getString(R.string.gd_go_home));
+                setTitle(mTitle);
+                break;
 
             }
         }
     }
 
     /**
-     * Register a callback to be invoked when the user interacts with the
-     * {@link ActionBar}.
+     * Register a callback to be invoked when the user interacts with the {@link ActionBar}.
      * 
      * @param listener The callback that will run.
      */
@@ -227,6 +223,7 @@ public class ActionBar extends LinearLayout {
      */
     public void setTitle(CharSequence title) {
         mTitle = title;
+        mTitleView = (TextView) findViewById(R.id.gd_action_bar_title);
         if (mTitleView != null) {
             mTitleView.setText(title);
         }
@@ -266,8 +263,7 @@ public class ActionBar extends LinearLayout {
 
         if (mItems.size() >= mMaxItemsCount) {
             /*
-             * An ActionBar must contain as few items as possible. So let's keep
-             * a limit :)
+             * An ActionBar must contain as few items as possible. So let's keep a limit :)
              */
             return null;
         }
@@ -302,9 +298,7 @@ public class ActionBar extends LinearLayout {
      * @return
      */
     public ActionBarItem getItem(int position) {
-        if (position < 0 || position >= mItems.size()) {
-            return null;
-        }
+        if (position < 0 || position >= mItems.size()) { return null; }
         return mItems.get(position);
     }
 
@@ -320,9 +314,7 @@ public class ActionBar extends LinearLayout {
      */
     public void removeItem(int position) {
 
-        if (position < 0 || position >= mItems.size()) {
-            return;
-        }
+        if (position < 0 || position >= mItems.size()) { return; }
 
         final int viewIndex = indexOfChild(mItems.get(position).getItemView());
         final int increment = (mDividerDrawable != null) ? 1 : 0;
@@ -340,15 +332,15 @@ public class ActionBar extends LinearLayout {
 
             int layoutId = 0;
             switch (type) {
-                case Empty:
-                    layoutId = R.layout.gd_action_bar_empty;
-                    break;
-                case Dashboard:
-                    layoutId = R.layout.gd_action_bar_dashboard;
-                    break;
-                case Normal:
-                    layoutId = R.layout.gd_action_bar_normal;
-                    break;
+            case Empty:
+                layoutId = R.layout.gd_action_bar_empty;
+                break;
+            case Dashboard:
+                layoutId = R.layout.gd_action_bar_dashboard;
+                break;
+            case Normal:
+                layoutId = R.layout.gd_action_bar_normal;
+                break;
             }
 
             mType = type;
