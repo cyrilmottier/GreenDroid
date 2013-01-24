@@ -1,0 +1,141 @@
+/**
+ * GreenDroid website stylesheet
+ *
+ * @author Cyril Mottier
+ */
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-size:14px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#666;
+    line-height:18px;
+    background:#F7F7F7 url('images/noise.png') repeat;
+}
+
+h1, h2 {
+    color:#444;
+    font-style:bold;
+    margin-bottom:5px;
+}
+
+h1 {
+    font-size:24px;
+}
+
+h2 {
+    font-size:18px;
+}
+
+p {
+    padding:15px 0;
+}
+
+a {
+    color:#128B4C;
+    text-decoration:underline;;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration:none;
+}
+
+#container {
+    width:750px;
+    margin:0 auto;
+    padding:20px 0;
+}
+
+#fork-me {
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+#fork-me a {
+    display:block;
+    height:142px;
+    width:142px;
+    text-indent:-6000px;
+    background:transparent url('images/fork_me.png') no-repeat;
+}
+
+#header {
+    padding-top:20;
+}
+
+#header h1 {
+    height:161px;
+    width:704px;
+    margin:0 auto;
+    text-indent:-6000px;
+    background:transparent url('images/greendroid_logo.png') no-repeat;
+}
+
+#content {
+    clear:both;
+}
+
+#col1 {
+    float:left;
+    width:344px;
+    padding-right:30px;
+    border-right:solid #ebebeb 1px;
+}
+
+#col2 {
+    float:left;
+    padding-left:30px;
+    width:345px;
+}
+
+#slogan {
+    border-left:solid #444 5px;
+    font-size:18px;
+    padding:0 0 0 10px;
+    margin:30px 0 50px 0;
+}
+
+#see-documentation {
+    display:block;
+    width:199px;
+    height:51px;
+    margin:30px auto;
+    text-indent:-6000px;
+    background:transparent url('images/see_documentation.png') no-repeat;
+}
+
+#see-documentation:hover {
+    background-position:0 -51px;
+}
+
+#see-documentation:active {
+    background-position:0 -102px;
+}
+
+#footer {
+    margin-top:20px;
+    opacity:0.5;
+    clear:both;
+    width:100%;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    font-size:12px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    background-color:#ebebeb;
+    -webkit-transition:0.10s ease-in;
+    -moz-transition:0.10s ease-in;
+}
+
+#footer:hover {
+    opacity:1;
+}

@@ -1,0 +1,26 @@
+#header {
+    height:80px;
+    border-bottom: 3px solid #0767a4;
+}
+
+#headerLeft {
+    left:8px;
+    bottom:15px;
+    padding:0;
+}
+
+#headerLeft a#masthead-title {
+    display:block;
+    height:50px;
+    width:218px;
+    text-indent:-6000px;
+    background:transparent url('images/greendroid_logo_small.png') no-repeat;
+}
+
+#headerRight {
+    bottom:29px;
+}
+
+#search_filtered .jd-selected {
+  background-color: #0767a4;
+}

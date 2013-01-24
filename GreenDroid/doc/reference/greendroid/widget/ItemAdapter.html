@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>
+
+  ItemAdapter
+
+
+| GreenDroid
+
+</title>
+<link href="../../../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../", "../../../assets/");
+</script>
+<script src="../../../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <a href="http://greendroid.cyrilmottier.com" id="masthead-title">GreenDroid</a>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../')"
+                      onkeyup="return search_changed(event, false, '../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../packages.html"  >Package Index</a> | 
+                <a href="../../classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../com/cyrilmottier/android/greendroid/package-summary.html">com.cyrilmottier.android.greendroid</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/app/package-summary.html">greendroid.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/graphics/drawable/package-summary.html">greendroid.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/image/package-summary.html">greendroid.image</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/util/package-summary.html">greendroid.util</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../greendroid/widget/package-summary.html">greendroid.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/widget/item/package-summary.html">greendroid.widget.item</a></li>
+    <li class="api apilevel-">
+  <a href="../../greendroid/widget/itemview/package-summary.html">greendroid.widget.itemview</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBar.OnActionBarListener.html">ActionBar.OnActionBarListener</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/AsyncImageView.OnImageViewLoadListener.html">AsyncImageView.OnImageViewLoadListener</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/PageIndicator.DotType.html">PageIndicator.DotType</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/PagedView.OnPagedViewChangeListener.html">PagedView.OnPagedViewChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/QuickActionWidget.OnQuickActionClickListener.html">QuickActionWidget.OnQuickActionClickListener</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/SegmentedBar.OnSegmentChangeListener.html">SegmentedBar.OnSegmentChangeListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBar.html">ActionBar</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBarHost.html">ActionBarHost</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBarItem.html">ActionBarItem</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/AsyncImageView.html">AsyncImageView</a></li>
+          <li class="selected api apilevel-"><a href="../../greendroid/widget/ItemAdapter.html">ItemAdapter</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/LoaderActionBarItem.html">LoaderActionBarItem</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/NormalActionBarItem.html">NormalActionBarItem</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/PageIndicator.html">PageIndicator</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/PagedAdapter.html">PagedAdapter</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/PagedView.html">PagedView</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/QuickAction.html">QuickAction</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/QuickActionBar.html">QuickActionBar</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/QuickActionGrid.html">QuickActionGrid</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/QuickActionWidget.html">QuickActionWidget</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/SegmentedAdapter.html">SegmentedAdapter</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/SegmentedBar.html">SegmentedBar</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/SegmentedHost.html">SegmentedHost</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBar.Type.html">ActionBar.Type</a></li>
+          <li class="api apilevel-"><a href="../../greendroid/widget/ActionBarItem.Type.html">ActionBarItem.Type</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../packages.html"  >Package Index</a> | 
+            <a href="../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+
+  <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>ItemAdapter</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="http://developer.android.com/reference/android/widget/BaseAdapter.html">BaseAdapter</a><br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/android/widget/BaseAdapter.html">android.widget.BaseAdapter</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">greendroid.widget.ItemAdapter</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p><p>
+ A ListAdapter that acts like an ArrayAdapter. An ItemAdapter manages a
+ ListView that is backed by an array of <code><a href="../../greendroid/widget/item/Item.html">Item</a></code>s. This is more advanced
+ than a simple ArrayAdapter because it handles different types of itemviews
+ internally. Adding, removing items from the internal array is also possible.
+ </p>
+ <p>
+ The ListView can be notified of underlying data changes manually using
+ notifyDataSetChanged or automatically using the
+ <code><a href="../../greendroid/widget/ItemAdapter.html#setNotifyOnChange(boolean)">setNotifyOnChange(boolean)</a></code> method.
+ </p>
+ <p>
+ Finally, an ItemAdapter can be created via XML code using the
+ <code><a href="../../greendroid/widget/ItemAdapter.html#createFromXml(android.content.Context, int)">createFromXml(Context, int)</a></code> method. This is a very powerful feature
+ when you want to display static data or if you want to pre-populate your
+ ItemAdapter.
+ </p></p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-android.widget.Adapter" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-android.widget.Adapter-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+android.widget.Adapter
+<div id="inherited-constants-android.widget.Adapter">
+  <div id="inherited-constants-android.widget.Adapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-android.widget.Adapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">IGNORE_ITEM_VIEW_TYPE</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">NO_SELECTION</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#ItemAdapter(android.content.Context)">ItemAdapter</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context)</nobr>
+        
+        <div class="jd-descrdiv">Constructs an empty ItemAdapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#ItemAdapter(android.content.Context, greendroid.widget.item.Item[])">ItemAdapter</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="../../greendroid/widget/item/Item.html">Item[]</a> items)</nobr>
+        
+        <div class="jd-descrdiv">Constructs an ItemAdapter using the specified items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#ItemAdapter(android.content.Context, greendroid.widget.item.Item[], int)">ItemAdapter</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="../../greendroid/widget/item/Item.html">Item[]</a> items, int maxViewTypeCount)</nobr>
+        
+        <div class="jd-descrdiv">Constructs an ItemAdapter using the specified items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#ItemAdapter(android.content.Context, java.util.List<greendroid.widget.item.Item>)">ItemAdapter</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; items)</nobr>
+        
+        <div class="jd-descrdiv">Constructs an ItemAdapter using the specified items.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#ItemAdapter(android.content.Context, java.util.List<greendroid.widget.item.Item>, int)">ItemAdapter</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; items, int maxViewTypeCount)</nobr>
+        
+        <div class="jd-descrdiv">Constructs an ItemAdapter using the specified items.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#add(greendroid.widget.item.Item)">add</a></span>(<a href="../../greendroid/widget/item/Item.html">Item</a> item)</nobr>
+        
+        <div class="jd-descrdiv">Adds the specified object at the end of the array.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#clear()">clear</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Remove all elements from the list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../greendroid/widget/ItemAdapter.html">ItemAdapter</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#createFromXml(android.content.Context, int)">createFromXml</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, int xmlId)</nobr>
+        
+        <div class="jd-descrdiv">Creates an ItemAdapter from a given resource ID</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../greendroid/widget/ItemAdapter.html">ItemAdapter</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#createFromXml(android.content.Context, org.xmlpull.v1.XmlPullParser)">createFromXml</a></span>(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/org/xmlpull/v1/XmlPullParser.html">XmlPullParser</a> parser)</nobr>
+        
+        <div class="jd-descrdiv">Creates an ItemAdapter from a given XML document.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getActualViewTypeCount()">getActualViewTypeCount</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the current number of different views types used in this
+ ItemAdapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/android/content/Context.html">Context</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getContext()">getContext</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the context associated with this array adapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getCount()">getCount</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getItem(int)">getItem</a></span>(int position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getItemId(int)">getItemId</a></span>(int position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getItemViewType(int)">getItemViewType</a></span>(int position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/android/view/View.html">View</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView</a></span>(int position, <a href="http://developer.android.com/reference/android/view/View.html">View</a> convertView, <a href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#getViewTypeCount()">getViewTypeCount</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#insert(greendroid.widget.item.Item, int)">insert</a></span>(<a href="../../greendroid/widget/item/Item.html">Item</a> item, int index)</nobr>
+        
+        <div class="jd-descrdiv">Inserts the specified object at the specified index in the array.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#isEnabled(int)">isEnabled</a></span>(int position)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#remove(greendroid.widget.item.Item)">remove</a></span>(<a href="../../greendroid/widget/item/Item.html">Item</a> item)</nobr>
+        
+        <div class="jd-descrdiv">Removes the specified object from the array.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#setNotifyOnChange(boolean)">setNotifyOnChange</a></span>(boolean notifyOnChange)</nobr>
+        
+        <div class="jd-descrdiv">Control whether methods that change the list (<code><a href="../../greendroid/widget/ItemAdapter.html#add(greendroid.widget.item.Item)">add(Item)</a></code>,
+ <code><a href="../../greendroid/widget/ItemAdapter.html#insert(greendroid.widget.item.Item, int)">insert(Item, int)</a></code>, <code><a href="../../greendroid/widget/ItemAdapter.html#remove(greendroid.widget.item.Item)">remove(Item)</a></code>, <code><a href="../../greendroid/widget/ItemAdapter.html#clear()">clear()</a></code>) automatically call
+ notifyDataSetChanged().</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../greendroid/widget/ItemAdapter.html#sort(java.util.Comparator<? super greendroid.widget.item.Item>)">sort</a></span>(<a href="http://developer.android.com/reference/java/util/Comparator.html">Comparator</a>&lt;?&nbsp;super&nbsp;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; comparator)</nobr>
+        
+        <div class="jd-descrdiv">Sorts the content of this adapter using the specified comparator.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.widget.BaseAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.widget.BaseAdapter-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/android/widget/BaseAdapter.html">android.widget.BaseAdapter</a>
+
+<div id="inherited-methods-android.widget.BaseAdapter">
+  <div id="inherited-methods-android.widget.BaseAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.widget.BaseAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">areAllItemsEnabled</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/android/view/View.html">View</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDropDownView</span>(int arg0, <a href="http://developer.android.com/reference/android/view/View.html">View</a> arg1, <a href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a> arg2)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getItemViewType</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getViewTypeCount</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hasStableIds</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isEmpty</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isEnabled</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyDataSetChanged</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyDataSetInvalidated</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">registerDataSetObserver</span>(<a href="http://developer.android.com/reference/android/database/DataSetObserver.html">DataSetObserver</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">unregisterDataSetObserver</span>(<a href="http://developer.android.com/reference/android/database/DataSetObserver.html">DataSetObserver</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(<a href="http://developer.android.com/reference/java/lang/Object.html">Object</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.widget.Adapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.widget.Adapter-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://developer.android.com/reference/android/widget/Adapter.html">android.widget.Adapter</a>
+
+<div id="inherited-methods-android.widget.Adapter">
+  <div id="inherited-methods-android.widget.Adapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.widget.Adapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getCount</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getItem</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getItemId</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getItemViewType</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/android/view/View.html">View</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getView</span>(int arg0, <a href="http://developer.android.com/reference/android/view/View.html">View</a> arg1, <a href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a> arg2)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getViewTypeCount</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hasStableIds</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isEmpty</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">registerDataSetObserver</span>(<a href="http://developer.android.com/reference/android/database/DataSetObserver.html">DataSetObserver</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">unregisterDataSetObserver</span>(<a href="http://developer.android.com/reference/android/database/DataSetObserver.html">DataSetObserver</a> arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.widget.ListAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.widget.ListAdapter-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://developer.android.com/reference/android/widget/ListAdapter.html">android.widget.ListAdapter</a>
+
+<div id="inherited-methods-android.widget.ListAdapter">
+  <div id="inherited-methods-android.widget.ListAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.widget.ListAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">areAllItemsEnabled</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">isEnabled</span>(int arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.widget.SpinnerAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.widget.SpinnerAdapter-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://developer.android.com/reference/android/widget/SpinnerAdapter.html">android.widget.SpinnerAdapter</a>
+
+<div id="inherited-methods-android.widget.SpinnerAdapter">
+  <div id="inherited-methods-android.widget.SpinnerAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.widget.SpinnerAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/android/view/View.html">View</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getDropDownView</span>(int arg0, <a href="http://developer.android.com/reference/android/view/View.html">View</a> arg1, <a href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a> arg2)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="ItemAdapter(android.content.Context)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemAdapter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs an empty ItemAdapter.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context associated with this array adapter.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="ItemAdapter(android.content.Context, greendroid.widget.item.Item[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemAdapter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="../../greendroid/widget/item/Item.html">Item[]</a> items)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs an ItemAdapter using the specified items.
+ <p>
+ <em><strong>Note</strong>: Using this constructor implies the internal array will be
+ immutable. As a result, adding or removing items will result in an
+ exception.</em>
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context associated with this array adapter.</td>
+        </tr>
+        <tr>
+          <th>items</td>
+          <td>The array of <code><a href="../../greendroid/widget/item/Item.html">Item</a></code>s use as underlying data for this
+            ItemAdapter
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="ItemAdapter(android.content.Context, greendroid.widget.item.Item[], int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemAdapter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="../../greendroid/widget/item/Item.html">Item[]</a> items, int maxViewTypeCount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs an ItemAdapter using the specified items.
+ <p>
+ <em><strong>Note</strong>: Using this constructor implies the internal array will be
+ immutable. As a result, adding or removing items will result in an
+ exception.</em>
+ </p>
+ <p>
+ <em><strong>Note</strong>: A ListAdapter doesn't handle variable view type 
+ count (even after a notifyDataSetChanged). An ItemAdapter handles several 
+ types of cell are therefore use a trick to overcome the previous problem.
+ This trick is to fool the ListView several types exist. If you already
+ know the number of item types you'll possibly have, simply set it using this method</em>
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context associated with this array adapter.</td>
+        </tr>
+        <tr>
+          <th>items</td>
+          <td>The array of <code><a href="../../greendroid/widget/item/Item.html">Item</a></code>s use as underlying data for this
+            ItemAdapter</td>
+        </tr>
+        <tr>
+          <th>maxViewTypeCount</td>
+          <td>The maximum number of view type that may be
+            generated by this ItemAdapter
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="ItemAdapter(android.content.Context, java.util.List<greendroid.widget.item.Item>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemAdapter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; items)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs an ItemAdapter using the specified items.
+ <p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context associated with this array adapter.</td>
+        </tr>
+        <tr>
+          <th>items</td>
+          <td>The list of <code><a href="../../greendroid/widget/item/Item.html">Item</a></code>s used as data for this ItemAdapter
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="ItemAdapter(android.content.Context, java.util.List<greendroid.widget.item.Item>, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">ItemAdapter</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; items, int maxViewTypeCount)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Constructs an ItemAdapter using the specified items.
+ <p>
+ <em><strong>Note:</strong> A ListAdapter doesn't handle variable view type 
+ count (even after a notifyDataSetChanged). An ItemAdapter handles several 
+ types of cell are therefore use a trick to overcome the previous problem.
+ This trick is to fool the ListView several types exist. If you already
+ know the number of item types you'll possibly have, simply set it using this method</em>
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The context associated with this array adapter.</td>
+        </tr>
+        <tr>
+          <th>items</td>
+          <td>The list of Items used as data for this ItemAdapter</td>
+        </tr>
+        <tr>
+          <th>maxViewTypeCount</td>
+          <td>The maximum number of view type that may be
+            generated by this ItemAdapter
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="add(greendroid.widget.item.Item)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">add</span>
+      <span class="normal">(<a href="../../greendroid/widget/item/Item.html">Item</a> item)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds the specified object at the end of the array.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>The object to add at the end of the array.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clear()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">clear</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Remove all elements from the list.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="createFromXml(android.content.Context, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../greendroid/widget/ItemAdapter.html">ItemAdapter</a>
+      </span>
+      <span class="sympad">createFromXml</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, int xmlId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates an ItemAdapter from a given resource ID</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The Context in which the ItemAdapter will be used in</td>
+        </tr>
+        <tr>
+          <th>xmlId</td>
+          <td>The resource ID of an XML file that describes a set of
+            <code><a href="../../greendroid/widget/item/Item.html">Item</a></code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a new ItemAdapter constructed with the content of the file
+         pointed by <em>xmlId</em></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>XmlPullParserException</td>
+        </tr>  
+        <tr>
+            <th><a href="http://developer.android.com/reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="http://developer.android.com/reference/org/xmlpull/v1/XmlPullParserException.html">XmlPullParserException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createFromXml(android.content.Context, org.xmlpull.v1.XmlPullParser)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../greendroid/widget/ItemAdapter.html">ItemAdapter</a>
+      </span>
+      <span class="sympad">createFromXml</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Context.html">Context</a> context, <a href="http://developer.android.com/reference/org/xmlpull/v1/XmlPullParser.html">XmlPullParser</a> parser)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates an ItemAdapter from a given XML document. Called on a parser
+ positioned at a tag in an XML document, tries to create an ItemAdapter
+ from that tag.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The Context in which the ItemAdapter will be used in</td>
+        </tr>
+        <tr>
+          <th>parser</td>
+          <td>The XmlPullParser</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a new ItemAdapter constructed with the content of the file
+         pointed by <em>xmlId</em></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th></td>
+            <td>XmlPullParserException</td>
+        </tr>  
+        <tr>
+            <th><a href="http://developer.android.com/reference/java/io/IOException.html">IOException</a></td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th><a href="http://developer.android.com/reference/org/xmlpull/v1/XmlPullParserException.html">XmlPullParserException</a></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getActualViewTypeCount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getActualViewTypeCount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current number of different views types used in this
+ ItemAdapter. Having a <em>getCurrentViewTypeCount</em> equal to
+ <em>getViewTypeCount</em> means you won't be able to add a new type of
+ view in this adapter (The Adapter class doesn't allow variable view type
+ count).</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The current number of different view types
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getContext()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/android/content/Context.html">Context</a>
+      </span>
+      <span class="sympad">getContext</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the context associated with this array adapter. The context is
+ used to create Views from the resource passed to the constructor.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The Context associated to this ItemAdapter
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getCount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getItem(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a>
+      </span>
+      <span class="sympad">getItem</span>
+      <span class="normal">(int position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getItemId(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getItemId</span>
+      <span class="normal">(int position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getItemViewType(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getItemViewType</span>
+      <span class="normal">(int position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getView(int, android.view.View, android.view.ViewGroup)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/android/view/View.html">View</a>
+      </span>
+      <span class="sympad">getView</span>
+      <span class="normal">(int position, <a href="http://developer.android.com/reference/android/view/View.html">View</a> convertView, <a href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a> parent)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getViewTypeCount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getViewTypeCount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="insert(greendroid.widget.item.Item, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">insert</span>
+      <span class="normal">(<a href="../../greendroid/widget/item/Item.html">Item</a> item, int index)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Inserts the specified object at the specified index in the array.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>The object to insert into the array.</td>
+        </tr>
+        <tr>
+          <th>index</td>
+          <td>The index at which the object must be inserted.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isEnabled(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isEnabled</span>
+      <span class="normal">(int position)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="remove(greendroid.widget.item.Item)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">remove</span>
+      <span class="normal">(<a href="../../greendroid/widget/item/Item.html">Item</a> item)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes the specified object from the array.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>The object to remove.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setNotifyOnChange(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setNotifyOnChange</span>
+      <span class="normal">(boolean notifyOnChange)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Control whether methods that change the list (<code><a href="../../greendroid/widget/ItemAdapter.html#add(greendroid.widget.item.Item)">add(Item)</a></code>,
+ <code><a href="../../greendroid/widget/ItemAdapter.html#insert(greendroid.widget.item.Item, int)">insert(Item, int)</a></code>, <code><a href="../../greendroid/widget/ItemAdapter.html#remove(greendroid.widget.item.Item)">remove(Item)</a></code>, <code><a href="../../greendroid/widget/ItemAdapter.html#clear()">clear()</a></code>) automatically call
+ notifyDataSetChanged(). If set to false, caller must manually call
+ notifyDataSetChanged() to have the changes reflected in the attached
+ view. The default is true, and calling notifyDataSetChanged() resets the
+ flag to true.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>notifyOnChange</td>
+          <td>if true, modifications to the list will
+            automatically call notifyDataSetChanged()
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="sort(java.util.Comparator<? super greendroid.widget.item.Item>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">sort</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/Comparator.html">Comparator</a>&lt;?&nbsp;super&nbsp;<a href="../../greendroid/widget/item/Item.html">Item</a>&gt; comparator)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sorts the content of this adapter using the specified comparator.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>comparator</td>
+          <td>The comparator used to sort the objects contained in
+            this adapter.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+    Except as noted, this content is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7063100-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+<title>
+
+  Class Index
+
+
+| GreenDroid
+
+</title>
+<link href="./../assets/android-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="./../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="./../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="./../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="./../assets/android-developer-docs.js" type="text/javascript"></script>
+<script src="./../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("./", "./../assets/");
+</script>
+<script src="./../assets/android-developer-reference.js" type="text/javascript"></script>
+<script src="./../assets/navtree_data.js" type="text/javascript"></script>
+<script src="./../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <a href="http://greendroid.cyrilmottier.com" id="masthead-title">GreenDroid</a>
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, './')"
+                      onkeyup="return search_changed(event, false, './')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="./packages.html"  >Package Index</a> | 
+                <a href="./classes.html" class="selected">Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="./com/cyrilmottier/android/greendroid/package-summary.html">com.cyrilmottier.android.greendroid</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/app/package-summary.html">greendroid.app</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/graphics/drawable/package-summary.html">greendroid.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/image/package-summary.html">greendroid.image</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/util/package-summary.html">greendroid.util</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/widget/package-summary.html">greendroid.widget</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/widget/item/package-summary.html">greendroid.widget.item</a></li>
+    <li class="api apilevel-">
+  <a href="./greendroid/widget/itemview/package-summary.html">greendroid.widget.itemview</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+              <script>
+                /*addLoadEvent(maxPackageHeight);*/
+              </script>
+              <p style="padding:10px">Select a package to view its members</p><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="./packages.html"  >Package Index</a> | 
+            <a href="./classes.html" class="selected">Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("./");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="jd-header">
+<h1>Class Index</h1>
+</div>
+
+<div id="jd-content">
+
+<div class="jd-letterlist">
+    <a href="#letter_A">A</a>
+    <a href="#letter_C">C</a>
+    <a href="#letter_D">D</a>
+    <a href="#letter_G">G</a>
+    <a href="#letter_I">I</a>
+    <a href="#letter_L">L</a>
+    <a href="#letter_M">M</a>
+    <a href="#letter_N">N</a>
+    <a href="#letter_P">P</a>
+    <a href="#letter_Q">Q</a>
+    <a href="#letter_R">R</a>
+    <a href="#letter_S">S</a>
+    <a href="#letter_T">T</a>
+</div>
+
+
+
+<h2 id="letter_A">A</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBar.html">ActionBar</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBar.OnActionBarListener.html">ActionBar.OnActionBarListener</a></td>
+            <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when a user is
+ interacting with an <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBar.Type.html">ActionBar.Type</a></td>
+            <td class="jd-descrcol" width="100%">The Type specifies the layout of the ActionBar.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/ActionBarActivity.html">ActionBarActivity</a></td>
+            <td class="jd-descrcol" width="100%">Defines all methods related to Activities embedding an <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/graphics/drawable/ActionBarDrawable.html">ActionBarDrawable</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A specialized Drawable dedicated to <code><a href="./greendroid/widget/ActionBarItem.html">ActionBarItem</a></code>s.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBarHost.html">ActionBarHost</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBarItem.html">ActionBarItem</a></td>
+            <td class="jd-descrcol" width="100%">Base class representing an <code><a href="./greendroid/widget/ActionBarItem.html">ActionBarItem</a></code> used in <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>s.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ActionBarItem.Type.html">ActionBarItem.Type</a></td>
+            <td class="jd-descrcol" width="100%">The Type specifies a large set of pre-defined <code><a href="./greendroid/widget/ActionBarItem.html">ActionBarItem</a></code>s that
+ may be added to an <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/AsyncImageView.html">AsyncImageView</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A <code><a href="./greendroid/widget/AsyncImageView.html">AsyncImageView</a></code> is a network-aware ImageView.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/AsyncImageView.OnImageViewLoadListener.html">AsyncImageView.OnImageViewLoadListener</a></td>
+            <td class="jd-descrcol" width="100%">Clients may listen to <code><a href="./greendroid/widget/AsyncImageView.html">AsyncImageView</a></code> changes using a
+ <code><a href="./greendroid/widget/AsyncImageView.OnImageViewLoadListener.html">AsyncImageView.OnImageViewLoadListener</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_C">C</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ChainImageProcessor.html">ChainImageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">Allows multiple image processors to be chained&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/util/Config.html">Config</a></td>
+            <td class="jd-descrcol" width="100%">Information about the current GreenDroid build.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_D">D</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/DescriptionItem.html">DescriptionItem</a></td>
+            <td class="jd-descrcol" width="100%">A description item displays a text on several lines.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/DescriptionItemView.html">DescriptionItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/DescriptionItem.html">DescriptionItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/DrawableItem.html">DrawableItem</a></td>
+            <td class="jd-descrcol" width="100%">A DrawableItem displays a single Drawable on the left of the itemview and a
+ description text on the right.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/DrawableItemView.html">DrawableItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/DrawableItem.html">DrawableItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/graphics/drawable/DrawableStateSet.html">DrawableStateSet</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A class defining some constants that may be used when working with stateful
+ Drawable.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_G">G</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDActivity.html">GDActivity</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ An GDActivity is a regular Activity that hosts an <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDApplication.html">GDApplication</a></td>
+            <td class="jd-descrcol" width="100%">Define various methods that should be overridden in order to style your
+ application.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDApplication.OnLowMemoryListener.html">GDApplication.OnLowMemoryListener</a></td>
+            <td class="jd-descrcol" width="100%">Used for receiving low memory system notification.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDExpandableListActivity.html">GDExpandableListActivity</a></td>
+            <td class="jd-descrcol" width="100%">A <code><a href="./greendroid/app/GDActivity.html">GDActivity</a></code> equivalent to ExpandableListActivity that manages an
+ ExpandableListView.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDListActivity.html">GDListActivity</a></td>
+            <td class="jd-descrcol" width="100%">An equivalent to ListActivity that manages a ListView.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/app/GDTabActivity.html">GDTabActivity</a></td>
+            <td class="jd-descrcol" width="100%">An equivalent to a TabActivity that manages fancy tabs and an
+ <code><a href="./greendroid/widget/ActionBar.html">ActionBar</a></code>&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/util/GDUtils.html">GDUtils</a></td>
+            <td class="jd-descrcol" width="100%">Class that provides several utility methods related to GreenDroid.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_I">I</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageCache.html">ImageCache</a></td>
+            <td class="jd-descrcol" width="100%">A very basing implementation of an Bitmap cache&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageLoader.html">ImageLoader</a></td>
+            <td class="jd-descrcol" width="100%">An ImageLoader asynchronously loads image from a given url.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageLoader.ImageLoaderCallback.html">ImageLoader.ImageLoaderCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageProcessor.html">ImageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">An interface specifying a way to process an image prior storing it in the
+ application-wide cache.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageRequest.html">ImageRequest</a></td>
+            <td class="jd-descrcol" width="100%">An <code><a href="./greendroid/image/ImageRequest.html">ImageRequest</a></code> may be used to request an image from the network.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ImageRequest.ImageRequestCallback.html">ImageRequest.ImageRequestCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/Item.html">Item</a></td>
+            <td class="jd-descrcol" width="100%">Base class for all items used in GreenDroid.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/ItemAdapter.html">ItemAdapter</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A ListAdapter that acts like an ArrayAdapter.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/ItemView.html">ItemView</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ An ItemView defines several methods necessary to the <code><a href="./greendroid/widget/ItemAdapter.html">ItemAdapter</a></code> in
+ order to process <code><a href="./greendroid/widget/item/Item.html">Item</a></code>s.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_L">L</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/LoaderActionBarItem.html">LoaderActionBarItem</a></td>
+            <td class="jd-descrcol" width="100%">An extension of a <code><a href="./greendroid/widget/NormalActionBarItem.html">NormalActionBarItem</a></code> that supports a loading states.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/LongTextItem.html">LongTextItem</a></td>
+            <td class="jd-descrcol" width="100%">A LongTextItem is very similar to a regular <code><a href="./greendroid/widget/item/TextItem.html">TextItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/LongTextItemView.html">LongTextItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/LongTextItem.html">LongTextItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_M">M</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/MaskImageProcessor.html">MaskImageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">An <code><a href="./greendroid/image/ImageProcessor.html">ImageProcessor</a></code> that masks the given Bitmap according to a shape or
+ another Bitmap.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/util/Md5Util.html">Md5Util</a></td>
+            <td class="jd-descrcol" width="100%">A utility class for computing MD5 hashes.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_N">N</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/NormalActionBarItem.html">NormalActionBarItem</a></td>
+            <td class="jd-descrcol" width="100%">Default implementation of an <code><a href="./greendroid/widget/ActionBarItem.html">ActionBarItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_P">P</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/PagedAdapter.html">PagedAdapter</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ The base implementation of an Adapter to use with a <code><a href="./greendroid/widget/PagedView.html">PagedView</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/PagedView.html">PagedView</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A View that shows items in a "paged" manner.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/PagedView.OnPagedViewChangeListener.html">PagedView.OnPagedViewChangeListener</a></td>
+            <td class="jd-descrcol" width="100%">Clients may listen to changes occurring on a PagedView via this
+ interface.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/PageIndicator.html">PageIndicator</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ Visual indicator of a paged content.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/PageIndicator.DotType.html">PageIndicator.DotType</a></td>
+            <td class="jd-descrcol" width="100%">Interface containing of dot types supported by the PageIndicator class.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/ProgressItem.html">ProgressItem</a></td>
+            <td class="jd-descrcol" width="100%">Progress indicator that displays a centered text with a circular and
+ indeterminate ProgressBar when something is in progress.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/ProgressItemView.html">ProgressItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/ProgressItem.html">ProgressItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_Q">Q</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/QuickAction.html">QuickAction</a></td>
+            <td class="jd-descrcol" width="100%">A QuickAction implements an item in a <code><a href="./greendroid/widget/QuickActionWidget.html">QuickActionWidget</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/QuickActionBar.html">QuickActionBar</a></td>
+            <td class="jd-descrcol" width="100%">A QuickActionBar displays a set of <code><a href="./greendroid/widget/QuickAction.html">QuickAction</a></code> on a single row.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/QuickActionGrid.html">QuickActionGrid</a></td>
+            <td class="jd-descrcol" width="100%">A <code><a href="./greendroid/widget/QuickActionGrid.html">QuickActionGrid</a></code> is an implementation of a <code><a href="./greendroid/widget/QuickActionWidget.html">QuickActionWidget</a></code>
+ that displays <code><a href="./greendroid/widget/QuickAction.html">QuickAction</a></code>s in a grid manner.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/QuickActionWidget.html">QuickActionWidget</a></td>
+            <td class="jd-descrcol" width="100%">Abstraction of a <code><a href="./greendroid/widget/QuickAction.html">QuickAction</a></code> wrapper.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/QuickActionWidget.OnQuickActionClickListener.html">QuickActionWidget.OnQuickActionClickListener</a></td>
+            <td class="jd-descrcol" width="100%">Interface that may be used to listen to clicks on quick actions.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_R">R</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.html">R</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.anim.html">R.anim</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.attr.html">R.attr</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.color.html">R.color</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.dimen.html">R.dimen</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.drawable.html">R.drawable</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.id.html">R.id</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.layout.html">R.layout</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.string.html">R.string</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.style.html">R.style</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./com/cyrilmottier/android/greendroid/R.styleable.html">R.styleable</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_S">S</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/image/ScaleImageProcessor.html">ScaleImageProcessor</a></td>
+            <td class="jd-descrcol" width="100%">Scales Bitmaps according to a given width and height.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/SegmentedAdapter.html">SegmentedAdapter</a></td>
+            <td class="jd-descrcol" width="100%">A SegmentedAdapter is a data source of a SegmentedHost/SegmentedHost.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/SegmentedBar.html">SegmentedBar</a></td>
+            <td class="jd-descrcol" width="100%">A SegmentedBar displays a set of Buttons.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/SegmentedBar.OnSegmentChangeListener.html">SegmentedBar.OnSegmentChangeListener</a></td>
+            <td class="jd-descrcol" width="100%">Clients may use this listener to be notified of any changes that occurs
+ on the SegmentBar&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/SegmentedHost.html">SegmentedHost</a></td>
+            <td class="jd-descrcol" width="100%">A SegmentedHost is a wrapper view that handle a SegmentedBar and a
+ FrameLayout that hold the content.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/SeparatorItem.html">SeparatorItem</a></td>
+            <td class="jd-descrcol" width="100%">Act as a separator between important ListView sections.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/SeparatorItemView.html">SeparatorItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/SeparatorItem.html">SeparatorItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/SubtextItem.html">SubtextItem</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A SubtextItem is really similar to a <code><a href="./greendroid/widget/item/SubtitleItem.html">SubtitleItem</a></code> as it displays two
+ pieces of text.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/SubtextItemView.html">SubtextItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/SubtextItem.html">SubtextItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/SubtitleItem.html">SubtitleItem</a></td>
+            <td class="jd-descrcol" width="100%">An <code><a href="./greendroid/widget/item/Item.html">Item</a></code> that contains two Strings : a text and a subtitle.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/SubtitleItemView.html">SubtitleItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/SubtitleItem.html">SubtitleItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_T">T</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/TextItem.html">TextItem</a></td>
+            <td class="jd-descrcol" width="100%">A TextItem is a very basic item that only contains a single text.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/TextItemView.html">TextItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/TextItem.html">TextItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/item/ThumbnailItem.html">ThumbnailItem</a></td>
+            <td class="jd-descrcol" width="100%"><p>
+ A ThumbnailItem item is a complex item that wraps a Drawable and two Strings:
+ a title and a subtitle.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/widget/itemview/ThumbnailItemView.html">ThumbnailItemView</a></td>
+            <td class="jd-descrcol" width="100%">View representation of the <code><a href="./greendroid/widget/item/ThumbnailItem.html">ThumbnailItem</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="./greendroid/util/Time.html">Time</a></td>
+            <td class="jd-descrcol" width="100%">Utility class containing several useful constants related to time.&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<div id="footer">
+    Except as noted, this content is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7063100-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
