@@ -1,5 +1,7 @@
 #GreenDroid
- 
+
+_**Foreword** : This project, initially initiated by me, Cyril Mottier, is not maintained anymore and can be considered as deprecated. As a consequence, it will not receive any new features nor fixes. Please keep that in mind and use it at your own risks._
+
 GreenDroid is a development library for the Android platform. It is intended to make UI developments easier and consistent through your applications. A complete description is given on [my personal blog][personal_blog]. You can also take a tour to the GreenDroid website at <http://greendroid.cyrilmottier.com>!
 
 [![](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)](http://lh4.ggpht.com/_OHO4y8YcQbs/TQFWEpSo-UI/AAAAAAAAMpc/DzAbSkhOx3I/s800/greendroid_logo.png)
