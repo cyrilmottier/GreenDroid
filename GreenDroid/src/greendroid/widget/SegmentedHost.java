@@ -83,6 +83,7 @@ public class SegmentedHost extends LinearLayout {
             throw new IllegalArgumentException("The segmentedHost attribute is required and must refer "
                     + "to a valid child.");
         }
+        a.recycle();
     }
 
     private void initSegmentedView() {

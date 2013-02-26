@@ -91,13 +91,13 @@ public class GDPreferenceActivity extends PreferenceActivity implements ActionBa
 	}
 
 	@Override
-	public ActionBar getActionBar() {
+	public ActionBar getGDActionBar() {
 		return mActionBarHost.getActionBar();
 	}
 
     @Override
     public void setTitle(CharSequence title) {
-        getActionBar().setTitle(title);
+        getGDActionBar().setTitle(title);
     }
 
     @Override
@@ -106,19 +106,19 @@ public class GDPreferenceActivity extends PreferenceActivity implements ActionBa
     }
 	
 	public ActionBarItem addActionBarItem(ActionBarItem item) {
-		return getActionBar().addItem(item);
+		return getGDActionBar().addItem(item);
 	}
 	
 	public ActionBarItem addActionBarItem(ActionBarItem item, int itemId) {
-		return getActionBar().addItem(item, itemId);
+		return getGDActionBar().addItem(item, itemId);
 	}
 	
 	public ActionBarItem addActionBarItem(ActionBarItem.Type actionBarItemType) {
-		return getActionBar().addItem(actionBarItemType);
+		return getGDActionBar().addItem(actionBarItemType);
 	}
 	
 	public ActionBarItem addActionBarItem(ActionBarItem.Type actionBarItemType, int itemId) {
-		return getActionBar().addItem(actionBarItemType, itemId);
+		return getGDActionBar().addItem(actionBarItemType, itemId);
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class GDPreferenceActivity extends PreferenceActivity implements ActionBa
                 }
 
             } else {
-                if (!onHandleActionBarItemClick(getActionBar().getItem(position), position)) {
+                if (!onHandleActionBarItemClick(getGDActionBar().getItem(position), position)) {
                     if (Config.GD_WARNING_LOGS_ENABLED) {
                         Log.w(LOG_TAG, "Click on item at position " + position + " dropped down to the floor");
                     }
