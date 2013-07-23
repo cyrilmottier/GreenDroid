@@ -79,5 +79,5 @@ Copyright © Cyril Mottier <cyril@cyrilmottier.com>
 [android_developers_website]: http://d.android.com/sdk/installing.html
 [personal_blog]: http://android.cyrilmottier.com/?p=240
 [adt_history]: http://d.android.com/sdk/eclipse-adt.html#notes
-[library_project_doc]: http://d.android.com/guide/developing/eclipse-adt.html#libraryProject
+[library_project_doc]: http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject
 [gd_catalog_market]: http://market.android.com/details?id=com.cyrilmottier.android.gdcatalog
