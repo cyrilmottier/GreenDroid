@@ -55,7 +55,7 @@ public class MapPinMapActivity extends GDMapActivity {
         new OverlayItem(new GeoPoint(59939000, 30315800), "Saint Petersburg", null),
         new OverlayItem(new GeoPoint(60169800, 24938200), "Helsinki", null),
         new OverlayItem(new GeoPoint(60451400, 22268700), "Turku", null),
-        new OverlayItem(new GeoPoint(65584200, 22154700), "Luleå", null),
+        new OverlayItem(new GeoPoint(65584200, 22154700), "Lule≈í", null),
         new OverlayItem(new GeoPoint(59438900, 24754500), "Talinn", null),
         new OverlayItem(new GeoPoint(66498700, 25721100), "Rovaniemi", null)
     };

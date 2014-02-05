@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>GDCatalog</name>
+	<name>gdcatelog</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -25,21 +25,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>GreenDroid-GoogleAPIs_src</name>
-			<type>2</type>
-			<locationURI>_android_GreenDroid_GoogleAPIs_f97e4c86/src</locationURI>
-		</link>
-		<link>
-			<name>GreenDroid_src</name>
-			<type>2</type>
-			<locationURI>_android_GreenDroid_612cb559/src</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
