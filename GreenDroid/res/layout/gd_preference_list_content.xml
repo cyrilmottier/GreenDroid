@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright (C) 2011 Cyril Mottier (http://www.cyrilmottier.com)
+** Copyright (C) 2010 Cyril Mottier (http://www.cyrilmottier.com)
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -17,26 +17,19 @@
 */
 -->
 
-<greendroid.widget.ActionBarHost
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@id/gd_action_bar_host"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical">
+<greendroid.widget.ActionBarHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/gd_action_bar_host"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-	<!--
-		Layout height/width and background are set here. This is a hack to
-		apply a default style to the ActionBar. Indeed, no style can be
-		applied to a LinearLayout
-	-->
-	<greendroid.widget.ActionBar
-		style="@style/GreenDroid.Widget.ActionBar.Dashboard"
-		android:id="@id/gd_action_bar"
-        android:layout_height="@dimen/gd_action_bar_height"
+    <greendroid.widget.ActionBar
+        android:id="@id/gd_action_bar"
         android:layout_width="fill_parent"
-		android:background="?attr/gdActionBarBackground" />
-	
-	<FrameLayout
+        android:layout_height="@dimen/gd_action_bar_height"
+        android:background="?attr/gdActionBarBackground" />
+    
+    <FrameLayout
         android:id="@id/gd_action_bar_colorstrip"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/gd_action_bar_colorstrip_height"
@@ -44,17 +37,18 @@
         android:foreground="?attr/gdActionBarColorstripForeground"
         android:visibility="?attr/gdActionBarColorstripVisibility" />
 
-	<FrameLayout
-		android:id="@id/gd_action_bar_content_view"
-		android:layout_height="0dp"
-		android:layout_width="fill_parent"
-		android:layout_weight="1">
+    <FrameLayout
+        android:id="@id/gd_action_bar_content_view"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
-		<ExpandableListView
-			android:id="@android:id/list"
-			android:layout_height="fill_parent"
-			android:layout_width="fill_parent" />
-
-	</FrameLayout>
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true" />
+    </FrameLayout>
 
 </greendroid.widget.ActionBarHost>

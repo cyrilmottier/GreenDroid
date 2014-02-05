@@ -34,6 +34,14 @@
         android:layout_height="@dimen/gd_action_bar_height"
         android:layout_width="fill_parent"
 		android:background="?attr/gdActionBarBackground" />
+	
+	<FrameLayout
+        android:id="@id/gd_action_bar_colorstrip"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/gd_action_bar_colorstrip_height"
+        android:background="?attr/gdActionBarColorstripBackground"
+        android:foreground="?attr/gdActionBarColorstripForeground"
+        android:visibility="?attr/gdActionBarColorstripVisibility" />
 
 	<FrameLayout
 		android:id="@id/gd_action_bar_content_view"

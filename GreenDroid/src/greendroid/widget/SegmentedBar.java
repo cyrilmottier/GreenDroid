@@ -97,7 +97,7 @@ public class SegmentedBar extends LinearLayout implements OnFocusChangeListener 
      *            ColorDrawable will not work properly as the intrinsic width of
      *            a ColorDrawable is -1.
      */
-    public void setDividerDrawable(Drawable dividerDrawable) {
+    public void setGDDividerDrawable(Drawable dividerDrawable) {
         mDividerDrawable = dividerDrawable;
     }
 
@@ -106,7 +106,7 @@ public class SegmentedBar extends LinearLayout implements OnFocusChangeListener 
      * 
      * @param resId The identifier of the Drawable to use.
      */
-    public void setDividerDrawable(int resId) {
+    public void setGDDividerDrawable(int resId) {
         mDividerDrawable = getContext().getResources().getDrawable(resId);
     }
 
