@@ -112,8 +112,12 @@ public class QuickActionGrid extends QuickActionWidget {
 
     private OnItemClickListener mInternalItemClickListener = new OnItemClickListener() {
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-            getOnQuickActionClickListener().onQuickActionClicked(QuickActionGrid.this, position);
-            if (getDismissOnClick()) {
+            getQuickAction(position).onClick(QuickActionGrid.this, position);
+            OnQuickActionClickListener listener = getOnQuickActionClickListener();
+			if (listener != null) {
+				listener.onQuickActionClicked(QuickActionGrid.this, position);
+			}
+			if (getDismissOnClick()) {
                 dismiss();
             }
         }
