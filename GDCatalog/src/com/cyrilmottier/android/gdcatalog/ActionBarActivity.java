@@ -38,7 +38,7 @@ public class ActionBarActivity extends GDActivity {
         ((TextView) findViewById(R.id.text)).setText(R.string.first_screen);
 
         addActionBarItem(Type.Refresh, R.id.action_bar_refresh);
-        addActionBarItem(getActionBar()
+        addActionBarItem(getGDActionBar()
                 .newActionBarItem(NormalActionBarItem.class)
                 .setDrawable(R.drawable.ic_title_export)
                 .setContentDescription(R.string.gd_export), R.id.action_bar_export);
