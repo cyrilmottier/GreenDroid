@@ -26,10 +26,7 @@
 	
 	<greendroid.widget.AsyncImageView
 		style="?attr/gdThumbnailItemViewStyleThumbnail"
-		android:id="@+id/gd_thumbnail"
-		android:layout_height="?attr/gdItemViewPreferredHeight"
-
-		android:scaleType="centerInside" />
+		android:id="@+id/gd_thumbnail" />
 
 	<TextView
 		style="?attr/gdThumbnailItemViewStyleText"
