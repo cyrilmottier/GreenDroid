@@ -17,6 +17,8 @@ package greendroid.widget.itemview;
 
 import greendroid.widget.item.DrawableItem;
 import greendroid.widget.item.Item;
+import greendroid.widget.item.TextItem;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -44,12 +46,14 @@ public class DrawableItemView extends LinearLayout implements ItemView {
         super(context, attrs);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
         mTextView = (TextView) findViewById(R.id.gd_text);
         mImageView = (ImageView) findViewById(R.id.gd_drawable);
     }
 
-    public void setObject(Item object) {
+    @Override
+	public void setObject(Item object) {
         final DrawableItem item = (DrawableItem) object;
         mTextView.setText(item.text);
 
@@ -61,5 +65,10 @@ public class DrawableItemView extends LinearLayout implements ItemView {
             mImageView.setImageResource(drawableId);
         }
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return DrawableItem.class;
+	}
 
 }

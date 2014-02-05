@@ -16,6 +16,7 @@
 package greendroid.widget.itemview;
 
 import greendroid.widget.item.Item;
+import greendroid.widget.item.ProgressItem;
 import greendroid.widget.item.SeparatorItem;
 import greendroid.widget.item.TextItem;
 import android.content.Context;
@@ -41,12 +42,19 @@ public class SeparatorItemView extends TextView implements ItemView {
         super(context, attrs, defStyle);
     }
 
-    public void prepareItemView() {
+    @Override
+	public void prepareItemView() {
     }
 
-    public void setObject(Item object) {
+    @Override
+	public void setObject(Item object) {
         final TextItem item = (TextItem) object;
         setText(item.text);
     }
+
+	@Override
+	public Class<? extends Item> getItemClass() {
+		return TextItem.class;
+	}
 
 }
